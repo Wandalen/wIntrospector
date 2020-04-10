@@ -5,6 +5,54 @@ submodule :
   wTools :
     path : npm:///wTools
     enabled : 0 # submodule
+  wCopyable :
+    path : npm:///wCopyable
+    enabled : 0 # submodule
+  wAppBasic :
+    path : npm:///wappbasic
+    enabled : 0 # submodule
+  wFiles :
+    path : npm:///wFiles
+    enabled : 0 # submodule
+  wConsequence :
+    path : npm:///wConsequence
+    enabled : 0 # submodule
+  wLooker :
+    path : npm:///wlooker
+    enabled : 0 # submodule
+  wLookerExtra :
+    path : npm:///wlookerextra
+    enabled : 0 # submodule
+  wLogger :
+    path : npm:///wLogger
+    enabled : 0 # submodule
+  wStringer :
+    path : npm:///wstringer
+    enabled : 0 # submodule
+  wSchema :
+    path : npm:///wschema
+    enabled : 0 # submodule
+  acorn :
+    path : npm:///acorn
+    enabled : 0 # submodule
+  babel :
+    path : npm:///@babel/core
+    enabled : 0 # submodule
+  esprima :
+    path : npm:///esprima
+    enabled : 0 # submodule
+  tree-sitter :
+    path : npm:///tree-sitter
+    enabled : 0 # submodule
+  tree-sitter-javascript :
+    path : npm:///tree-sitter-javascript
+    enabled : 0 # submodule
+  uglify-es :
+    path : npm:///uglify-es
+    enabled : 0 # submodule
+  typescript :
+    path : npm:///typescript
+    enabled : 0 # submodule
 
 path :
 

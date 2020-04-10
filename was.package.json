@@ -2,14 +2,15 @@
 {
   "name" : "wintrospector",
   "version" : "0.3.0",
-  "description" : "___",
+  "description" : "Single programmatic interface to for javascript parsing tools",
   "author" : "Kostiantyn Wandalen <wanalen@willbe.so>",
   "license" : "MIT",
-  "main" : "proto/dwtools/___",
+  "main" : "proto/dwtools/amid/l3/introspector/IncludeMid.s",
   "files" :
   [
-    "proto/dwtools/___",
-    "proto/dwtools/Tools.s"
+    "proto/dwtools/amid/l3/introspector",
+    "proto/dwtools/Tools.s",
+    "out"
   ],
   "scripts" :
   {
@@ -27,7 +28,23 @@
   },
   "dependencies" :
   {
-    "wTools" : ""
+    "wTools" : "",
+    "wCopyable" : "",
+    "wappbasic" : "",
+    "wFiles" : "",
+    "wConsequence" : "",
+    "wlooker" : "",
+    "wlookerextra" : "",
+    "wLogger" : "",
+    "wstringer" : "",
+    "wschema" : "",
+    "acorn" : "",
+    "@babel/core" : "",
+    "esprima" : "",
+    "tree-sitter" : "",
+    "tree-sitter-javascript" : "",
+    "uglify-es" : "",
+    "typescript" : ""
   },
   "devDependencies" :
   {

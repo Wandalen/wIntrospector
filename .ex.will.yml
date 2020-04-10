@@ -3,7 +3,7 @@
 about :
 
   name : 'wIntrospector'
-  description : '___'
+  description : 'Single programmatic interface for javascript parsing tools'
   version : '0.4.0'
   enabled : 1
   interpreters :
