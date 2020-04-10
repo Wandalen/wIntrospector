@@ -68,7 +68,7 @@ function _nodeIs( node )
   return false;
   if( !( node instanceof parser._parser.AST_Node ) && !( node instanceof parser._parser.AST_Token ) )
   {
-    return false; 
+    return false;
   }
   return true;
 }
@@ -106,6 +106,8 @@ function _nodeRange( node )
 function _nodeType( node )
 {
   let parser = this;
+  if( node.type )
+  return node.type;
   return node.TYPE;
 }
 
@@ -118,13 +120,6 @@ function _Setup()
   let parser = this;
 
   parser._TypeAssociationsFromSchema();
-
-  // xxx
-  // _.mapKeys( _global_.Esprima.Syntax ).forEach( ( name ) =>
-  // {
-  //   parser.TypeAssociation[ name ] = [ name ];
-  // });
-
   parser._TypeAssociationsNormalize();
 
 }
@@ -138,8 +133,16 @@ let TypeAssociation = Object.create( null );
 var native = { native : true };
 var general = { native : false, general : true };
 let Schema = _.schema.system({ name : 'Js.UglifyAst' });
+
+Schema.define([ 'Toplevel' ]).label( native ).terminal();
+Schema.define( 'gRoot' ).label( general ).alternative().extend([ 'Toplevel' ]);
+
 Schema.define([ 'Arrow', 'Function', 'Defun', 'ConciseMethod' ]).label( native ).terminal();
 Schema.define( 'gRoutine' ).label( general ).alternative().extend([ 'Arrow', 'Function', 'Defun', 'ConciseMethod' ]);
+
+Schema.define([ 'comment1', 'comment2' ]).label( native ).terminal();
+Schema.define( 'gComment' ).label( general ).alternative().extend([ 'comment1', 'comment2' ]);
+
 Schema.form();
 
 let Composes =

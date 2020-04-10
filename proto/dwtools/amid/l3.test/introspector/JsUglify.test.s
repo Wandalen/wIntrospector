@@ -39,15 +39,16 @@ function parseStringSpecial( test )
 
   test.description = 'nodes';
   test.identical( file.product.nodes.length, 152 );
-  test.identical( _.mapKeys( file.product.byType ).length, 21 );
+  test.identical( _.mapKeys( file.product.byType ).length, 28 );
   test.identical( file.product.byType.gRoutine.length, 8 );
 
   test.description = 'root';
   test.identical( file.product.byType.Toplevel.length, 1 );
   test.is( file.product.byType.Toplevel.first() === file.product.root );
 
-  // the most broken JS parser among added
-  // [ 207, 290 ]
+  /*
+    the most broken JS parser among added!
+  */
 
   debugger;
   return null;

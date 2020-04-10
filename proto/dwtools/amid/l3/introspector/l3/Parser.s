@@ -119,6 +119,8 @@ function nodeType( node )
 {
   let parser = this;
   let result = parser._nodeType( node );
+  // if( result === 'string' || result === 'String' )
+  // debugger;
   _.assert( _.strIs( result ) );
   return result;
 }

@@ -124,6 +124,40 @@ Manual search for specific nodes finds 2 nodes.
 
 //
 
+function parseGeneralNodes( test )
+{
+  let context = this;
+
+  logger.log( '' );
+  logger.log( _.strLinesNumber( context.defaultProgramSourceCode ) );
+  logger.log( '' );
+
+  test.is( _.constructorIs( context.defaultParser ) );
+
+  let file = _.introspector.File.FromData( context.defaultProgramSourceCode );
+  file.sys.defaultParserClass = context.defaultParser;
+  file.refine();
+
+  logger.log( file.productExportInfo() );
+  logger.log( '' );
+
+  test.description = 'general nodes';
+  test.identical( file.product.byType.gRoutine.length, 8 );
+  test.identical( file.product.byType.gComment.length, 2 );
+  test.identical( file.product.byType.gRoot.length, 1 );
+  test.is( file.product.root === file.product.byType.gRoot.withIndex( 0 ) );
+
+  /* */
+
+}
+
+parseGeneralNodes.description =
+`
+parse general nodes
+`
+
+//
+
 function descriptorsSearch( test )
 {
   let context = this;
@@ -267,7 +301,7 @@ Routine descriptorsSearch finds 2 nodes.
 
 //
 
-function descriptorsSearchComment( test )
+function descriptorsSearchWithComment( test )
 {
   let context = this;
   let program = _.program.preform( programRoutine );
@@ -322,7 +356,7 @@ function descriptorsSearchComment( test )
 
 }
 
-descriptorsSearchComment.description =
+descriptorsSearchWithComment.description =
 `
 find comment node
 `
@@ -524,9 +558,10 @@ var Proto =
   {
 
     fromData,
+    parseGeneralNodes,
     descriptorsSearch,
     // descriptorsSearchKind,
-    descriptorsSearchComment,
+    descriptorsSearchWithComment,
 
     thisFile,
     thisFileSearch,
