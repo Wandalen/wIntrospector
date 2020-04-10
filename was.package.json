@@ -1,22 +1,13 @@
 {
-  "name" : "wintrospector",
-  "version" : "0.3.1",
-  "description" : "Single programmatic interface to for javascript parsing tools",
-  "author" : "Kostiantyn Wandalen <wanalen@willbe.so>",
-  "license" : "MIT",
-  "main" : "proto/dwtools/amid/l3/introspector/IncludeMid.s",
-  "files" :
-  [
-    "proto/dwtools/amid/l3/introspector",
-    "proto/dwtools/Tools.s",
-    "out"
-  ],
-  "scripts" :
-  {
-    "test" : "wtest .run proto",
-    "docgen" : "wdocgen .build proto"
-  },
-  "repository" :
+  "name" : "wintrospector", 
+  "version" : "0.3.2", 
+  "description" : "Single programmatic interface to for javascript parsing tools", 
+  "author" : "Kostiantyn Wandalen <wanalen@willbe.so>", 
+  "license" : "MIT", 
+  "main" : "proto/dwtools/amid/l3/introspector/IncludeMid.s", 
+  "files" : [ "proto/dwtools/amid/l3/introspector", "proto/dwtools/Tools.s", "out" ], 
+  "scripts" : { "test" : "wtest .run proto", "docgen" : "wdocgen .build proto" }, 
+  "repository" : 
   {
     "type" : "git", 
     "url" : "https ://github.com/Wandalen/wIntrospector.git"
@@ -24,34 +15,27 @@
   "bugs" : 
   {
     "url" : "https ://github.com/Wandalen/wIntrospector/issues"
-  },
-  "dependencies" :
+  }, 
+  "dependencies" : 
   {
-    "wTools" : "",
-    "wCopyable" : "",
-    "wappbasic" : "",
-    "wFiles" : "",
-    "wConsequence" : "",
-    "wlooker" : "",
-    "wlookerextra" : "",
-    "wLogger" : "",
-    "wstringer" : "",
-    "wschema" : "",
-    "acorn" : "",
-    "@babel/core" : "",
-    "esprima" : "",
-    "tree-sitter" : "",
-    "tree-sitter-javascript" : "",
-    "uglify-es" : "",
+    "wTools" : "", 
+    "wCopyable" : "", 
+    "wappbasic" : "", 
+    "wFiles" : "", 
+    "wConsequence" : "", 
+    "wlooker" : "", 
+    "wlookerextra" : "", 
+    "wLogger" : "", 
+    "wstringer" : "", 
+    "wschema" : "", 
+    "acorn" : "", 
+    "@babel/core" : "", 
+    "esprima" : "", 
+    "tree-sitter" : "", 
+    "tree-sitter-javascript" : "", 
+    "uglify-es" : "", 
     "typescript" : ""
-  },
-  "devDependencies" :
-  {
-    "wTesting" : "",
-    "wintrospector" : "file:."
-  },
-  "keywords" :
-  [
-    "wTools"
-  ]
+  }, 
+  "devDependencies" : { "wTesting" : "", "wintrospector" : "file:." }, 
+  "keywords" : [ "wTools" ]
 }
