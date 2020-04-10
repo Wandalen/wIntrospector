@@ -39,7 +39,7 @@ function parseStringSpecial( test )
 
   test.description = 'nodes';
   test.identical( file.product.nodes.length, 220 );
-  test.identical( _.mapKeys( file.product.byType ).length, 20 );
+  test.identical( _.mapKeys( file.product.byType ).length, 21 );
   test.identical( file.product.byType.gRoutine.length, 8 );
 
   test.description = 'root';

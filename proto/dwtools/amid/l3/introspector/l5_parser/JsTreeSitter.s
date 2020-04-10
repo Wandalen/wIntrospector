@@ -72,7 +72,7 @@ function _nodeType( node )
 {
   let parser = this;
   let constructorName = node.constructor.name;
-  if( constructorName === 'SyntaxNode' )
+  if( constructorName === 'SyntaxNode' && node.type !== 'comment' )
   return 'syntax';
   return node.type;
 }

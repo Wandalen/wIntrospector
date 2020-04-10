@@ -297,6 +297,7 @@ function descriptorsSearchComment( test )
   test.identical( _.strCount( foundStr, `found /* setsAreIdentical */` ), 1 );
   test.identical( _.strCount( foundStr, `at / ` ), 0 );
   test.identical( _.strCount( foundStr, `at ` ), 4 );
+  debugger;
 
   /* */
 
@@ -488,6 +489,8 @@ function parseStringCommon( test )
   test.identical( file.product.byType.gRoutine.length, 8 );
   test.identical( file.nodeCode( file.product.root ), sourceCode );
   test.identical( file.parser.nodeRange( file.product.root ), [ 0, sourceCode.length ] );
+
+  debugger;
 
   return null;
 }
