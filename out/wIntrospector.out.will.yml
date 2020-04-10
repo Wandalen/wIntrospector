@@ -3,17 +3,17 @@ root:
   - wIntrospector.out
 consistency:
   ../.ex.will.yml: &ref_0
-    hash: 145ab9f08b7fd7cdb113dd57118a1945
-    size: 1690
+    hash: f6064cd7b5666fbb4ed507afc378fd64
+    size: 1745
   ../.im.will.yml: &ref_1
-    hash: 3e9ed02b9bd469d6f46477d5db587d2f
-    size: 4560
+    hash: 4011ae53d9a5ae9a655d7ec7ec8db79f
+    size: 5720
 module:
   wIntrospector.out:
     about:
       name: wIntrospector
       org: noorg
-      description: ___
+      description: Single programmatic interface for javascript parsing tools
       enabled: 1
       version: 0.4.0
       interpreters: &ref_2
@@ -106,7 +106,7 @@ module:
       entry.proto.no.tests:
         criterion:
           tests: no.tests
-        path: ../proto/dwtools/___
+        path: ../proto/dwtools/amid/l3/introspector/IncludeMid.s
       entry.proto.only.tests:
         criterion:
           tests: only.tests
@@ -116,13 +116,13 @@ module:
           debug: debug
           raw: raw
           content: prime
-        path: '{path::out.*=1}/source/dwtools/___'
+        path: '{path::out.*=1}/source/dwtools/'
       entry.out.raw.debug.release:
         criterion:
           debug: release
           raw: raw
           content: prime
-        path: '{path::out.*=1}/source/dwtools/___'
+        path: '{path::out.*=1}/source/dwtools/'
       entry.out.compiled.debug.debug:
         criterion:
           debug: debug
@@ -191,6 +191,70 @@ module:
     submodule:
       wTools:
         path: 'npm:///wTools'
+        autoExporting: 0
+        enabled: 0
+      wCopyable:
+        path: 'npm:///wCopyable'
+        autoExporting: 0
+        enabled: 0
+      wAppBasic:
+        path: 'npm:///wappbasic'
+        autoExporting: 0
+        enabled: 0
+      wFiles:
+        path: 'npm:///wFiles'
+        autoExporting: 0
+        enabled: 0
+      wConsequence:
+        path: 'npm:///wConsequence'
+        autoExporting: 0
+        enabled: 0
+      wLooker:
+        path: 'npm:///wlooker'
+        autoExporting: 0
+        enabled: 0
+      wLookerExtra:
+        path: 'npm:///wlookerextra'
+        autoExporting: 0
+        enabled: 0
+      wLogger:
+        path: 'npm:///wLogger'
+        autoExporting: 0
+        enabled: 0
+      wStringer:
+        path: 'npm:///wstringer'
+        autoExporting: 0
+        enabled: 0
+      wSchema:
+        path: 'npm:///wschema'
+        autoExporting: 0
+        enabled: 0
+      acorn:
+        path: 'npm:///acorn'
+        autoExporting: 0
+        enabled: 0
+      babel:
+        path: 'npm:///_babel/core'
+        autoExporting: 0
+        enabled: 0
+      esprima:
+        path: 'npm:///esprima'
+        autoExporting: 0
+        enabled: 0
+      tree-sitter:
+        path: 'npm:///tree-sitter'
+        autoExporting: 0
+        enabled: 0
+      tree-sitter-javascript:
+        path: 'npm:///tree-sitter-javascript'
+        autoExporting: 0
+        enabled: 0
+      uglify-es:
+        path: 'npm:///uglify-es'
+        autoExporting: 0
+        enabled: 0
+      typescript:
+        path: 'npm:///typescript'
         autoExporting: 0
         enabled: 0
     reflector:
@@ -802,7 +866,7 @@ module:
     about:
       name: wIntrospector
       org: noorg
-      description: ___
+      description: Single programmatic interface for javascript parsing tools
       enabled: 1
       version: 0.4.0
       interpreters: *ref_2
@@ -887,7 +951,7 @@ module:
       entry.proto.no.tests:
         criterion:
           tests: no.tests
-        path: proto/dwtools/___
+        path: proto/dwtools/amid/l3/introspector/IncludeMid.s
       entry.proto.only.tests:
         criterion:
           tests: only.tests
@@ -897,13 +961,13 @@ module:
           debug: debug
           raw: raw
           content: prime
-        path: '{path::out.*=1}/source/dwtools/___'
+        path: '{path::out.*=1}/source/dwtools/'
       entry.out.raw.debug.release:
         criterion:
           debug: release
           raw: raw
           content: prime
-        path: '{path::out.*=1}/source/dwtools/___'
+        path: '{path::out.*=1}/source/dwtools/'
       entry.out.compiled.debug.debug:
         criterion:
           debug: debug
@@ -919,6 +983,70 @@ module:
     submodule:
       wTools:
         path: 'npm:///wTools'
+        autoExporting: 0
+        enabled: 0
+      wCopyable:
+        path: 'npm:///wCopyable'
+        autoExporting: 0
+        enabled: 0
+      wAppBasic:
+        path: 'npm:///wappbasic'
+        autoExporting: 0
+        enabled: 0
+      wFiles:
+        path: 'npm:///wFiles'
+        autoExporting: 0
+        enabled: 0
+      wConsequence:
+        path: 'npm:///wConsequence'
+        autoExporting: 0
+        enabled: 0
+      wLooker:
+        path: 'npm:///wlooker'
+        autoExporting: 0
+        enabled: 0
+      wLookerExtra:
+        path: 'npm:///wlookerextra'
+        autoExporting: 0
+        enabled: 0
+      wLogger:
+        path: 'npm:///wLogger'
+        autoExporting: 0
+        enabled: 0
+      wStringer:
+        path: 'npm:///wstringer'
+        autoExporting: 0
+        enabled: 0
+      wSchema:
+        path: 'npm:///wschema'
+        autoExporting: 0
+        enabled: 0
+      acorn:
+        path: 'npm:///acorn'
+        autoExporting: 0
+        enabled: 0
+      babel:
+        path: 'npm:///_babel/core'
+        autoExporting: 0
+        enabled: 0
+      esprima:
+        path: 'npm:///esprima'
+        autoExporting: 0
+        enabled: 0
+      tree-sitter:
+        path: 'npm:///tree-sitter'
+        autoExporting: 0
+        enabled: 0
+      tree-sitter-javascript:
+        path: 'npm:///tree-sitter-javascript'
+        autoExporting: 0
+        enabled: 0
+      uglify-es:
+        path: 'npm:///uglify-es'
+        autoExporting: 0
+        enabled: 0
+      typescript:
+        path: 'npm:///typescript'
         autoExporting: 0
         enabled: 0
     reflector:
@@ -1462,8 +1590,8 @@ module:
           - 'build::npm'
     consistency:
       ../.ex.will.yml:
-        hash: 145ab9f08b7fd7cdb113dd57118a1945
-        size: 1690
+        hash: f6064cd7b5666fbb4ed507afc378fd64
+        size: 1745
       ../.im.will.yml:
-        hash: 3e9ed02b9bd469d6f46477d5db587d2f
-        size: 4560
+        hash: 4011ae53d9a5ae9a655d7ec7ec8db79f
+        size: 5720
