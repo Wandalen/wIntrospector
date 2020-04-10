@@ -160,8 +160,13 @@ let TypeAssociation = Object.create( null );
 var native = { native : true };
 var general = { native : false, general : true };
 let Schema = _.schema.system({ name : 'Js.TreeSitterAst' });
+
 Schema.define([ 'function', 'arrow_function', 'function_declaration', 'method_definition' ]).label( native ).terminal();
 Schema.define( 'gRoutine' ).label( general ).alternative().extend([ 'function', 'arrow_function', 'function_declaration', 'method_definition' ]);
+
+Schema.define([ 'comment' ]).label( native ).terminal();
+Schema.define( 'gComment' ).label( general ).alternative().extend([ 'comment' ]);
+
 Schema.form();
 
 let Composes =

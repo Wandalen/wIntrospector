@@ -271,6 +271,9 @@ function _TypeAssociationsNormalize()
     });
   });
 
+  // if( parser.name === "wIntrospectionParserJsTreeSitter" )
+  // debugger;
+
   _.assert( !!parser.TypeAssociation.gRoutine && parser.TypeAssociation.gRoutine.length > 0 );
 
 }

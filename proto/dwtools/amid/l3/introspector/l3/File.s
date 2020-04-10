@@ -305,11 +305,6 @@ function refine()
     nodes = product.byType[ type1 ] = _.containerAdapter.from( new Set );
     nodes.appendOnce( node );
 
-    // if( _.longHas( [ 'FunctionDeclaration', 'FunctionExpression', 'ArrowFunctionExpression' ], type1 ) )
-    // {
-    //   debugger;
-    // }
-
     let association = parser.TypeAssociation[ type1 ];
     if( association )
     for( let a = 0 ; a < association.length ; a++ )
