@@ -147,6 +147,8 @@ function parseGeneralNodes( test )
   test.identical( file.product.byType.gRoot.length, 1 );
   test.is( file.product.root === file.product.byType.gRoot.withIndex( 0 ) );
 
+  debugger;
+
   /* */
 
 }
