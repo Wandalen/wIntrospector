@@ -109,7 +109,7 @@ var native = { native : true };
 var general = { native : false, general : true };
 let Schema = _.schema.system({ name : 'Ts.MicrosoftAst' });
 Schema.define([ 'FunctionDeclaration', 'MethodDeclaration', 'Constructor', 'FunctionExpression', 'ArrowFunction' ]).label( native ).terminal();
-Schema.define( 'gRoutine' ).label( general ).alternative([ 'FunctionDeclaration', 'MethodDeclaration', 'Constructor', 'FunctionExpression', 'ArrowFunction' ]);
+Schema.define( 'gRoutine' ).label( general ).alternative().extend([ 'FunctionDeclaration', 'MethodDeclaration', 'Constructor', 'FunctionExpression', 'ArrowFunction' ]);
 Schema.form();
 
 let Composes =

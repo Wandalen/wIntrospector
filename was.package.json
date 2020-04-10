@@ -1,41 +1,22 @@
-
 {
-  "name" : "wintrospector",
-  "version" : "0.3.0",
-  "description" : "___",
-  "author" : "Kostiantyn Wandalen <wanalen@willbe.so>",
-  "license" : "MIT",
-  "main" : "proto/dwtools/___",
-  "files" :
-  [
-    "proto/dwtools/___",
-    "proto/dwtools/Tools.s"
-  ],
-  "scripts" :
+  "name" : "wintrospector", 
+  "version" : "0.3.1", 
+  "description" : "___", 
+  "author" : "Kostiantyn Wandalen <wanalen@willbe.so>", 
+  "license" : "MIT", 
+  "main" : "proto/dwtools/___", 
+  "files" : [ "proto/dwtools/___", "proto/dwtools/Tools.s" ], 
+  "scripts" : { "test" : "wtest .run proto", "docgen" : "wdocgen .build proto" }, 
+  "repository" : 
   {
-    "test" : "wtest .run proto",
-    "docgen" : "wdocgen .build proto"
-  },
-  "repository" :
-  {
-    "type" : "git",
+    "type" : "git", 
     "url" : "https ://github.com/Wandalen/wIntrospector.git"
-  },
-  "bugs" :
+  }, 
+  "bugs" : 
   {
     "url" : "https ://github.com/Wandalen/wIntrospector/issues"
-  },
-  "dependencies" :
-  {
-    "wTools" : ""
-  },
-  "devDependencies" :
-  {
-    "wTesting" : "",
-    "wintrospector" : "file:."
-  },
-  "keywords" :
-  [
-    "wTools"
-  ]
+  }, 
+  "dependencies" : { "wTools" : "" }, 
+  "devDependencies" : { "wTesting" : "", "wintrospector" : "file:." }, 
+  "keywords" : [ "wTools" ]
 }
