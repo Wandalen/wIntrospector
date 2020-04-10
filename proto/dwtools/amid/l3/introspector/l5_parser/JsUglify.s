@@ -139,7 +139,7 @@ var native = { native : true };
 var general = { native : false, general : true };
 let Schema = _.schema.system({ name : 'Js.UglifyAst' });
 Schema.define([ 'Arrow', 'Function', 'Defun', 'ConciseMethod' ]).label( native ).terminal();
-Schema.define( 'gRoutine' ).label( general ).alternative([ 'Arrow', 'Function', 'Defun', 'ConciseMethod' ]);
+Schema.define( 'gRoutine' ).label( general ).alternative().extend([ 'Arrow', 'Function', 'Defun', 'ConciseMethod' ]);
 Schema.form();
 
 let Composes =

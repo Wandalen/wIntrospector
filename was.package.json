@@ -1,7 +1,6 @@
-
 {
   "name" : "wintrospector",
-  "version" : "0.3.0",
+  "version" : "0.3.1",
   "description" : "Single programmatic interface to for javascript parsing tools",
   "author" : "Kostiantyn Wandalen <wanalen@willbe.so>",
   "license" : "MIT",
@@ -14,15 +13,10 @@
   ],
   "scripts" :
   {
-    "test" : "wtest .run proto",
-    "docgen" : "wdocgen .build proto"
-  },
-  "repository" :
-  {
-    "type" : "git",
+    "type" : "git", 
     "url" : "https ://github.com/Wandalen/wIntrospector.git"
-  },
-  "bugs" :
+  }, 
+  "bugs" : 
   {
     "url" : "https ://github.com/Wandalen/wIntrospector/issues"
   },

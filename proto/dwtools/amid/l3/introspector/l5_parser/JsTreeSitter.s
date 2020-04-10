@@ -161,7 +161,7 @@ var native = { native : true };
 var general = { native : false, general : true };
 let Schema = _.schema.system({ name : 'Js.TreeSitterAst' });
 Schema.define([ 'function', 'arrow_function', 'function_declaration', 'method_definition' ]).label( native ).terminal();
-Schema.define( 'gRoutine' ).label( general ).alternative([ 'function', 'arrow_function', 'function_declaration', 'method_definition' ]);
+Schema.define( 'gRoutine' ).label( general ).alternative().extend([ 'function', 'arrow_function', 'function_declaration', 'method_definition' ]);
 Schema.form();
 
 let Composes =

@@ -116,7 +116,7 @@ var native = { native : true };
 var general = { native : false, general : true };
 let Schema = _.schema.system({ name : 'Js.BabelAst' });
 Schema.define([ 'FunctionDeclaration', 'FunctionExpression', 'ArrowFunctionExpression', 'ClassMethod' ]).label( native ).terminal();
-Schema.define( 'gRoutine' ).label( general ).alternative([ 'FunctionDeclaration', 'FunctionExpression', 'ArrowFunctionExpression', 'ClassMethod' ]);
+Schema.define( 'gRoutine' ).label( general ).alternative().extend([ 'FunctionDeclaration', 'FunctionExpression', 'ArrowFunctionExpression', 'ClassMethod' ]);
 Schema.form();
 
 let Composes =

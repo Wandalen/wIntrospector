@@ -118,7 +118,7 @@ var native = { native : true };
 var general = { native : false, general : true };
 let Schema = _.schema.system({ name : 'Js.AcornAst' });
 Schema.define([ 'FunctionDeclaration', 'FunctionExpression', 'ArrowFunctionExpression' ]).label( native ).terminal();
-Schema.define( 'gRoutine' ).label( general ).alternative([ 'FunctionDeclaration', 'FunctionExpression', 'ArrowFunctionExpression' ]);
+Schema.define( 'gRoutine' ).label( general ).alternative().extend([ 'FunctionDeclaration', 'FunctionExpression', 'ArrowFunctionExpression' ]);
 Schema.form();
 
 let Composes =
