@@ -7,7 +7,7 @@ if( typeof module !== 'undefined' )
 
   let _ = require( '../../../../dwtools/Tools.s' );
   _.include( 'wTesting' );
-  require( '../../l3/introspector/IncludeMid.s' );
+  require( '../../l3/introspector/module/Full.s' );
 
 }
 

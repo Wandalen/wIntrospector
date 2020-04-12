@@ -2,13 +2,6 @@
 
 'use strict';
 
-if( typeof module !== 'undefined' )
-{
-
-  require( '../IncludeBase.s' );
-
-}
-
 let _ = _global_.wTools;
 let Self = _.introspector = _.introspector || Object.create( null );
 

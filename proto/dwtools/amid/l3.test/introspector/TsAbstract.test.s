@@ -104,6 +104,42 @@ Parsing from string with espima js parser produce proper AST.
 Routine nodeCode returns proper source code.
 `
 
+//
+
+function parseGeneralNodes( test )
+{
+  let context = this;
+
+  logger.log( '' );
+  logger.log( _.strLinesNumber( context.defaultProgramSourceCode ) );
+  logger.log( '' );
+
+  test.is( _.constructorIs( context.defaultParser ) );
+
+  let file = _.introspector.File.FromData( context.defaultProgramSourceCode );
+  file.sys.defaultParserClass = context.defaultParser;
+  file.refine();
+
+  logger.log( file.productExportInfo() );
+  logger.log( '' );
+
+  debugger;
+
+  test.description = 'general nodes';
+  test.identical( file.product.byType.gRoutine.length, 8 );
+  // test.identical( file.product.byType.gComment.length, 2 ); // xxx : not implemented
+  test.identical( file.product.byType.gRoot.length, 1 );
+  test.is( file.product.root === file.product.byType.gRoot.withIndex( 0 ) );
+
+  /* */
+
+}
+
+parseGeneralNodes.description =
+`
+parse general nodes
+`
+
 // --
 // declare
 // --
@@ -125,6 +161,7 @@ var Proto =
   tests :
   {
     parseStringCommon,
+    parseGeneralNodes,
   },
 
 }

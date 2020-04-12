@@ -41,10 +41,8 @@ function _parse( o )
 
   let opts = Object.create( null );
   let result = Object.create( null );
-  // debugger;
   result.returned = parser._parser.createSourceFile( o.filePath || '', o.src );
   result.root = result.returned;
-  // debugger;
 
   return result;
 }
@@ -108,8 +106,16 @@ let TypeAssociation = Object.create( null );
 var native = { native : true };
 var general = { native : false, general : true };
 let Schema = _.schema.system({ name : 'Ts.MicrosoftAst' });
+
+Schema.define([ 'SourceFile' ]).label( native ).terminal();
+Schema.define( 'gRoot' ).label( general ).alternative().extend([ 'SourceFile' ]);
+
 Schema.define([ 'FunctionDeclaration', 'MethodDeclaration', 'Constructor', 'FunctionExpression', 'ArrowFunction' ]).label( native ).terminal();
 Schema.define( 'gRoutine' ).label( general ).alternative().extend([ 'FunctionDeclaration', 'MethodDeclaration', 'Constructor', 'FunctionExpression', 'ArrowFunction' ]);
+
+// Schema.define([ 'Line', 'Block' ]).label( native ).terminal();
+// Schema.define( 'gComment' ).label( general ).alternative().extend([ 'Line', 'Block' ]);
+
 Schema.form();
 
 let Composes =
