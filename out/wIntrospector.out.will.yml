@@ -2,15 +2,12 @@ format: outwillfile-2.0
 root:
   - wIntrospector.out
 consistency:
-  wIntrospector.out.will.yml: &ref_0
-    hash: c5f51c3c3a86a11070248e317e8f8ffa
-    size: 42333
-  ../.ex.will.yml: &ref_1
+  ../.ex.will.yml: &ref_0
     hash: f6064cd7b5666fbb4ed507afc378fd64
     size: 1745
-  ../.im.will.yml: &ref_2
-    hash: 4011ae53d9a5ae9a655d7ec7ec8db79f
-    size: 5720
+  ../.im.will.yml: &ref_1
+    hash: 4ec0e4af0946830f812cabefbd0ffcbf
+    size: 5837
 module:
   wIntrospector.out:
     about:
@@ -19,19 +16,19 @@ module:
       description: Single programmatic interface for javascript parsing tools
       enabled: 1
       version: 0.4.0
-      interpreters:
+      interpreters: &ref_2
         - njs >= 8.0.0
         - chrome >= 60.0.0
         - firefox >= 60.0.0
-      keywords:
+      keywords: &ref_3
         - tools
         - wTools
       license: MIT
       author: Kostiantyn Wandalen <wanalen@willbe.so>
-      contributors:
+      contributors: &ref_4
         - Kostiantyn Wandalen <wanalen@willbe.so>
       npm.name: wintrospector
-      npm.scripts:
+      npm.scripts: &ref_5
         test: wtest .run proto/**
         docgen: wdocgen .build proto
     path:
@@ -109,7 +106,7 @@ module:
       entry.proto.no.tests:
         criterion:
           tests: no.tests
-        path: ../proto/dwtools/amid/l3/introspector/IncludeMid.s
+        path: ../proto/dwtools/amid/l3/introspector/module/Full.s
       entry.proto.only.tests:
         criterion:
           tests: only.tests
@@ -119,13 +116,13 @@ module:
           debug: debug
           raw: raw
           content: prime
-        path: '{path::out.*=1}/source/dwtools/'
+        path: '{path::out.*=1}/source/dwtools/amid/l3/introspector/module/Full.s'
       entry.out.raw.debug.release:
         criterion:
           debug: release
           raw: raw
           content: prime
-        path: '{path::out.*=1}/source/dwtools/'
+        path: '{path::out.*=1}/source/dwtools/amid/l3/introspector/module/Full.s'
       entry.out.compiled.debug.debug:
         criterion:
           debug: debug
@@ -157,11 +154,11 @@ module:
           - ../proto/dwtools/amid
           - ../proto/dwtools/amid/l3
           - ../proto/dwtools/amid/l3/introspector
-          - ../proto/dwtools/amid/l3/introspector/IncludeBase.s
-          - ../proto/dwtools/amid/l3/introspector/IncludeMid.s
-          - ../proto/dwtools/amid/l3/introspector/external
-          - ../proto/dwtools/amid/l3/introspector/external/nodes.ts
-          - ../proto/dwtools/amid/l3/introspector/external/l2
+          - ../proto/dwtools/amid/l3/introspector/_external
+          - ../proto/dwtools/amid/l3/introspector/_external/nodes.ts
+          - ../proto/dwtools/amid/l3/introspector/include
+          - ../proto/dwtools/amid/l3/introspector/include/Base.s
+          - ../proto/dwtools/amid/l3/introspector/include/Full.s
           - ../proto/dwtools/amid/l3/introspector/l1
           - ../proto/dwtools/amid/l3/introspector/l1/Namespace.s
           - ../proto/dwtools/amid/l3/introspector/l3
@@ -172,15 +169,20 @@ module:
           - ../proto/dwtools/amid/l3/introspector/l3/Structure.s
           - ../proto/dwtools/amid/l3/introspector/l3/Sys.s
           - ../proto/dwtools/amid/l3/introspector/l5_parser
+          - ../proto/dwtools/amid/l3/introspector/l5_parser/CppTreeSitter.s
           - ../proto/dwtools/amid/l3/introspector/l5_parser/JsAcorn.s
           - ../proto/dwtools/amid/l3/introspector/l5_parser/JsBabel.s
           - ../proto/dwtools/amid/l3/introspector/l5_parser/JsEsprima.s
           - ../proto/dwtools/amid/l3/introspector/l5_parser/JsTreeSitter.s
           - ../proto/dwtools/amid/l3/introspector/l5_parser/JsUglify.s
           - ../proto/dwtools/amid/l3/introspector/l5_parser/TsMicrosoft.s
+          - ../proto/dwtools/amid/l3/introspector/module
+          - ../proto/dwtools/amid/l3/introspector/module/Full.s
           - ../proto/dwtools/amid/l3.test
           - ../proto/dwtools/amid/l3.test/introspector
           - ../proto/dwtools/amid/l3.test/introspector/Abstract.test.s
+          - ../proto/dwtools/amid/l3.test/introspector/CppAbstract.test.s
+          - ../proto/dwtools/amid/l3.test/introspector/CppTreeSitter.test.s
           - ../proto/dwtools/amid/l3.test/introspector/Default.test.s
           - ../proto/dwtools/amid/l3.test/introspector/JsAbstract.test.s
           - ../proto/dwtools/amid/l3.test/introspector/JsAcorn.test.s
@@ -250,6 +252,10 @@ module:
         enabled: 0
       tree-sitter-javascript:
         path: 'npm:///tree-sitter-javascript'
+        autoExporting: 0
+        enabled: 0
+      tree-sitter-cpp:
+        path: 'npm:///tree-sitter-cpp'
         autoExporting: 0
         enabled: 0
       uglify-es:
@@ -775,24 +781,6 @@ module:
           content: prime
         inherit:
           - files.transpile
-      exported.proto.export:
-        opts:
-          reflector: 'reflector::exported.proto.export*'
-        criterion:
-          generated: 1
-          content: proto
-          export: 1
-        inherit:
-          - files.reflect
-      exported.files.proto.export:
-        opts:
-          reflector: 'reflector::exported.files.proto.export*'
-        criterion:
-          generated: 1
-          content: proto
-          export: 1
-        inherit:
-          - files.reflect
     build:
       proto.export:
         steps:
@@ -881,9 +869,8 @@ module:
           content: proto
           export: 1
     consistency:
-      wIntrospector.out.will.yml: *ref_0
-      ../.ex.will.yml: *ref_1
-      ../.im.will.yml: *ref_2
+      ../.ex.will.yml: *ref_0
+      ../.im.will.yml: *ref_1
   ../:
     about:
       name: wIntrospector
@@ -891,21 +878,13 @@ module:
       description: Single programmatic interface for javascript parsing tools
       enabled: 1
       version: 0.4.0
-      interpreters:
-        - njs >= 8.0.0
-        - chrome >= 60.0.0
-        - firefox >= 60.0.0
-      keywords:
-        - tools
-        - wTools
+      interpreters: *ref_2
+      keywords: *ref_3
       license: MIT
       author: Kostiantyn Wandalen <wanalen@willbe.so>
-      contributors:
-        - Kostiantyn Wandalen <wanalen@willbe.so>
+      contributors: *ref_4
       npm.name: wintrospector
-      npm.scripts:
-        test: wtest .run proto/**
-        docgen: wdocgen .build proto
+      npm.scripts: *ref_5
     path:
       module.willfiles:
         criterion:
@@ -981,7 +960,7 @@ module:
       entry.proto.no.tests:
         criterion:
           tests: no.tests
-        path: proto/dwtools/amid/l3/introspector/IncludeMid.s
+        path: proto/dwtools/amid/l3/introspector/module/Full.s
       entry.proto.only.tests:
         criterion:
           tests: only.tests
@@ -991,13 +970,13 @@ module:
           debug: debug
           raw: raw
           content: prime
-        path: '{path::out.*=1}/source/dwtools/'
+        path: '{path::out.*=1}/source/dwtools/amid/l3/introspector/module/Full.s'
       entry.out.raw.debug.release:
         criterion:
           debug: release
           raw: raw
           content: prime
-        path: '{path::out.*=1}/source/dwtools/'
+        path: '{path::out.*=1}/source/dwtools/amid/l3/introspector/module/Full.s'
       entry.out.compiled.debug.debug:
         criterion:
           debug: debug
@@ -1069,6 +1048,10 @@ module:
         enabled: 0
       tree-sitter-javascript:
         path: 'npm:///tree-sitter-javascript'
+        autoExporting: 0
+        enabled: 0
+      tree-sitter-cpp:
+        path: 'npm:///tree-sitter-cpp'
         autoExporting: 0
         enabled: 0
       uglify-es:
@@ -1623,6 +1606,5 @@ module:
         hash: f6064cd7b5666fbb4ed507afc378fd64
         size: 1745
       ../.im.will.yml:
-        hash: 4011ae53d9a5ae9a655d7ec7ec8db79f
-        size: 5720
-      wIntrospector.out.will.yml: *ref_0
+        hash: 4ec0e4af0946830f812cabefbd0ffcbf
+        size: 5837
