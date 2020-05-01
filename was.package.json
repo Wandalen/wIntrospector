@@ -1,6 +1,6 @@
 {
   "name" : "wintrospector",
-  "version" : "0.3.20",
+  "version" : "0.3.21",
   "description" : "Single programmatic interface to for javascript parsing tools",
   "author" : "Kostiantyn Wandalen <wanalen@willbe.so>",
   "license" : "MIT",
