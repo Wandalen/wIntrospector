@@ -1,6 +1,6 @@
 {
   "name" : "wintrospector",
-  "version" : "0.3.24",
+  "version" : "0.3.25",
   "description" : "Single programmatic interface to for javascript parsing tools",
   "author" : "Kostiantyn Wandalen <wanalen@willbe.so>",
   "license" : "MIT",
@@ -18,16 +18,16 @@
   },
   "dependencies" :
   {
-    "wTools" : "gamma",
-    "wCopyable" : "gamma",
-    "wappbasic" : "gamma",
-    "wFiles" : "gamma",
-    "wConsequence" : "gamma",
-    "wlooker" : "gamma",
-    "wlookerextra" : "gamma",
-    "wLogger" : "gamma",
-    "wstringer" : "gamma",
-    "wschema" : "gamma",
+    "wTools" : "alpha",
+    "wCopyable" : "alpha",
+    "wappbasic" : "alpha",
+    "wFiles" : "alpha",
+    "wConsequence" : "alpha",
+    "wlooker" : "alpha",
+    "wlookerextra" : "alpha",
+    "wLogger" : "alpha",
+    "wstringer" : "alpha",
+    "wschema" : "alpha",
     "acorn" : "7.1.1",
     "@babel/core" : "7.9.6",
     "esprima" : "4.0.1",
@@ -37,6 +37,6 @@
     "uglify-es" : "3.3.9",
     "typescript" : "3.8.3"
   },
-  "devDependencies" : { "wintrospector" : "file:.", "wTesting" : "gamma" },
+  "devDependencies" : { "wintrospector" : "file:.", "wTesting" : "alpha" },
   "keywords" : [ "wTools" ]
 }
