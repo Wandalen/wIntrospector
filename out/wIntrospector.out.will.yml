@@ -2,10 +2,13 @@ format: outwillfile-2.0
 root:
   - wIntrospector.out
 consistency:
-  ../.ex.will.yml: &ref_0
+  wIntrospector.out.will.yml: &ref_0
+    hash: 51f448ba7f70a50a644f35aeaf37e3bc
+    size: 43791
+  ../.ex.will.yml: &ref_1
     hash: af4eaf150f938e8400a94750b1b9f69a
     size: 1745
-  ../.im.will.yml: &ref_1
+  ../.im.will.yml: &ref_2
     hash: 4ec0e4af0946830f812cabefbd0ffcbf
     size: 5837
 module:
@@ -16,19 +19,19 @@ module:
       description: Single programmatic interface for javascript parsing tools
       enabled: 1
       version: 0.4.0
-      interpreters: &ref_2
+      interpreters:
         - njs >= 8.0.0
         - chrome >= 60.0.0
         - firefox >= 60.0.0
-      keywords: &ref_3
+      keywords:
         - tools
         - wTools
       license: MIT
       author: Kostiantyn Wandalen <wanalen@01.school>
-      contributors: &ref_4
+      contributors:
         - Kostiantyn Wandalen <wanalen@01.school>
       npm.name: wintrospector
-      npm.scripts: &ref_5
+      npm.scripts:
         test: wtest .run proto/**
         docgen: wdocgen .build proto
     path:
@@ -792,6 +795,24 @@ module:
           content: prime
         inherit:
           - files.transpile
+      exported.proto.export:
+        opts:
+          filePath: 'reflector::exported.proto.export*'
+        criterion:
+          generated: 1
+          content: proto
+          export: 1
+        inherit:
+          - files.reflect
+      exported.files.proto.export:
+        opts:
+          filePath: 'reflector::exported.files.proto.export*'
+        criterion:
+          generated: 1
+          content: proto
+          export: 1
+        inherit:
+          - files.reflect
     build:
       proto.export:
         steps:
@@ -880,8 +901,9 @@ module:
           content: proto
           export: 1
     consistency:
-      ../.ex.will.yml: *ref_0
-      ../.im.will.yml: *ref_1
+      wIntrospector.out.will.yml: *ref_0
+      ../.ex.will.yml: *ref_1
+      ../.im.will.yml: *ref_2
   ../:
     about:
       name: wIntrospector
@@ -889,13 +911,21 @@ module:
       description: Single programmatic interface for javascript parsing tools
       enabled: 1
       version: 0.4.0
-      interpreters: *ref_2
-      keywords: *ref_3
+      interpreters:
+        - njs >= 8.0.0
+        - chrome >= 60.0.0
+        - firefox >= 60.0.0
+      keywords:
+        - tools
+        - wTools
       license: MIT
       author: Kostiantyn Wandalen <wanalen@01.school>
-      contributors: *ref_4
+      contributors:
+        - Kostiantyn Wandalen <wanalen@01.school>
       npm.name: wintrospector
-      npm.scripts: *ref_5
+      npm.scripts:
+        test: wtest .run proto/**
+        docgen: wdocgen .build proto
     path:
       module.willfiles:
         criterion:
@@ -1453,7 +1483,7 @@ module:
           debug: release
       reflect.proto.debug.raw:
         opts:
-          reflector: 'reflector::reflect.proto*'
+          filePath: 'reflector::reflect.proto*'
         criterion:
           tests: no.tests
           debug: debug
@@ -1463,7 +1493,7 @@ module:
           - files.reflect
       reflect.proto.release.raw:
         opts:
-          reflector: 'reflector::reflect.proto*'
+          filePath: 'reflector::reflect.proto*'
         criterion:
           tests: no.tests
           debug: release
@@ -1473,7 +1503,7 @@ module:
           - files.reflect
       reflect.proto.debug.compiled:
         opts:
-          reflector: 'reflector::reflect.proto*'
+          filePath: 'reflector::reflect.proto*'
         criterion:
           tests: no.tests
           debug: debug
@@ -1483,7 +1513,7 @@ module:
           - files.reflect
       reflect.proto.release.compiled:
         opts:
-          reflector: 'reflector::reflect.proto*'
+          filePath: 'reflector::reflect.proto*'
         criterion:
           tests: no.tests
           debug: release
@@ -1494,7 +1524,7 @@ module:
       transpile.proto.raw:
         opts:
           entry: 'path::entry.proto.no.tests'
-          reflector: 'reflector::transpile.proto.raw*'
+          filePath: 'reflector::transpile.proto.raw*'
         criterion:
           raw: raw
           debug: release
@@ -1504,7 +1534,7 @@ module:
       transpile.proto.no.tests.compiled.debug:
         opts:
           entry: 'path::entry.proto.*=1'
-          reflector: 'reflector::transpile.proto.no.tests.compiled*'
+          filePath: 'reflector::transpile.proto.no.tests.compiled*'
         criterion:
           tests: no.tests
           raw: compiled
@@ -1515,7 +1545,7 @@ module:
       transpile.proto.no.tests.compiled.release:
         opts:
           entry: 'path::entry.proto.*=1'
-          reflector: 'reflector::transpile.proto.no.tests.compiled*'
+          filePath: 'reflector::transpile.proto.no.tests.compiled*'
         criterion:
           tests: no.tests
           raw: compiled
@@ -1527,7 +1557,7 @@ module:
         opts:
           entry: 'path::entry.proto.*=1'
           external.before: '{path::out.*=1}/Main.s'
-          reflector: 'reflector::transpile.proto.only.tests.compiled*'
+          filePath: 'reflector::transpile.proto.only.tests.compiled*'
         criterion:
           tests: only.tests
           raw: compiled
@@ -1539,7 +1569,7 @@ module:
         opts:
           entry: 'path::entry.proto.*=1'
           external.before: '{path::out.*=1}/Main.s'
-          reflector: 'reflector::transpile.proto.only.tests.compiled*'
+          filePath: 'reflector::transpile.proto.only.tests.compiled*'
         criterion:
           tests: only.tests
           raw: compiled
@@ -1628,3 +1658,6 @@ module:
       ../.im.will.yml:
         hash: 4ec0e4af0946830f812cabefbd0ffcbf
         size: 5837
+      wIntrospector.out.will.yml:
+        hash: 51f448ba7f70a50a644f35aeaf37e3bc
+        size: 43791
