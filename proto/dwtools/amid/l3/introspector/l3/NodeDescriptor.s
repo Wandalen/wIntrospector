@@ -198,7 +198,7 @@ _.classDeclare
 
 _.Copyable.mixin( Self );
 _.introspector[ Self.shortName ] = Self;
-if( typeof module !== 'undefined' && module !== null )
+if( typeof module !== 'undefined' )
 module[ 'exports' ] = _global_.wTools;
 
 })();

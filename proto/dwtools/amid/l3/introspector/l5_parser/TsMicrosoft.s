@@ -197,7 +197,7 @@ Self._Setup();
 
 _.introspector.Parser[ Self.shortName ] = Self;
 
-if( typeof module !== 'undefined' && module !== null )
+if( typeof module !== 'undefined' )
 module[ 'exports' ] = _global_.wTools;
 
 })();
