@@ -14,7 +14,8 @@ if( typeof module !== 'undefined' )
 
 let _ = _global_.wTools;
 let Parent = _.introspector.Parser;
-let Self = function wIntrospectionParserJsTreeSitter( o )
+let Self = wIntrospectionParserJsTreeSitter;
+function wIntrospectionParserJsTreeSitter( o )
 {
   return _.workpiece.construct( Self, this, arguments );
 }

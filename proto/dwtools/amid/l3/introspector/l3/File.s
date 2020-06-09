@@ -13,7 +13,8 @@ let vectorizeNone = _.routineDefaults( null, _.vectorizeNone, { vectorizingConta
 //
 
 let Parent = null;
-let Self = function wIntrospectionFile( o )
+let Self = wIntrospectionFile;
+function wIntrospectionFile( o )
 {
   return _.workpiece.construct( Self, this, arguments );
 }

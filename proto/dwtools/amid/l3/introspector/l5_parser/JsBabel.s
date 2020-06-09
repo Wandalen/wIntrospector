@@ -13,7 +13,8 @@ if( typeof module !== 'undefined' )
 
 let _ = _global_.wTools;
 let Parent = _.introspector.Parser;
-let Self = function wIntrospectionParserJsBabel( o )
+let Self = wIntrospectionParserJsBabel;
+function wIntrospectionParserJsBabel( o )
 {
   return _.workpiece.construct( Self, this, arguments );
 }
