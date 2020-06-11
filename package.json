@@ -6,7 +6,7 @@
   "license" : "MIT",
   "main" : "proto/dwtools/amid/l3/introspector/module/Full.s",
   "files" : [ "proto/dwtools/amid/l3/introspector", "proto/dwtools/Tools.s", "out" ],
-  "scripts" : { "test" : "wtest .run proto", "docgen" : "wdocgen .build proto" },
+  "scripts" : { "test" : "wtest .run proto rapidity:-3", "docgen" : "wdocgen .build proto" },
   "repository" :
   {
     "type" : "git",
