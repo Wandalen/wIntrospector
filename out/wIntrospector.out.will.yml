@@ -2,13 +2,10 @@ format: outwillfile-2.0
 root:
   - wIntrospector.out
 consistency:
-  wIntrospector.out.will.yml: &ref_0
-    hash: 0d595c7a552d392a91fa9462706ed430
-    size: 42679
-  ../.ex.will.yml: &ref_1
-    hash: af4eaf150f938e8400a94750b1b9f69a
-    size: 1745
-  ../.im.will.yml: &ref_2
+  ../.ex.will.yml: &ref_0
+    hash: 3bb203406ec6cbd264a6d4683954e3be
+    size: 1746
+  ../.im.will.yml: &ref_1
     hash: 48cefacf69bddd0f00a7620947f70372
     size: 5835
 module:
@@ -19,19 +16,19 @@ module:
       description: Single programmatic interface for javascript parsing tools
       enabled: 1
       version: 0.4.0
-      interpreters:
+      interpreters: &ref_2
         - njs >= 10.0.0
         - chrome >= 60.0.0
         - firefox >= 60.0.0
-      keywords:
+      keywords: &ref_3
         - tools
         - wTools
       license: MIT
       author: Kostiantyn Wandalen <wanalen@01.school>
-      contributors:
+      contributors: &ref_4
         - Kostiantyn Wandalen <wanalen@01.school>
       npm.name: wintrospector
-      npm.scripts:
+      npm.scripts: &ref_5
         test: wtest .run proto/**
         docgen: wdocgen .build proto
     path:
@@ -776,24 +773,6 @@ module:
           content: prime
         inherit:
           - files.transpile
-      exported.proto.export:
-        opts:
-          filePath: 'reflector::exported.proto.export*'
-        criterion:
-          generated: 1
-          content: proto
-          export: 1
-        inherit:
-          - files.reflect
-      exported.files.proto.export:
-        opts:
-          filePath: 'reflector::exported.files.proto.export*'
-        criterion:
-          generated: 1
-          content: proto
-          export: 1
-        inherit:
-          - files.reflect
     build:
       proto.export:
         steps:
@@ -882,9 +861,8 @@ module:
           content: proto
           export: 1
     consistency:
-      wIntrospector.out.will.yml: *ref_0
-      ../.ex.will.yml: *ref_1
-      ../.im.will.yml: *ref_2
+      ../.ex.will.yml: *ref_0
+      ../.im.will.yml: *ref_1
   ../:
     about:
       name: wIntrospector
@@ -892,21 +870,13 @@ module:
       description: Single programmatic interface for javascript parsing tools
       enabled: 1
       version: 0.4.0
-      interpreters:
-        - njs >= 10.0.0
-        - chrome >= 60.0.0
-        - firefox >= 60.0.0
-      keywords:
-        - tools
-        - wTools
+      interpreters: *ref_2
+      keywords: *ref_3
       license: MIT
       author: Kostiantyn Wandalen <wanalen@01.school>
-      contributors:
-        - Kostiantyn Wandalen <wanalen@01.school>
+      contributors: *ref_4
       npm.name: wintrospector
-      npm.scripts:
-        test: wtest .run proto/**
-        docgen: wdocgen .build proto
+      npm.scripts: *ref_5
     path:
       module.willfiles:
         criterion:
@@ -1616,9 +1586,8 @@ module:
           - 'build::npm'
     consistency:
       ../.ex.will.yml:
-        hash: af4eaf150f938e8400a94750b1b9f69a
-        size: 1745
+        hash: 3bb203406ec6cbd264a6d4683954e3be
+        size: 1746
       ../.im.will.yml:
         hash: 48cefacf69bddd0f00a7620947f70372
         size: 5835
-      wIntrospector.out.will.yml: *ref_0
