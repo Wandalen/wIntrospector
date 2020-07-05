@@ -1,5 +1,5 @@
 
-# wIntrospector -- Experimental! [![Build Status](https://travis-ci.org/Wandalen/wIntrospector.svg?branch=master)](https://travis-ci.org/Wandalen/wIntrospector)
+# wIntrospector -- Experimental! [![Status](https://github.com/Wandalen/wIntrospector/workflows/Test/badge.svg)](https://github.com/Wandalen/wIntrospector}/actions?query=workflow%3ATest)
 
 Single programmatic interface for javascript parsing tools:
 - Acorn
