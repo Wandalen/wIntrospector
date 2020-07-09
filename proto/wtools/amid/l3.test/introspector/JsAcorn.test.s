@@ -1,11 +1,11 @@
-( function _JsEsprima_test_s_( ) {
+( function _JsAcorn_test_s_( ) {
 
 'use strict';
 
 if( typeof module !== 'undefined' )
 {
 
-  let _ = require( '../../../../dwtools/Tools.s' );
+  let _ = require( '../../../../wtools/Tools.s' );
   require( './JsAbstract.test.s' );
 
 }
@@ -28,9 +28,9 @@ function parseStringSpecial( test )
 
   test.description = 'setup';
 
-  test.is( _.constructorIs( _.introspector.Parser.JsEsprima ) );
+  test.is( _.constructorIs( _.introspector.Parser.JsAcorn ) );
   test.is( _.constructorIs( context.defaultParser ) );
-  test.is( context.defaultParser === _.introspector.Parser.JsEsprima );
+  test.is( context.defaultParser === _.introspector.Parser.JsAcorn );
 
   let sys = _.introspector.System({ defaultParserClass : context.defaultParser });
   let file = _.introspector.File({ data : sourceCode, sys });
@@ -61,12 +61,12 @@ Parsing from string with espima js parser produce proper AST.
 var Proto =
 {
 
-  name : 'Tools.mid.Introspector.JsEsprima',
+  name : 'Tools.mid.Introspector.JsAcorn',
 
   context :
   {
 
-    defaultParser : _.introspector.Parser.JsEsprima,
+    defaultParser : _.introspector.Parser.JsAcorn,
 
   },
 

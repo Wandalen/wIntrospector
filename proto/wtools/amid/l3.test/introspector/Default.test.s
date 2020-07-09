@@ -1,11 +1,11 @@
-( function _JsAcorn_test_s_( ) {
+( function _Default_test_s_( ) {
 
 'use strict';
 
 if( typeof module !== 'undefined' )
 {
 
-  let _ = require( '../../../../dwtools/Tools.s' );
+  let _ = require( '../../../../wtools/Tools.s' );
   require( './JsAbstract.test.s' );
 
 }
@@ -28,9 +28,9 @@ function parseStringSpecial( test )
 
   test.description = 'setup';
 
-  test.is( _.constructorIs( _.introspector.Parser.JsAcorn ) );
+  test.is( _.constructorIs( _.introspector.Parser.JsTreeSitter ) );
   test.is( _.constructorIs( context.defaultParser ) );
-  test.is( context.defaultParser === _.introspector.Parser.JsAcorn );
+  test.is( context.defaultParser === _.introspector.Parser.JsTreeSitter );
 
   let sys = _.introspector.System({ defaultParserClass : context.defaultParser });
   let file = _.introspector.File({ data : sourceCode, sys });
@@ -38,13 +38,13 @@ function parseStringSpecial( test )
   logger.log( file.productExportInfo() );
 
   test.description = 'nodes';
-  test.identical( file.product.nodes.length, 96 );
-  test.identical( _.mapKeys( file.product.byType ).length, 20 );
+  test.identical( file.product.nodes.length, 220 );
+  test.identical( _.mapKeys( file.product.byType ).length, 23 );
   test.identical( file.product.byType.gRoutine.length, 8 );
 
   test.description = 'root';
-  test.identical( file.product.byType.Program.length, 1 );
-  test.is( file.product.byType.Program.first() === file.product.root );
+  test.identical( file.product.byType.program.length, 1 );
+  test.is( file.product.byType.program.first() === file.product.root );
 
   return null;
 }
@@ -61,12 +61,12 @@ Parsing from string with espima js parser produce proper AST.
 var Proto =
 {
 
-  name : 'Tools.mid.Introspector.JsAcorn',
+  name : 'Tools.mid.Introspector.Default',
 
   context :
   {
 
-    defaultParser : _.introspector.Parser.JsAcorn,
+    defaultParser : _.introspector.Parser.Default,
 
   },
 
@@ -78,6 +78,8 @@ var Proto =
   },
 
 }
+
+_.assert( !!_.introspector.Parser.Default );
 
 //
 

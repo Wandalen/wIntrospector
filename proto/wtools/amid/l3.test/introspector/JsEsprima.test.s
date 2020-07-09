@@ -1,11 +1,11 @@
-( function _JsUglify_test_s_( ) {
+( function _JsEsprima_test_s_( ) {
 
 'use strict';
 
 if( typeof module !== 'undefined' )
 {
 
-  let _ = require( '../../../../dwtools/Tools.s' );
+  let _ = require( '../../../../wtools/Tools.s' );
   require( './JsAbstract.test.s' );
 
 }
@@ -28,9 +28,9 @@ function parseStringSpecial( test )
 
   test.description = 'setup';
 
-  test.is( _.constructorIs( _.introspector.Parser.JsUglify ) );
+  test.is( _.constructorIs( _.introspector.Parser.JsEsprima ) );
   test.is( _.constructorIs( context.defaultParser ) );
-  test.is( context.defaultParser === _.introspector.Parser.JsUglify );
+  test.is( context.defaultParser === _.introspector.Parser.JsEsprima );
 
   let sys = _.introspector.System({ defaultParserClass : context.defaultParser });
   let file = _.introspector.File({ data : sourceCode, sys });
@@ -38,19 +38,14 @@ function parseStringSpecial( test )
   logger.log( file.productExportInfo() );
 
   test.description = 'nodes';
-  test.identical( file.product.nodes.length, 152 );
-  test.identical( _.mapKeys( file.product.byType ).length, 28 );
+  test.identical( file.product.nodes.length, 96 );
+  test.identical( _.mapKeys( file.product.byType ).length, 20 );
   test.identical( file.product.byType.gRoutine.length, 8 );
 
   test.description = 'root';
-  test.identical( file.product.byType.Toplevel.length, 1 );
-  test.is( file.product.byType.Toplevel.first() === file.product.root );
+  test.identical( file.product.byType.Program.length, 1 );
+  test.is( file.product.byType.Program.first() === file.product.root );
 
-  /*
-    the most broken JS parser among added!
-  */
-
-  debugger;
   return null;
 }
 
@@ -66,12 +61,12 @@ Parsing from string with espima js parser produce proper AST.
 var Proto =
 {
 
-  name : 'Tools.mid.Introspector.JsUglify',
+  name : 'Tools.mid.Introspector.JsEsprima',
 
   context :
   {
 
-    defaultParser : _.introspector.Parser.JsUglify,
+    defaultParser : _.introspector.Parser.JsEsprima,
 
   },
 

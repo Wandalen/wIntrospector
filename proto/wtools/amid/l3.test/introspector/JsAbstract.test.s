@@ -5,7 +5,7 @@
 if( typeof module !== 'undefined' )
 {
 
-  let _ = require( '../../../../dwtools/Tools.s' );
+  let _ = require( '../../../../wtools/Tools.s' );
   require( './Abstract.test.s' );
 
 }
@@ -369,7 +369,7 @@ function thisFile( test )
 {
   let context = this;
   let a = test.assetFor( false );
-  let toolsPath = a.path.nativize( a.path.join( __dirname, '../../../../dwtools/Tools.s' ) );
+  let toolsPath = a.path.nativize( a.path.join( __dirname, '../../../../wtools/Tools.s' ) );
   let programPath = a.program({ routine : program, locals : { defaultParserName : context.defaultParser.shortName, toolsPath } });
 
   a.appStartNonThrowing({ execPath : programPath })
@@ -440,7 +440,7 @@ function thisFileSearch( test )
 {
   let context = this;
   let a = test.assetFor( false );
-  let toolsPath = a.path.nativize( a.path.join( __dirname, '../../../../dwtools/Tools.s' ) );
+  let toolsPath = a.path.nativize( a.path.join( __dirname, '../../../../wtools/Tools.s' ) );
   let programPath = a.program({ routine : program, locals : { defaultParserName : context.defaultParser.shortName, toolsPath } });
 
   a.appStartNonThrowing({ execPath : programPath })

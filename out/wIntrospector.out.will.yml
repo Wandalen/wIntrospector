@@ -109,7 +109,7 @@ module:
       entry.proto.no.tests:
         criterion:
           tests: no.tests
-        path: ../proto/dwtools/amid/l3/introspector/module/Full.s
+        path: ../proto/wtools/amid/l3/introspector/module/Full.s
       entry.proto.only.tests:
         criterion:
           tests: only.tests
@@ -119,13 +119,13 @@ module:
           debug: debug
           raw: raw
           content: prime
-        path: '{path::out.*=1}/source/dwtools/amid/l3/introspector/module/Full.s'
+        path: '{path::out.*=1}/source/wtools/amid/l3/introspector/module/Full.s'
       entry.out.raw.debug.release:
         criterion:
           debug: release
           raw: raw
           content: prime
-        path: '{path::out.*=1}/source/dwtools/amid/l3/introspector/module/Full.s'
+        path: '{path::out.*=1}/source/wtools/amid/l3/introspector/module/Full.s'
       entry.out.compiled.debug.debug:
         criterion:
           debug: debug
@@ -152,51 +152,51 @@ module:
         path:
           - ../proto
           - ../proto/Integration.test.s
-          - ../proto/dwtools
-          - ../proto/dwtools/Tools.s
-          - ../proto/dwtools/abase
-          - ../proto/dwtools/amid
-          - ../proto/dwtools/amid/l3
-          - ../proto/dwtools/amid/l3/introspector
-          - ../proto/dwtools/amid/l3/introspector/_external
-          - ../proto/dwtools/amid/l3/introspector/_external/nodes.ts
-          - ../proto/dwtools/amid/l3/introspector/include
-          - ../proto/dwtools/amid/l3/introspector/include/Base.s
-          - ../proto/dwtools/amid/l3/introspector/include/Full.s
-          - ../proto/dwtools/amid/l3/introspector/l1
-          - ../proto/dwtools/amid/l3/introspector/l1/Namespace.s
-          - ../proto/dwtools/amid/l3/introspector/l3
-          - ../proto/dwtools/amid/l3/introspector/l3/File.s
-          - ../proto/dwtools/amid/l3/introspector/l3/NodeDescriptor.s
-          - ../proto/dwtools/amid/l3/introspector/l3/Parser.s
-          - ../proto/dwtools/amid/l3/introspector/l3/Path.s
-          - ../proto/dwtools/amid/l3/introspector/l3/Structure.s
-          - ../proto/dwtools/amid/l3/introspector/l3/Sys.s
-          - ../proto/dwtools/amid/l3/introspector/l5_parser
-          - ../proto/dwtools/amid/l3/introspector/l5_parser/CppTreeSitter.s
-          - ../proto/dwtools/amid/l3/introspector/l5_parser/JsAcorn.s
-          - ../proto/dwtools/amid/l3/introspector/l5_parser/JsBabel.s
-          - ../proto/dwtools/amid/l3/introspector/l5_parser/JsEsprima.s
-          - ../proto/dwtools/amid/l3/introspector/l5_parser/JsTreeSitter.s
-          - ../proto/dwtools/amid/l3/introspector/l5_parser/JsUglify.s
-          - ../proto/dwtools/amid/l3/introspector/l5_parser/TsMicrosoft.s
-          - ../proto/dwtools/amid/l3/introspector/module
-          - ../proto/dwtools/amid/l3/introspector/module/Full.s
-          - ../proto/dwtools/amid/l3.test
-          - ../proto/dwtools/amid/l3.test/introspector
-          - ../proto/dwtools/amid/l3.test/introspector/Abstract.test.s
-          - ../proto/dwtools/amid/l3.test/introspector/CppAbstract.test.s
-          - ../proto/dwtools/amid/l3.test/introspector/CppTreeSitter.test.s
-          - ../proto/dwtools/amid/l3.test/introspector/Default.test.s
-          - ../proto/dwtools/amid/l3.test/introspector/JsAbstract.test.s
-          - ../proto/dwtools/amid/l3.test/introspector/JsAcorn.test.s
-          - ../proto/dwtools/amid/l3.test/introspector/JsBabel.test.s
-          - ../proto/dwtools/amid/l3.test/introspector/JsEsprima.test.s
-          - ../proto/dwtools/amid/l3.test/introspector/JsTreeSitter.test.s
-          - ../proto/dwtools/amid/l3.test/introspector/JsUglify.test.s
-          - ../proto/dwtools/amid/l3.test/introspector/TsAbstract.test.s
-          - ../proto/dwtools/amid/l3.test/introspector/TsMicrosoft.test.s
-          - ../proto/dwtools/atop
+          - ../proto/wtools
+          - ../proto/wtools/Tools.s
+          - ../proto/wtools/abase
+          - ../proto/wtools/amid
+          - ../proto/wtools/amid/l3
+          - ../proto/wtools/amid/l3/introspector
+          - ../proto/wtools/amid/l3/introspector/_external
+          - ../proto/wtools/amid/l3/introspector/_external/nodes.ts
+          - ../proto/wtools/amid/l3/introspector/include
+          - ../proto/wtools/amid/l3/introspector/include/Base.s
+          - ../proto/wtools/amid/l3/introspector/include/Full.s
+          - ../proto/wtools/amid/l3/introspector/l1
+          - ../proto/wtools/amid/l3/introspector/l1/Namespace.s
+          - ../proto/wtools/amid/l3/introspector/l3
+          - ../proto/wtools/amid/l3/introspector/l3/File.s
+          - ../proto/wtools/amid/l3/introspector/l3/NodeDescriptor.s
+          - ../proto/wtools/amid/l3/introspector/l3/Parser.s
+          - ../proto/wtools/amid/l3/introspector/l3/Path.s
+          - ../proto/wtools/amid/l3/introspector/l3/Structure.s
+          - ../proto/wtools/amid/l3/introspector/l3/Sys.s
+          - ../proto/wtools/amid/l3/introspector/l5_parser
+          - ../proto/wtools/amid/l3/introspector/l5_parser/CppTreeSitter.s
+          - ../proto/wtools/amid/l3/introspector/l5_parser/JsAcorn.s
+          - ../proto/wtools/amid/l3/introspector/l5_parser/JsBabel.s
+          - ../proto/wtools/amid/l3/introspector/l5_parser/JsEsprima.s
+          - ../proto/wtools/amid/l3/introspector/l5_parser/JsTreeSitter.s
+          - ../proto/wtools/amid/l3/introspector/l5_parser/JsUglify.s
+          - ../proto/wtools/amid/l3/introspector/l5_parser/TsMicrosoft.s
+          - ../proto/wtools/amid/l3/introspector/module
+          - ../proto/wtools/amid/l3/introspector/module/Full.s
+          - ../proto/wtools/amid/l3.test
+          - ../proto/wtools/amid/l3.test/introspector
+          - ../proto/wtools/amid/l3.test/introspector/Abstract.test.s
+          - ../proto/wtools/amid/l3.test/introspector/CppAbstract.test.s
+          - ../proto/wtools/amid/l3.test/introspector/CppTreeSitter.test.s
+          - ../proto/wtools/amid/l3.test/introspector/Default.test.s
+          - ../proto/wtools/amid/l3.test/introspector/JsAbstract.test.s
+          - ../proto/wtools/amid/l3.test/introspector/JsAcorn.test.s
+          - ../proto/wtools/amid/l3.test/introspector/JsBabel.test.s
+          - ../proto/wtools/amid/l3.test/introspector/JsEsprima.test.s
+          - ../proto/wtools/amid/l3.test/introspector/JsTreeSitter.test.s
+          - ../proto/wtools/amid/l3.test/introspector/JsUglify.test.s
+          - ../proto/wtools/amid/l3.test/introspector/TsAbstract.test.s
+          - ../proto/wtools/amid/l3.test/introspector/TsMicrosoft.test.s
+          - ../proto/wtools/atop
     submodule:
       wTools:
         path: 'npm:///wTools'
@@ -983,7 +983,7 @@ module:
       entry.proto.no.tests:
         criterion:
           tests: no.tests
-        path: proto/dwtools/amid/l3/introspector/module/Full.s
+        path: proto/wtools/amid/l3/introspector/module/Full.s
       entry.proto.only.tests:
         criterion:
           tests: only.tests
@@ -993,13 +993,13 @@ module:
           debug: debug
           raw: raw
           content: prime
-        path: '{path::out.*=1}/source/dwtools/amid/l3/introspector/module/Full.s'
+        path: '{path::out.*=1}/source/wtools/amid/l3/introspector/module/Full.s'
       entry.out.raw.debug.release:
         criterion:
           debug: release
           raw: raw
           content: prime
-        path: '{path::out.*=1}/source/dwtools/amid/l3/introspector/module/Full.s'
+        path: '{path::out.*=1}/source/wtools/amid/l3/introspector/module/Full.s'
       entry.out.compiled.debug.debug:
         criterion:
           debug: debug
