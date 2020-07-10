@@ -1622,6 +1622,4 @@ module:
       ../.im.will.yml:
         hash: 4f28c4f26e26ba885506d0181057c5c2
         size: 5833
-      wIntrospector.out.will.yml:
-        hash: f1c00a8e7b1abd43bbea4bf3e08add8a
-        size: 42815
+      wIntrospector.out.will.yml: *ref_0
