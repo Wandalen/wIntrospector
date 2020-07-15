@@ -12,6 +12,6 @@ Single programmatic interface for javascript parsing tools:
 ## Try out
 ```
 npm install
-node sample/Sample.js
+node sample/Sample.s
 ```
 
