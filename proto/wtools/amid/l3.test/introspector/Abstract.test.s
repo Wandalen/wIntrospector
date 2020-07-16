@@ -13,7 +13,7 @@ if( typeof module !== 'undefined' )
 
 //
 
-var _ = _global_.wTools;
+let _ = _global_.wTools;
 var fileProvider = _.fileProvider;
 var path = fileProvider.path;
 
@@ -82,7 +82,7 @@ var Proto =
 
 //
 
-var Self = new wTestSuite( Proto );
+let Self = new wTestSuite( Proto );
 if( typeof module !== 'undefined' && !module.parent )
 wTester.test( Self.name );
 

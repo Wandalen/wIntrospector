@@ -12,10 +12,10 @@ if( typeof module !== 'undefined' )
 
 //
 
-var _ = _global_.wTools;
+let _ = _global_.wTools;
 var fileProvider = _.fileProvider;
 var path = fileProvider.path;
-var Parent = wTests[ 'Tools.mid.Introspector.Js' ];
+let Parent = wTests[ 'Tools.mid.Introspector.Js' ];
 
 // --
 // tests
@@ -144,7 +144,7 @@ function descriptorsSearchKind( test )
 
   function programRoutine()
   {
-    var _ = require( toolsPath );
+    let _ = require( toolsPath );
     function r1()
     {
       test.setsAreIdentical( rel( _.arrayFlatten( _.select( arr, '*/filePath' ) ) ), [] );
@@ -191,7 +191,7 @@ var Proto =
 
 //
 
-var Self = new wTestSuite( Proto ).inherit( Parent );
+let Self = new wTestSuite( Proto ).inherit( Parent );
 if( typeof module !== 'undefined' && !module.parent )
 wTester.test( Self.name );
 

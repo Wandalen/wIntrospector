@@ -12,10 +12,10 @@ if( typeof module !== 'undefined' )
 
 //
 
-var _ = _global_.wTools;
+let _ = _global_.wTools;
 var fileProvider = _.fileProvider;
 var path = fileProvider.path;
-var Parent = wTests[ 'Tools.mid.Introspector' ];
+let Parent = wTests[ 'Tools.mid.Introspector' ];
 
 // --
 // assets
@@ -103,7 +103,7 @@ function fromData( test )
 
   function programRoutine()
   {
-    var _ = require( toolsPath );
+    let _ = require( toolsPath );
     function r1()
     {
       test.setsAreIdentical( rel( _.arrayFlatten( _.select( arr, '*/filePath' ) ) ), [] );
@@ -210,7 +210,7 @@ function descriptorsSearch( test )
 
   function programRoutine()
   {
-    var _ = require( toolsPath );
+    let _ = require( toolsPath );
     function r1()
     {
       test.setsAreIdentical( rel( _.arrayFlatten( _.select( arr, '*/filePath' ) ) ), [] );
@@ -282,7 +282,7 @@ Routine descriptorsSearch finds 2 nodes.
 //
 //   function programRoutine()
 //   {
-//     var _ = require( toolsPath );
+//     let _ = require( toolsPath );
 //     function r1()
 //     {
 //       test.setsAreIdentical( rel( _.arrayFlatten( _.select( arr, '*/filePath' ) ) ), [] );
@@ -339,7 +339,7 @@ function descriptorsSearchWithComment( test )
 
   function programRoutine()
   {
-    var _ = require( toolsPath );
+    let _ = require( toolsPath );
 
     // setsAreIdentical
 
@@ -389,7 +389,7 @@ function thisFile( test )
 
   function program()
   {
-    var _ = require( toolsPath );
+    let _ = require( toolsPath );
     _.include( 'wIntrospector' );
 
     _.introspector.Parser.Default = _.introspector.Parser[ defaultParserName ];
@@ -462,7 +462,7 @@ function thisFileSearch( test )
 
   function program()
   {
-    var _ = require( toolsPath );
+    let _ = require( toolsPath );
     _.include( 'wIntrospector' );
 
     _.introspector.Parser.Default = _.introspector.Parser[ defaultParserName ];
@@ -576,7 +576,7 @@ var Proto =
 
 //
 
-var Self = new wTestSuite( Proto ).inherit( Parent );
+let Self = new wTestSuite( Proto ).inherit( Parent );
 if( typeof module !== 'undefined' && !module.parent )
 wTester.test( Self.name );
 

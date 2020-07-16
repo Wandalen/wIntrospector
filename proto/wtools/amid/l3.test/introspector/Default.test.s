@@ -12,10 +12,10 @@ if( typeof module !== 'undefined' )
 
 //
 
-var _ = _global_.wTools;
+let _ = _global_.wTools;
 var fileProvider = _.fileProvider;
 var path = fileProvider.path;
-var Parent = wTests[ 'Tools.mid.Introspector.Js' ];
+let Parent = wTests[ 'Tools.mid.Introspector.Js' ];
 
 // --
 // tests
@@ -83,7 +83,7 @@ _.assert( !!_.introspector.Parser.Default );
 
 //
 
-var Self = new wTestSuite( Proto ).inherit( Parent );
+let Self = new wTestSuite( Proto ).inherit( Parent );
 if( typeof module !== 'undefined' && !module.parent )
 wTester.test( Self.name );
 
