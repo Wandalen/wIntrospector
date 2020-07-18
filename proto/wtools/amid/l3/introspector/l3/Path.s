@@ -129,7 +129,7 @@ function closestNode( root, filePath )
 // declare
 // --
 
-let Extend =
+let Extension =
 {
 
   file : null,
@@ -141,6 +141,6 @@ let Extend =
 
 }
 
-_.mapExtend( Self, Extend );
+_.mapExtend( Self, Extension );
 
 })();

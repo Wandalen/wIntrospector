@@ -21,14 +21,14 @@ function thisFile()
 // declare
 // --
 
-let Extend =
+let Extension =
 {
 
   thisFile,
 
 }
 
-_.mapExtend( Self, Extend );
+_.mapExtend( Self, Extension );
 
 //
 
