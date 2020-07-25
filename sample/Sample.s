@@ -3,5 +3,5 @@ let _ = require( 'wintrospector' );
 
 /**/
 
-___
+console.log( '___ not implemented ___' );
 
