@@ -553,7 +553,7 @@ function nodeDescriptor( node )
 
 //
 
-function search_pre( routine, args )
+function search_head( routine, args )
 {
   let file = this;
   let product = file.product;
@@ -650,7 +650,7 @@ search_body.defaults =
 
 delete search_body.defaults.Looker;
 
-let search = _.routineFromPreAndBody( search_pre, search_body );
+let search = _.routineUnite( search_head, search_body );
 
 //
 
@@ -680,7 +680,7 @@ function nodesSearch_body( o )
 
 _.routineExtend( nodesSearch_body, search.body );
 
-let nodesSearch = _.routineFromPreAndBody( search_pre, nodesSearch_body );
+let nodesSearch = _.routineUnite( search_head, nodesSearch_body );
 
 // --
 // descriptor
@@ -791,7 +791,7 @@ function descriptorsSearch_body( o )
 
 _.routineExtend( descriptorsSearch_body, search.body );
 
-let descriptorsSearch = _.routineFromPreAndBody( search_pre, descriptorsSearch_body );
+let descriptorsSearch = _.routineUnite( search_head, descriptorsSearch_body );
 
 // --
 // product
