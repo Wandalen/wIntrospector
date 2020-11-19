@@ -47,6 +47,32 @@ function onSuiteEnd()
 // tests
 // --
 
+function prefferedParsers( test )
+{
+  let context = this;
+  let sourceCode = context.defaultProgramSourceCode;
+
+  test.is( _.introspector.Parser.Default === undefined );
+  test.is( _.constructorIs( context.defaultParser ) );
+  test.is( _.arrayIs( context.exts ) );
+
+  context.exts.forEach( ( ext ) => run( ext ) );
+
+  function run( ext )
+  {
+    let prefferedParsers = [ context.defaultParser ];
+    let sys = _.introspector.System({ prefferedParsers });
+    let file = _.introspector.File({ data : sourceCode, filePath : `/Program.${ext}`, sys });
+    let Parser = sys.parserClassFor( file );
+    test.is( Parser === context.defaultParser );
+  }
+}
+
+prefferedParsers.description =
+`
+Field prefferedParsers of system allows setting preffered parser
+`
+
 // --
 // declare
 // --
@@ -75,7 +101,7 @@ var Proto =
 
   tests :
   {
-
+    prefferedParsers,
   },
 
 }

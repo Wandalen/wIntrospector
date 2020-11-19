@@ -92,12 +92,14 @@ function _nodeRange( node )
     end = node.start.endpos;
     else
     end = node.end.endpos;
-    return [ node.start.pos, end ];
+    return [ node.start.pos, end-1 ];
+    // return [ node.start.pos, end ];
   }
   else
   {
     _.assert( node.pos !== undefined && node.endpos !== undefined );
-    return [ node.pos, node.endpos ];
+    return [ node.pos, node.endpos-1 ];
+    // return [ node.pos, node.endpos ];
   }
 
 }
@@ -122,6 +124,7 @@ function _Setup()
 
   parser._TypeAssociationsFromSchema();
   parser._TypeAssociationsNormalize();
+  parser._Register();
 
 }
 
@@ -169,9 +172,10 @@ let Statics =
 {
 
   _Setup,
-
   Schema,
   TypeAssociation,
+  Exts : [ 'js', 'ss', 's' ],
+  PrimeExts : [],
 
 }
 

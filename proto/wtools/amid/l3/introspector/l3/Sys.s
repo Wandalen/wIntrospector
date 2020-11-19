@@ -55,8 +55,30 @@ function form()
 function parserClassFor( file )
 {
   let sys = this;
-  let parserClass = sys.defaultParserClass || _.introspector.Parser.Default;
-  return parserClass;
+  let result;
+
+  if( sys.prefferedParsers && file.filePath )
+  {
+    let ext = sys.fileSystem.path.ext( file.filePath );
+    sys.prefferedParsers = _.arrayAs( sys.prefferedParsers );
+    result = _.any( sys.prefferedParsers, ( Parser ) =>
+    {
+      if( _.longHas( Parser.Exts, ext ) )
+      return Parser;
+    });
+    if( result )
+    return result;
+  }
+
+  if( file.filePath )
+  result = _.introspector.parserClassFor( file.filePath );
+
+  if( !result )
+  result = sys.defaultParserClass;
+
+  return result;
+  // let parserClass = sys.defaultParserClass || _.introspector.Parser.Default;
+  // return parserClass;
 }
 
 // --
@@ -74,6 +96,7 @@ let Aggregates =
 let Associates =
 {
   fileSystem : null,
+  prefferedParsers : null,
   defaultParserClass : null,
 }
 
@@ -89,6 +112,7 @@ let Statics =
 
 let Forbids =
 {
+  // defaultParserClass : 'defaultParserClass',
 }
 
 let Accessors =

@@ -185,7 +185,6 @@ function descriptorsSearch( test )
     return `at ${d.path}\nfound ${file.descriptorToCode( d )}\n`;
   }).join( '\n' );
   logger.log( foundStr );
-  // test.identical( _.strCount( foundStr, `found setsAreIdentical` ), 2 );
   test.identical( _.strCount( foundStr, `found` ), 2 );
 
   var foundStr = _.map( foundDescriptors, ( d ) =>
@@ -333,7 +332,6 @@ function descriptorsSearchWithComment( test )
   test.identical( _.strCount( foundStr, `found /* setsAreIdentical */` ), 1 );
   test.identical( _.strCount( foundStr, `at / ` ), 0 );
   test.identical( _.strCount( foundStr, `at ` ), 4 );
-  debugger;
 
   /* */
 
@@ -392,9 +390,10 @@ function thisFile( test )
     let _ = require( toolsPath );
     _.include( 'wIntrospector' );
 
-    _.introspector.Parser.Default = _.introspector.Parser[ defaultParserName ];
-    console.log( `default parser : ${_.introspector.Parser.Default.name}` );
+    _.assert( _.routineIs( _.introspector.Parser[ defaultParserName ] ) );
+    _.introspector.Parser[ defaultParserName ].SetAsDefault();
     let file = _.introspector.thisFile().refine();
+    _.assert( file.parser.constructor === _.introspector.Parser[ defaultParserName ] );
     let nodes = _.containerAdapter.from( [] );
 
     logger.log( file.productExportInfo() );
@@ -465,9 +464,10 @@ function thisFileSearch( test )
     let _ = require( toolsPath );
     _.include( 'wIntrospector' );
 
-    _.introspector.Parser.Default = _.introspector.Parser[ defaultParserName ];
-    console.log( `default parser : ${_.introspector.Parser.Default.name}` );
+    _.assert( _.routineIs( _.introspector.Parser[ defaultParserName ] ) );
+    _.introspector.Parser[ defaultParserName ].SetAsDefault();
     let file = _.introspector.thisFile().refine();
+    _.assert( file.parser.constructor === _.introspector.Parser[ defaultParserName ] );
     let nodes = _.containerAdapter.from( [] );
 
     logger.log( file.productExportInfo() );
@@ -512,7 +512,7 @@ function parseStringCommon( test )
   let context = this;
   let sourceCode = context.defaultProgramSourceCode;
 
-  test.is( _.constructorIs( _.introspector.Parser.Default ) );
+  test.is( _.introspector.Parser.Default === undefined );
   test.is( _.constructorIs( context.defaultParser ) );
 
   let sys = _.introspector.System({ defaultParserClass : context.defaultParser });
@@ -524,7 +524,7 @@ function parseStringCommon( test )
   test.is( file.nodeIs( file.product.root ) );
   test.identical( file.product.byType.gRoutine.length, 8 );
   test.identical( file.nodeCode( file.product.root ), sourceCode );
-  test.identical( file.parser.nodeRange( file.product.root ), [ 0, sourceCode.length ] );
+  test.identical( file.parser.nodeRange( file.product.root ), [ 0, sourceCode.length-1 ] );
 
   debugger;
 
@@ -544,7 +544,7 @@ Routine nodeCode returns proper source code.
 var Proto =
 {
 
-  name : 'Tools.mid.Introspector.Js',
+  name : 'Tools.mid.Introspector.JsAbstract',
   abstract : 1,
 
   context :
@@ -553,6 +553,7 @@ var Proto =
     programWithCommentsAndRoutines,
     defaultProgram,
     defaultProgramSourceCode,
+    exts : [ 'js', 'ss', 's' ],
 
   },
 

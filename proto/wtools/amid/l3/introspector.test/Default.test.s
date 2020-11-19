@@ -1,4 +1,4 @@
-( function _JsBabel_test_s_( ) {
+( function _Js_test_s_( ) {
 
 'use strict';
 
@@ -15,7 +15,7 @@ if( typeof module !== 'undefined' )
 let _ = _global_.wTools;
 var fileProvider = _.fileProvider;
 var path = fileProvider.path;
-let Parent = wTests[ 'Tools.mid.Introspector.Js' ];
+let Parent = wTests[ 'Tools.mid.Introspector.JsAbstract' ];
 
 // --
 // tests
@@ -27,25 +27,24 @@ function parseStringSpecial( test )
   let sourceCode = context.defaultProgramSourceCode;
 
   test.description = 'setup';
-
-  test.is( _.constructorIs( _.introspector.Parser.JsBabel ) );
+  test.is( _.constructorIs( _.introspector.Parser.JsAcorn ) );
   test.is( _.constructorIs( context.defaultParser ) );
-  test.is( context.defaultParser === _.introspector.Parser.JsBabel );
-
-  let sys = _.introspector.System({ defaultParserClass : context.defaultParser });
-  let file = _.introspector.File({ data : sourceCode, sys });
+  // test.is( context.defaultParser === _.introspector.Parser.JsAcorn );
+  // let sys = _.introspector.System({ defaultParserClass : context.defaultParser });
+  let sys = _.introspector.System();
+  let file = _.introspector.File({ data : sourceCode, filePath : '/ParseStringSpecial.js', sys });
   file.refine();
   logger.log( file.productExportInfo() );
+  test.is( file.parser.constructor === _.introspector.Parser.JsAcorn );
 
   test.description = 'nodes';
-  test.identical( file.product.nodes.length, 95 );
-  test.identical( _.mapKeys( file.product.byType ).length, 21 );
+  test.identical( file.product.nodes.length, 96 );
+  test.identical( _.mapKeys( file.product.byType ).length, 20 );
   test.identical( file.product.byType.gRoutine.length, 8 );
 
   test.description = 'root';
-  test.identical( file.product.byType.File.length, 1 );
   test.identical( file.product.byType.Program.length, 1 );
-  test.is( file.product.byType.File.first() === file.product.root );
+  test.is( file.product.byType.Program.first() === file.product.root );
 
   return null;
 }
@@ -62,12 +61,12 @@ Parsing from string with espima js parser produce proper AST.
 var Proto =
 {
 
-  name : 'Tools.mid.Introspector.JsBabel',
+  name : 'Tools.mid.Introspector.Js',
 
   context :
   {
 
-    defaultParser : _.introspector.Parser.JsBabel,
+    defaultParser : _.introspector.Parser.Js,
 
   },
 

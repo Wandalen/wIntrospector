@@ -73,7 +73,8 @@ function _nodeRange( node )
   _.assert( arguments.length === 1 );
   _.assert( parser.nodeIs( node ) );
 
-  return node.range;
+  return [ node.range[ 0 ], node.range[ 1 ]-1 ];
+  // return node.range;
 }
 
 //
@@ -100,6 +101,7 @@ function _Setup()
   });
 
   parser._TypeAssociationsNormalize();
+  parser._Register();
 
 }
 
@@ -150,6 +152,8 @@ let Statics =
 
   Schema,
   TypeAssociation,
+  Exts : [ 'js', 'ss', 's' ],
+  PrimeExts : [],
 
 }
 
@@ -202,8 +206,8 @@ _.classDeclare
 Self._Setup();
 
 _.introspector.Parser[ Self.shortName ] = Self;
-// if( !_.introspector.Parser.Default )
-// _.introspector.Parser.Default = Self;
+if( !_.introspector.Parser.Js )
+_.introspector.Parser.Js = Self;
 
 if( typeof module !== 'undefined' )
 module[ 'exports' ] = _global_.wTools;

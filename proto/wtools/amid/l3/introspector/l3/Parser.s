@@ -120,8 +120,6 @@ function nodeType( node )
 {
   let parser = this;
   let result = parser._nodeType( node );
-  // if( result === 'string' || result === 'String' )
-  // debugger;
   _.assert( _.strIs( result ) );
   return result;
 }
@@ -145,14 +143,12 @@ function _nodeMapGet( node )
   if( parser.nodeIs( node ) )
   {
     return _.mapExtend( null, node );
-    // return _.mapAllProperties( node );
   }
   else
   {
     debugger;
     return node;
   }
-  // return _.mapExtend( null, node );
 }
 
 //
@@ -161,10 +157,6 @@ function nodeMapGet( node )
 {
   let parser = this;
   let result = parser._nodeMapGet( node );
-  // if( _.mapKeys( _.mapBut( result, { 0 : 0, 1 : 1, 2 : 2, 3 : 3, 4 : 4, 5 : 5, tree : null, fields : null } ) ).length )
-  // debugger;
-  // if( result.fields && result.fields.length )
-  // debugger;
   return result;
 }
 
@@ -274,10 +266,45 @@ function _TypeAssociationsNormalize()
     });
   });
 
-  // if( parser.name === "wIntrospectionParserJsTreeSitter" )
-  // debugger;
-
   _.assert( !!parser.TypeAssociation.gRoutine && parser.TypeAssociation.gRoutine.length > 0 );
+
+}
+
+//
+
+function _Register()
+{
+  let cls = this;
+
+  _.assert( _.arrayIs( cls.Exts ) );
+  _.assert( _.arrayIs( cls.PrimeExts ) );
+
+  cls.Exts.forEach( ( ext ) =>
+  {
+    let array = _.introspector.extToAllParsersMap[ ext ] = _.introspector.extToAllParsersMap[ ext ] || [];
+    _.arrayAppendOnceStrictly( array, cls );
+  });
+
+  cls.PrimeExts.forEach( ( ext ) =>
+  {
+    _.assert( !_.introspector.extToDefaultParserMap[ ext ], `Only one parser can have prime extension "${ext}"` );
+    _.introspector.extToDefaultParserMap[ ext ] = cls;
+  });
+
+}
+
+//
+
+function SetAsDefault()
+{
+  let cls = this;
+
+  _.assert( _.arrayIs( cls.Exts ) );
+
+  cls.Exts.forEach( ( ext ) =>
+  {
+    _.introspector.extToDefaultParserMap[ ext ] = cls;
+  });
 
 }
 
@@ -316,8 +343,12 @@ let Statics =
 
   _TypeAssociationsFromSchema,
   _TypeAssociationsNormalize,
-
   ParsedStructure,
+
+  _Register,
+  SetAsDefault,
+  Exts : null,
+  PrimeExts : null,
 
 }
 
@@ -372,6 +403,13 @@ let Proto =
 
   _TypeAssociationsFromSchema,
   _TypeAssociationsNormalize,
+
+  //
+
+  Exts : null,
+  PrimeExts : null,
+  _Register,
+  SetAsDefault,
 
   // relation
 

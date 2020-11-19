@@ -189,7 +189,9 @@ function reparse()
   if( file.data === null )
   file.read();
 
-  file.parser = sys.parserClassFor( file )({ sys }).form();
+  let Parser = sys.parserClassFor( file );
+  _.assert( _.routineIs( Parser ), `No parser for file ${file.filePath}` );
+  file.parser = Parser({ sys }).form();
   file.structure = file.parser.parse( file.data );
 
   return file;

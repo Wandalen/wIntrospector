@@ -15,7 +15,7 @@ if( typeof module !== 'undefined' )
 let _ = _global_.wTools;
 var fileProvider = _.fileProvider;
 var path = fileProvider.path;
-let Parent = wTests[ 'Tools.mid.Introspector.Js' ];
+let Parent = wTests[ 'Tools.mid.Introspector.JsAbstract' ];
 
 // --
 // tests
@@ -27,15 +27,14 @@ function parseStringSpecial( test )
   let sourceCode = context.defaultProgramSourceCode;
 
   test.description = 'setup';
-
   test.is( _.constructorIs( _.introspector.Parser.JsTreeSitter ) );
   test.is( _.constructorIs( context.defaultParser ) );
   test.is( context.defaultParser === _.introspector.Parser.JsTreeSitter );
-
   let sys = _.introspector.System({ defaultParserClass : context.defaultParser });
   let file = _.introspector.File({ data : sourceCode, sys });
   file.refine();
   logger.log( file.productExportInfo() );
+  test.is( file.parser.constructor === context.defaultParser );
 
   test.description = 'nodes';
   test.identical( file.product.nodes.length, 220 );

@@ -88,7 +88,8 @@ function _nodeRange( node )
   _.assert( parser.nodeIs( node ) );
   _.assert( node.startIndex >= 0 && node.endIndex >= 0 );
 
-  return [ node.startIndex, node.endIndex ];
+  return [ node.startIndex, node.endIndex-1 ];
+  // return [ node.startIndex, node.endIndex ];
 }
 
 //
@@ -137,6 +138,7 @@ function _Setup()
 
   parser._TypeAssociationsFromSchema();
   parser._TypeAssociationsNormalize();
+  parser._Register();
 
 }
 
@@ -188,6 +190,9 @@ let Statics =
 
   Schema,
   TypeAssociation,
+
+  Exts : [ 'cpp', 'c', 'hpp', 'h' ],
+  PrimeExts : [ 'cpp', 'c', 'hpp', 'h' ],
 
 }
 
@@ -245,8 +250,8 @@ _.classDeclare
 Self._Setup();
 
 _.introspector.Parser[ Self.shortName ] = Self;
-if( !_.introspector.Parser.Default )
-_.introspector.Parser.Default = Self;
+// if( !_.introspector.Parser.Default )
+// _.introspector.Parser.Default = Self;
 
 if( typeof module !== 'undefined' )
 module[ 'exports' ] = _global_.wTools;

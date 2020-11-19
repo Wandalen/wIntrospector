@@ -60,7 +60,7 @@ function dirClosest( root, filePath, dLevel )
   _.assert( file.nodeIs( root ) );
   _.assert( dLevel >= 0 );
 
-  let result = dLevel !== 0 ? _.path.dir( filePath, dLevel ) : filePath; /* xxx : temp workaround */
+  let result = dLevel !== 0 ? _.path.dir( filePath, dLevel ) : filePath;
 
   return this._closestNode( root, result );
 }

@@ -76,7 +76,8 @@ function _nodeRange( node )
   _.assert( arguments.length === 1 );
   _.assert( parser.nodeIs( node ) );
 
-  return [ node.start, node.end ];
+  return [ node.start, node.end-1 ];
+  // return [ node.start, node.end ];
 }
 
 //
@@ -97,13 +98,14 @@ function _Setup()
 
   parser._TypeAssociationsFromSchema();
 
-  // xxx
+  // xxx : implement
   // _.mapKeys( _global_.Esprima.Syntax ).forEach( ( name ) =>
   // {
   //   parser.TypeAssociation[ name ] = [ name ];
   // });
 
   parser._TypeAssociationsNormalize();
+  parser._Register();
 
 }
 
@@ -154,6 +156,8 @@ let Statics =
 
   Schema,
   TypeAssociation,
+  Exts : [ 'js', 'ss', 's' ],
+  PrimeExts : [],
 
 }
 

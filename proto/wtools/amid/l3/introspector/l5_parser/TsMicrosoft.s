@@ -68,7 +68,8 @@ function _nodeRange( node )
   _.assert( arguments.length === 1 );
   _.assert( parser.nodeIs( node ) );
   debugger;
-  return [ node.pos, node.end ];
+  return [ node.pos, node.end-1 ];
+  // return [ node.pos, node.end ];
 }
 
 //
@@ -95,6 +96,7 @@ function _Setup()
   // });
 
   parser._TypeAssociationsNormalize();
+  parser._Register();
 
 }
 
@@ -145,6 +147,8 @@ let Statics =
 
   Schema,
   TypeAssociation,
+  Exts : [ 'ts' ],
+  PrimeExts : [ 'ts' ],
 
 }
 

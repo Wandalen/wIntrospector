@@ -1,4 +1,4 @@
-( function _JsEsprima_test_s_( ) {
+( function _CppTreeSitter_test_s_( ) {
 
 'use strict';
 
@@ -6,7 +6,7 @@ if( typeof module !== 'undefined' )
 {
 
   let _ = require( '../../../../wtools/Tools.s' );
-  require( './JsAbstract.test.s' );
+  require( './CppAbstract.test.s' );
 
 }
 
@@ -15,7 +15,7 @@ if( typeof module !== 'undefined' )
 let _ = _global_.wTools;
 var fileProvider = _.fileProvider;
 var path = fileProvider.path;
-let Parent = wTests[ 'Tools.mid.Introspector.Js' ];
+let Parent = wTests[ 'Tools.mid.Introspector.Cpp' ];
 
 // --
 // tests
@@ -27,24 +27,22 @@ function parseStringSpecial( test )
   let sourceCode = context.defaultProgramSourceCode;
 
   test.description = 'setup';
-
-  test.is( _.constructorIs( _.introspector.Parser.JsEsprima ) );
+  test.is( _.constructorIs( _.introspector.Parser.CppTreeSitter ) );
   test.is( _.constructorIs( context.defaultParser ) );
-  test.is( context.defaultParser === _.introspector.Parser.JsEsprima );
-
+  test.is( context.defaultParser === _.introspector.Parser.CppTreeSitter );
   let sys = _.introspector.System({ defaultParserClass : context.defaultParser });
   let file = _.introspector.File({ data : sourceCode, sys });
   file.refine();
   logger.log( file.productExportInfo() );
+  test.is( file.parser.constructor === context.defaultParser );
 
   test.description = 'nodes';
-  test.identical( file.product.nodes.length, 96 );
-  test.identical( _.mapKeys( file.product.byType ).length, 20 );
-  test.identical( file.product.byType.gRoutine.length, 8 );
+  test.identical( file.product.nodes.length, 423 );
+  test.identical( _.mapKeys( file.product.byType ).length, 48 );
 
   test.description = 'root';
-  test.identical( file.product.byType.Program.length, 1 );
-  test.is( file.product.byType.Program.first() === file.product.root );
+  test.identical( file.product.byType.translation_unit.length, 1 );
+  test.is( file.product.byType.translation_unit.first() === file.product.root );
 
   return null;
 }
@@ -61,12 +59,12 @@ Parsing from string with espima js parser produce proper AST.
 var Proto =
 {
 
-  name : 'Tools.mid.Introspector.JsEsprima',
+  name : 'Tools.mid.Introspector.CppTreeSitter',
 
   context :
   {
 
-    defaultParser : _.introspector.Parser.JsEsprima,
+    defaultParser : _.introspector.Parser.CppTreeSitter,
 
   },
 

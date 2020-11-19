@@ -82,7 +82,7 @@ function parseStringCommon( test )
   let context = this;
   let sourceCode = context.defaultProgramSourceCode;
 
-  test.is( _.constructorIs( _.introspector.Parser.Default ) );
+  test.is( !_.introspector.Parser.Default );
   test.is( _.constructorIs( context.defaultParser ) );
 
   let sys = _.introspector.System({ defaultParserClass : context.defaultParser });
@@ -93,7 +93,7 @@ function parseStringCommon( test )
 
   test.is( file.nodeIs( file.product.root ) );
   test.identical( file.nodeCode( file.product.root ), sourceCode );
-  test.identical( file.parser.nodeRange( file.product.root ), [ 0, sourceCode.length ] );
+  test.identical( file.parser.nodeRange( file.product.root ), [ 0, sourceCode.length-1 ] );
 
   return null;
 }
@@ -201,6 +201,7 @@ var Proto =
 
     tsProgramSourceCode1,
     defaultProgramSourceCode : tsProgramSourceCode1,
+    exts : [ 'cpp', 'c', 'hpp', 'h' ],
 
   },
 
