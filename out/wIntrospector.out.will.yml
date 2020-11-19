@@ -182,20 +182,19 @@ module:
           - ../proto/wtools/amid/l3/introspector/l5_parser/TsMicrosoft.s
           - ../proto/wtools/amid/l3/introspector/module
           - ../proto/wtools/amid/l3/introspector/module/Full.s
-          - ../proto/wtools/amid/l3.test
-          - ../proto/wtools/amid/l3.test/introspector
-          - ../proto/wtools/amid/l3.test/introspector/Abstract.test.s
-          - ../proto/wtools/amid/l3.test/introspector/CppAbstract.test.s
-          - ../proto/wtools/amid/l3.test/introspector/CppTreeSitter.test.s
-          - ../proto/wtools/amid/l3.test/introspector/Default.test.s
-          - ../proto/wtools/amid/l3.test/introspector/JsAbstract.test.s
-          - ../proto/wtools/amid/l3.test/introspector/JsAcorn.test.s
-          - ../proto/wtools/amid/l3.test/introspector/JsBabel.test.s
-          - ../proto/wtools/amid/l3.test/introspector/JsEsprima.test.s
-          - ../proto/wtools/amid/l3.test/introspector/JsTreeSitter.test.s
-          - ../proto/wtools/amid/l3.test/introspector/JsUglify.test.s
-          - ../proto/wtools/amid/l3.test/introspector/TsAbstract.test.s
-          - ../proto/wtools/amid/l3.test/introspector/TsMicrosoft.test.s
+          - ../proto/wtools/amid/l3/introspector.test
+          - ../proto/wtools/amid/l3/introspector.test/Abstract.test.s
+          - ../proto/wtools/amid/l3/introspector.test/CppAbstract.test.s
+          - ../proto/wtools/amid/l3/introspector.test/CppTreeSitter.test.s
+          - ../proto/wtools/amid/l3/introspector.test/Default.test.s
+          - ../proto/wtools/amid/l3/introspector.test/JsAbstract.test.s
+          - ../proto/wtools/amid/l3/introspector.test/JsAcorn.test.s
+          - ../proto/wtools/amid/l3/introspector.test/JsBabel.test.s
+          - ../proto/wtools/amid/l3/introspector.test/JsEsprima.test.s
+          - ../proto/wtools/amid/l3/introspector.test/JsTreeSitter.test.s
+          - ../proto/wtools/amid/l3/introspector.test/JsUglify.test.s
+          - ../proto/wtools/amid/l3/introspector.test/TsAbstract.test.s
+          - ../proto/wtools/amid/l3/introspector.test/TsMicrosoft.test.s
           - ../proto/wtools/atop
     submodule:
       wTools:
