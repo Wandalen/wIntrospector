@@ -82,8 +82,8 @@ function parseStringCommon( test )
   let context = this;
   let sourceCode = context.defaultProgramSourceCode;
 
-  test.is( !_.introspector.Parser.Default );
-  test.is( _.constructorIs( context.defaultParser ) );
+  test.true( !_.introspector.Parser.Default );
+  test.true( _.constructorIs( context.defaultParser ) );
 
   let sys = _.introspector.System({ defaultParserClass : context.defaultParser });
   let file = _.introspector.File({ data : sourceCode, sys });
@@ -91,7 +91,7 @@ function parseStringCommon( test )
 
   logger.log( file.productExportInfo() );
 
-  test.is( file.nodeIs( file.product.root ) );
+  test.true( file.nodeIs( file.product.root ) );
   test.identical( file.nodeCode( file.product.root ), sourceCode );
   test.identical( file.parser.nodeRange( file.product.root ), [ 0, sourceCode.length-1 ] );
 
@@ -114,7 +114,7 @@ function parseGeneralNodes( test )
   logger.log( _.strLinesNumber( context.defaultProgramSourceCode ) );
   logger.log( '' );
 
-  test.is( _.constructorIs( context.defaultParser ) );
+  test.true( _.constructorIs( context.defaultParser ) );
 
   let file = _.introspector.File.FromData( context.defaultProgramSourceCode );
   file.sys.defaultParserClass = context.defaultParser;
@@ -127,7 +127,7 @@ function parseGeneralNodes( test )
   test.identical( file.product.byType.gRoutine.length, 7 );
   test.identical( file.product.byType.gComment.length, 8 );
   test.identical( file.product.byType.gRoot.length, 1 );
-  test.is( file.product.root === file.product.byType.gRoot.withIndex( 0 ) );
+  test.true( file.product.root === file.product.byType.gRoot.withIndex( 0 ) );
 
   // translation_unit : 1
   // gRoot : 1

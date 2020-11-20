@@ -130,7 +130,7 @@ function nodeRange( node )
 {
   let parser = this;
   let result = parser._nodeRange( node );
-  _.assert( _.rangeIs( result ) );
+  _.assert( _.intervalIs( result ) );
   return result;
 }
 

@@ -59,7 +59,7 @@ function fromData( test )
   logger.log( _.strLinesNumber( program.sourceCode ) );
   logger.log( '' );
 
-  test.is( _.constructorIs( context.defaultParser ) );
+  test.true( _.constructorIs( context.defaultParser ) );
 
   let file = _.introspector.File.FromData( program.sourceCode );
   file.sys.defaultParserClass = context.defaultParser;
@@ -132,7 +132,7 @@ function parseGeneralNodes( test )
   logger.log( _.strLinesNumber( context.defaultProgramSourceCode ) );
   logger.log( '' );
 
-  test.is( _.constructorIs( context.defaultParser ) );
+  test.true( _.constructorIs( context.defaultParser ) );
 
   let file = _.introspector.File.FromData( context.defaultProgramSourceCode );
   file.sys.defaultParserClass = context.defaultParser;
@@ -145,7 +145,7 @@ function parseGeneralNodes( test )
   test.identical( file.product.byType.gRoutine.length, 8 );
   test.identical( file.product.byType.gComment.length, 2 );
   test.identical( file.product.byType.gRoot.length, 1 );
-  test.is( file.product.root === file.product.byType.gRoot.withIndex( 0 ) );
+  test.true( file.product.root === file.product.byType.gRoot.withIndex( 0 ) );
 
   debugger;
 
@@ -169,7 +169,7 @@ function descriptorsSearch( test )
   logger.log( _.strLinesNumber( program.sourceCode ) );
   logger.log( '' );
 
-  test.is( _.constructorIs( context.defaultParser ) );
+  test.true( _.constructorIs( context.defaultParser ) );
 
   let file = _.introspector.File.FromData( program.sourceCode );
   file.sys.defaultParserClass = context.defaultParser;
@@ -240,7 +240,7 @@ Routine descriptorsSearch finds 2 nodes.
 //   logger.log( _.strLinesNumber( program.sourceCode ) );
 //   logger.log( '' );
 //
-//   test.is( _.constructorIs( context.defaultParser ) );
+//   test.true( _.constructorIs( context.defaultParser ) );
 //
 //   let file = _.introspector.File.FromData( program.sourceCode );
 //   file.sys.defaultParserClass = context.defaultParser;
@@ -311,7 +311,7 @@ function descriptorsSearchWithComment( test )
   logger.log( _.strLinesNumber( program.sourceCode ) );
   logger.log( '' );
 
-  test.is( _.constructorIs( context.defaultParser ) );
+  test.true( _.constructorIs( context.defaultParser ) );
 
   let file = _.introspector.File.FromData( program.sourceCode );
   file.sys.defaultParserClass = context.defaultParser;
@@ -512,8 +512,8 @@ function parseStringCommon( test )
   let context = this;
   let sourceCode = context.defaultProgramSourceCode;
 
-  test.is( _.introspector.Parser.Default === undefined );
-  test.is( _.constructorIs( context.defaultParser ) );
+  test.true( _.introspector.Parser.Default === undefined );
+  test.true( _.constructorIs( context.defaultParser ) );
 
   let sys = _.introspector.System({ defaultParserClass : context.defaultParser });
   let file = _.introspector.File({ data : sourceCode, sys });
@@ -521,7 +521,7 @@ function parseStringCommon( test )
 
   logger.log( file.productExportInfo() );
 
-  test.is( file.nodeIs( file.product.root ) );
+  test.true( file.nodeIs( file.product.root ) );
   test.identical( file.product.byType.gRoutine.length, 8 );
   test.identical( file.nodeCode( file.product.root ), sourceCode );
   test.identical( file.parser.nodeRange( file.product.root ), [ 0, sourceCode.length-1 ] );

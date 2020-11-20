@@ -52,9 +52,9 @@ function prefferedParsers( test )
   let context = this;
   let sourceCode = context.defaultProgramSourceCode;
 
-  test.is( _.introspector.Parser.Default === undefined );
-  test.is( _.constructorIs( context.defaultParser ) );
-  test.is( _.arrayIs( context.exts ) );
+  test.true( _.introspector.Parser.Default === undefined );
+  test.true( _.constructorIs( context.defaultParser ) );
+  test.true( _.arrayIs( context.exts ) );
 
   context.exts.forEach( ( ext ) => run( ext ) );
 
@@ -64,7 +64,7 @@ function prefferedParsers( test )
     let sys = _.introspector.System({ prefferedParsers });
     let file = _.introspector.File({ data : sourceCode, filePath : `/Program.${ext}`, sys });
     let Parser = sys.parserClassFor( file );
-    test.is( Parser === context.defaultParser );
+    test.true( Parser === context.defaultParser );
   }
 }
 
