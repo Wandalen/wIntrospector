@@ -28,6 +28,7 @@
     "wLogger" : "",
     "wstringer" : "",
     "wschema" : "",
+    "wgraphbasic": "",
     "acorn" : "8.0.4",
     "@babel/core" : "7.12.3",
     "esprima" : "4.0.1",
