@@ -32,6 +32,9 @@ submodule :
   wSchema :
     path : npm:///wschema
     enabled : 0 # submodule
+  wGraphBasic :
+    path : npm:///wgraphbasic
+    enabled : 0 # submodule
   acorn :
     path : npm:///acorn
     enabled : 0 # submodule
