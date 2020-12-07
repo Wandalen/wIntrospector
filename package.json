@@ -1,6 +1,6 @@
 {
   "name" : "wintrospector",
-  "version" : "0.3.64",
+  "version" : "0.3.65",
   "description" : "Single programmatic interface to for javascript parsing tools",
   "author" : "Kostiantyn Wandalen <wanalen@01.school>",
   "license" : "MIT",
@@ -35,7 +35,8 @@
     "wlookerextra" : "alpha",
     "wLogger" : "alpha",
     "wstringer" : "alpha",
-    "wschema" : "alpha"
+    "wschema" : "alpha",
+    "wgraphbasic" : "alpha"
   },
   "devDependencies" : { "wintrospector" : "file:.", "wTesting" : "alpha" },
   "keywords" : [ "wTools" ]

@@ -1,6 +1,6 @@
 {
   "name" : "wintrospector",
-  "version" : "0.3.64",
+  "version" : "0.3.65",
   "description" : "Single programmatic interface to for javascript parsing tools",
   "author" : "Kostiantyn Wandalen <wanalen@01.school>",
   "license" : "MIT",
@@ -28,7 +28,7 @@
     "wLogger" : "",
     "wstringer" : "",
     "wschema" : "",
-    "wgraphbasic": "",
+    "wgraphbasic" : "",
     "acorn" : "8.0.4",
     "@babel/core" : "7.12.3",
     "esprima" : "4.0.1",
