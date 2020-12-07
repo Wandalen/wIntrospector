@@ -38,8 +38,8 @@ function parseStringSpecial( test )
   test.true( file.parser.constructor === context.defaultParser );
 
   test.description = 'nodes';
-  test.identical( file.product.nodes.length, 96 );
-  test.identical( _.mapKeys( file.product.byType ).length, 20 );
+  test.identical( file.product.nodes.length, 104 ); /* 96 */
+  test.identical( _.mapKeys( file.product.byType ).length, 23 ); /* 20 */
   test.identical( file.product.byType.gRoutine.length, 8 );
 
   test.description = 'root';
