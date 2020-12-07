@@ -30,7 +30,7 @@ function programWithCommentsAndRoutines()
   process.on( 'exit', () => { console.log( 'arrow2' ) } );
   process.on( 'exit', function(){ console.log( 'anonymous1' ) } );
   process.on( 'exit', function function1(){ console.log( 'function1' ) } );
-  // let function2 = function function2_(){ console.log( 'function2' ) };
+  let function2 = function function2_(){ console.log( 'function2' ) };
   class SomeClass
   {
     constructor()
