@@ -1,4 +1,5 @@
-( function _JsAcorn_test_s_( ) {
+( function _JsAcorn_test_s_( )
+{
 
 'use strict';
 

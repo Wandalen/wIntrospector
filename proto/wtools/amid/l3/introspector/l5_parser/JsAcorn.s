@@ -1,4 +1,5 @@
-( function _JsAcorn_s_( ) {
+( function _JsAcorn_s_( )
+{
 
 'use strict';
 
@@ -123,14 +124,35 @@ var general = { native : false, general : true };
 
 let Schema = _.schema.system({ name : 'Js.AcornAst' });
 
-Schema.define([ 'Program' ]).label( native ).terminal();
-Schema.define( 'gRoot' ).label( general ).alternative().extend([ 'Program' ]);
+Schema
+.define([ 'Program' ])
+.label( native )
+.terminal();
+Schema
+.define( 'gRoot' )
+.label( general )
+.alternative()
+.extend([ 'Program' ]);
 
-Schema.define([ 'FunctionDeclaration', 'FunctionExpression', 'ArrowFunctionExpression' ]).label( native ).terminal();
-Schema.define( 'gRoutine' ).label( general ).alternative().extend([ 'FunctionDeclaration', 'FunctionExpression', 'ArrowFunctionExpression' ]);
+Schema
+.define([ 'FunctionDeclaration', 'FunctionExpression', 'ArrowFunctionExpression' ])
+.label( native )
+.terminal();
+Schema
+.define( 'gRoutine' )
+.label( general )
+.alternative()
+.extend([ 'FunctionDeclaration', 'FunctionExpression', 'ArrowFunctionExpression' ]);
 
-Schema.define([ 'Line', 'Block' ]).label( native ).terminal();
-Schema.define( 'gComment' ).label( general ).alternative().extend([ 'Line', 'Block' ]);
+Schema
+.define([ 'Line', 'Block' ])
+.label( native )
+.terminal();
+Schema
+.define( 'gComment' )
+.label( general )
+.alternative()
+.extend([ 'Line', 'Block' ]);
 
 Schema.form();
 

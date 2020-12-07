@@ -1,4 +1,5 @@
-( function _CppAbstract_test_s_( ) {
+( function _CppAbstract_test_s_( )
+{
 
 'use strict';
 

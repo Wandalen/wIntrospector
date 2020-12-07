@@ -1,4 +1,5 @@
-( function _JsTreeSitter_test_s_( ) {
+( function _JsTreeSitter_test_s_( )
+{
 
 'use strict';
 
@@ -113,17 +114,21 @@ function descriptorsSearchKind( test )
       {
         kind : 'identical',
         left : { kind : 'selector', value : '.../@type' },
-        right : { kind : 'or', elements :
-        [
-          {
-            kind : 'scalar',
-            value : 'call_expression',
-          },
-          {
-            kind : 'scalar',
-            value : 'expression_statement',
-          },
-        ]},
+        right :
+        {
+          kind : 'or',
+          elements :
+          [
+            {
+              kind : 'scalar',
+              value : 'call_expression',
+            },
+            {
+              kind : 'scalar',
+              value : 'expression_statement',
+            },
+          ]
+        },
       },
     ],
   }

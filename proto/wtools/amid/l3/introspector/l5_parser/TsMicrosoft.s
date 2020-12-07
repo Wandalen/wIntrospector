@@ -1,4 +1,5 @@
-( function _TsMicrosoft_s_( ) {
+( function _TsMicrosoft_s_( )
+{
 
 'use strict';
 
@@ -110,11 +111,27 @@ var native = { native : true };
 var general = { native : false, general : true };
 let Schema = _.schema.system({ name : 'Ts.MicrosoftAst' });
 
-Schema.define([ 'SourceFile' ]).label( native ).terminal();
-Schema.define( 'gRoot' ).label( general ).alternative().extend([ 'SourceFile' ]);
+Schema
+.define([ 'SourceFile' ])
+.label( native )
+.terminal();
 
-Schema.define([ 'FunctionDeclaration', 'MethodDeclaration', 'Constructor', 'FunctionExpression', 'ArrowFunction' ]).label( native ).terminal();
-Schema.define( 'gRoutine' ).label( general ).alternative().extend([ 'FunctionDeclaration', 'MethodDeclaration', 'Constructor', 'FunctionExpression', 'ArrowFunction' ]);
+Schema
+.define( 'gRoot' )
+.label( general )
+.alternative()
+.extend([ 'SourceFile' ]);
+
+Schema
+.define([ 'FunctionDeclaration', 'MethodDeclaration', 'Constructor', 'FunctionExpression', 'ArrowFunction' ])
+.label( native )
+.terminal();
+
+Schema
+.define( 'gRoutine' )
+.label( general )
+.alternative()
+.extend([ 'FunctionDeclaration', 'MethodDeclaration', 'Constructor', 'FunctionExpression', 'ArrowFunction' ]);
 
 // Schema.define([ 'Line', 'Block' ]).label( native ).terminal();
 // Schema.define( 'gComment' ).label( general ).alternative().extend([ 'Line', 'Block' ]);

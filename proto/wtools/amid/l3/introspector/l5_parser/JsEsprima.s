@@ -1,4 +1,5 @@
-( function _JsEsprima_s_( ) {
+( function _JsEsprima_s_( )
+{
 
 'use strict';
 
@@ -115,14 +116,38 @@ var native = { native : true };
 var general = { native : false, general : true };
 let Schema = _.schema.system({ name : 'Js.EsprimaAst' });
 
-Schema.define([ 'Program' ]).label( native ).terminal();
-Schema.define( 'gRoot' ).label( general ).alternative().extend([ 'Program' ]);
+Schema
+.define([ 'Program' ])
+.label( native )
+.terminal();
 
-Schema.define([ 'FunctionDeclaration', 'FunctionExpression', 'ArrowFunctionExpression' ]).label( native ).terminal();
-Schema.define( 'gRoutine' ).label( general ).alternative().extend([ 'FunctionDeclaration', 'FunctionExpression', 'ArrowFunctionExpression' ]);
+Schema
+.define( 'gRoot' )
+.label( general )
+.alternative()
+.extend([ 'Program' ]);
 
-Schema.define([ 'Block', 'Line' ]).label( native ).terminal();
-Schema.define( 'gComment' ).label( general ).alternative().extend([ 'Block', 'Line' ]);
+Schema
+.define([ 'FunctionDeclaration', 'FunctionExpression', 'ArrowFunctionExpression' ])
+.label( native )
+.terminal();
+
+Schema
+.define( 'gRoutine' )
+.label( general )
+.alternative()
+.extend([ 'FunctionDeclaration', 'FunctionExpression', 'ArrowFunctionExpression' ]);
+
+Schema
+.define([ 'Block', 'Line' ])
+.label( native )
+.terminal();
+
+Schema
+.define( 'gComment' )
+.label( general )
+.alternative()
+.extend([ 'Block', 'Line' ]);
 
 Schema.form();
 

@@ -1,4 +1,5 @@
-( function _JsAbstract_test_s_( ) {
+( function _JsAbstract_test_s_( )
+{
 
 'use strict';
 
@@ -29,14 +30,16 @@ function programWithCommentsAndRoutines()
   process.on( 'exit', () => { console.log( 'arrow2' ) } );
   process.on( 'exit', function(){ console.log( 'anonymous1' ) } );
   process.on( 'exit', function function1(){ console.log( 'function1' ) } );
-  let function2 = function function2_(){ console.log( 'function2' ) };
+  // let function2 = function function2_(){ console.log( 'function2' ) };
   class SomeClass
   {
     constructor()
     {
+      this.field = 'field';
     }
     method2()
     {
+      let self = this;
       console.log( 'method2' );
     }
   }
@@ -95,7 +98,8 @@ function fromData( test )
 
   logger.log( foundStr );
 
-  test.identical( _.strCount( foundStr, `found test.setsAreIdentical( rel( _.arrayFlatten( _.select( arr, '*/filePath' ) ) ), [] )` ), 1 );
+  var exp = `found test.setsAreIdentical( rel( _.arrayFlatten( _.select( arr, '*/filePath' ) ) ), [] )`;
+  test.identical( _.strCount( foundStr, exp ), 1 );
   test.identical( _.strCount( foundStr, `found test.setsAreIdentical( rel( _.mapKeys( map ) ), [] )` ), 1 );
   test.identical( _.strCount( foundStr, `found` ), 2 );
 
@@ -192,16 +196,18 @@ function descriptorsSearch( test )
     return `at ${file.path.dirClosest( d.path, 2 )}\nfound ${file.descriptorToCode( d.down.down )}\n`;
   }).join( '\n' );
   logger.log( foundStr );
-  test.identical( _.strCount( foundStr, `found test.setsAreIdentical( rel( _.arrayFlatten( _.select( arr, '*/filePath' ) ) ), [] )` ), 1 );
+  var exp = `found test.setsAreIdentical( rel( _.arrayFlatten( _.select( arr, '*/filePath' ) ) ), [] )`;
+  test.identical( _.strCount( foundStr, exp ), 1 );
   test.identical( _.strCount( foundStr, `found test.setsAreIdentical( rel( _.mapKeys( map ) ), [] )` ), 1 );
   test.identical( _.strCount( foundStr, `found` ), 2 );
 
   var foundStr = _.map_( null, foundDescriptors, ( d ) =>
   {
-    return `at ${file.path.dirNodes( d.path, 2 )}\nfound ${file.nodeCode( file.nodeSelect( file.path.dirNodes( d.path, 2 ) ) )}\n`;
+    return `at ${file.path.dirNodes( d.path, 2 )}\nfound ${file.nodeCode( file.nodeSelect( file.path.dirNodes( d.path, 2 )))}\n`;
   }).join( '\n' );
   logger.log( foundStr );
-  test.identical( _.strCount( foundStr, `found test.setsAreIdentical( rel( _.arrayFlatten( _.select( arr, '*/filePath' ) ) ), [] )` ), 1 );
+  var exp = `found test.setsAreIdentical( rel( _.arrayFlatten( _.select( arr, '*/filePath' ) ) ), [] )`;
+  test.identical( _.strCount( foundStr, exp ), 1 );
   test.identical( _.strCount( foundStr, `found test.setsAreIdentical( rel( _.mapKeys( map ) ), [] )` ), 1 );
   test.identical( _.strCount( foundStr, `found` ), 2 );
 
@@ -373,9 +379,10 @@ function thisFile( test )
   a.appStartNonThrowing({ execPath : programPath })
   .then( ( op ) =>
   {
+    var exp = `found : test.setsAreIdentical( rel( _.arrayFlatten( _.select( arr, '*/filePath' ) ) ), [] )`;
     test.identical( op.exitCode, 0 );
     test.identical( _.strCount( op.output, 'error' ), 0 );
-    test.identical( _.strCount( op.output, `found : test.setsAreIdentical( rel( _.arrayFlatten( _.select( arr, '*/filePath' ) ) ), [] )` ), 1 );
+    test.identical( _.strCount( op.output, exp ), 1 );
     test.identical( _.strCount( op.output, `found : test.setsAreIdentical( rel( _.mapKeys( map ) ), [] )` ), 1 );
     test.identical( _.strCount( op.output, `found` ), 2 );
     return null;
