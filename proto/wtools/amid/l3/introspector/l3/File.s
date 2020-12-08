@@ -1,4 +1,5 @@
-( function _File_s_( ) {
+( function _File_s_( )
+{
 
 'use strict';
 
@@ -8,7 +9,7 @@ let _ = _global_.wTools;
 let vectorize = _.routineDefaults( null, _.vectorize, { vectorizingContainerAdapter : 1, unwrapingContainerAdapter : 0 } );
 let vectorizeAll = _.routineDefaults( null, _.vectorizeAll, { vectorizingContainerAdapter : 1, unwrapingContainerAdapter : 0 } );
 let vectorizeAny = _.routineDefaults( null, _.vectorizeAny, { vectorizingContainerAdapter : 1, unwrapingContainerAdapter : 0 } );
-let vectorizeNone = _.routineDefaults( null, _.vectorizeNone, { vectorizingContainerAdapter : 1, unwrapingContainerAdapter : 0 } );
+let vectorizeNone = _.routineDefaults( null, _.vectorizeNone, { vectorizingContainerAdapter : 1, unwrapingContainerAdapter : 0 } )
 
 //
 
@@ -242,7 +243,7 @@ function refine()
 
   /* */
 
-  function onPathJoin( selectorPath, upToken, defaultUpToken, selectorName )
+  function onPathJoin( /* selectorPath, upToken, defaultUpToken, selectorName */ )
   {
     let it = this;
     return file._iterationPathJoin( it, ... arguments );
@@ -424,8 +425,13 @@ function _iterationUpNodesArray( it )
 
 //
 
-function _iterationPathJoin( it, selectorPath, upToken, defaultUpToken, selectorName )
+function _iterationPathJoin( /* it, selectorPath, upToken, defaultUpToken, selectorName */ )
 {
+  let it = arguments[ 0 ];
+  let selectorPath = arguments[ 1 ];
+  let upToken = arguments[ 2 ];
+  let defaultUpToken = arguments[ 3 ];
+  let selectorName = arguments[ 4 ];
   let file = this;
   let parser = file.parser;
   let result;
@@ -609,7 +615,7 @@ function search_body( o )
 
   return found;
 
-  function onPathJoin( selectorPath, upToken, defaultUpToken, selectorName )
+  function onPathJoin( /* selectorPath, upToken, defaultUpToken, selectorName */ )
   {
     let it = this;
     return file._iterationPathJoin( it, ... arguments );
@@ -711,7 +717,7 @@ function descriptorFromIteration( it )
   let descriptor = product.nodeToDescriptorHashMap.get( node );
   if( !descriptor )
   {
-    descriptor = new _.introspector.NodeDescriptor({ iteration : it, file : file });
+    descriptor = new _.introspector.NodeDescriptor({ iteration : it, file });
     // descriptor = Object.create( null );
     // product.nodeToDescriptorHashMap.set( node, descriptor );
   }

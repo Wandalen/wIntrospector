@@ -1,4 +1,5 @@
-( function _JsTreeSitter_test_s_( ) {
+( function _JsTreeSitter_test_s_( )
+{
 
 'use strict';
 
@@ -37,8 +38,8 @@ function parseStringSpecial( test )
   test.true( file.parser.constructor === context.defaultParser );
 
   test.description = 'nodes';
-  test.identical( file.product.nodes.length, 220 );
-  test.identical( _.mapKeys( file.product.byType ).length, 23 );
+  test.identical( file.product.nodes.length, 234 ); /* 220 */
+  test.identical( _.mapKeys( file.product.byType ).length, 26 ); /* 23 */
   test.identical( file.product.byType.gRoutine.length, 8 );
   test.identical( file.product.byType.gComment.length, 2 );
 
@@ -113,17 +114,21 @@ function descriptorsSearchKind( test )
       {
         kind : 'identical',
         left : { kind : 'selector', value : '.../@type' },
-        right : { kind : 'or', elements :
-        [
-          {
-            kind : 'scalar',
-            value : 'call_expression',
-          },
-          {
-            kind : 'scalar',
-            value : 'expression_statement',
-          },
-        ]},
+        right :
+        {
+          kind : 'or',
+          elements :
+          [
+            {
+              kind : 'scalar',
+              value : 'call_expression',
+            },
+            {
+              kind : 'scalar',
+              value : 'expression_statement',
+            },
+          ]
+        },
       },
     ],
   }

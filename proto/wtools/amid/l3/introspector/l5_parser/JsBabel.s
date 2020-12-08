@@ -1,4 +1,5 @@
-( function _JsBabel_s_( ) {
+( function _JsBabel_s_( )
+{
 
 'use strict';
 
@@ -119,14 +120,38 @@ var native = { native : true };
 var general = { native : false, general : true };
 let Schema = _.schema.system({ name : 'Js.BabelAst' });
 
-Schema.define([ 'File' ]).label( native ).terminal();
-Schema.define( 'gRoot' ).label( general ).alternative().extend([ 'File' ]);
+Schema
+.define([ 'File' ])
+.label( native )
+.terminal();
 
-Schema.define([ 'FunctionDeclaration', 'FunctionExpression', 'ArrowFunctionExpression', 'ClassMethod' ]).label( native ).terminal();
-Schema.define( 'gRoutine' ).label( general ).alternative().extend([ 'FunctionDeclaration', 'FunctionExpression', 'ArrowFunctionExpression', 'ClassMethod' ]);
+Schema
+.define( 'gRoot' )
+.label( general )
+.alternative()
+.extend([ 'File' ]);
 
-Schema.define([ 'CommentBlock', 'CommentLine' ]).label( native ).terminal();
-Schema.define( 'gComment' ).label( general ).alternative().extend([ 'CommentBlock', 'CommentLine' ]);
+Schema
+.define([ 'FunctionDeclaration', 'FunctionExpression', 'ArrowFunctionExpression', 'ClassMethod' ])
+.label( native )
+.terminal();
+
+Schema
+.define( 'gRoutine' )
+.label( general )
+.alternative()
+.extend([ 'FunctionDeclaration', 'FunctionExpression', 'ArrowFunctionExpression', 'ClassMethod' ]);
+
+Schema
+.define([ 'CommentBlock', 'CommentLine' ])
+.label( native )
+.terminal();
+
+Schema
+.define( 'gComment' )
+.label( general )
+.alternative()
+.extend([ 'CommentBlock', 'CommentLine' ]);
 
 Schema.form();
 

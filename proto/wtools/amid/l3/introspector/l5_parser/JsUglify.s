@@ -1,4 +1,5 @@
-( function _JsUglify_s_( ) {
+( function _JsUglify_s_( )
+{
 
 'use strict';
 
@@ -88,7 +89,7 @@ function _nodeRange( node )
     _.assert( !!node.start );
     let end;
     /* not all nodes of js uglify AST has end postion */
-    if( node.end == undefined )
+    if( node.end === undefined )
     end = node.start.endpos;
     else
     end = node.end.endpos;
@@ -138,14 +139,38 @@ var native = { native : true };
 var general = { native : false, general : true };
 let Schema = _.schema.system({ name : 'Js.UglifyAst' });
 
-Schema.define([ 'Toplevel' ]).label( native ).terminal();
-Schema.define( 'gRoot' ).label( general ).alternative().extend([ 'Toplevel' ]);
+Schema
+.define([ 'Toplevel' ])
+.label( native )
+.terminal();
 
-Schema.define([ 'Arrow', 'Function', 'Defun', 'ConciseMethod' ]).label( native ).terminal();
-Schema.define( 'gRoutine' ).label( general ).alternative().extend([ 'Arrow', 'Function', 'Defun', 'ConciseMethod' ]);
+Schema
+.define( 'gRoot' )
+.label( general )
+.alternative()
+.extend([ 'Toplevel' ]);
 
-Schema.define([ 'comment1', 'comment2' ]).label( native ).terminal();
-Schema.define( 'gComment' ).label( general ).alternative().extend([ 'comment1', 'comment2' ]);
+Schema
+.define([ 'Arrow', 'Function', 'Defun', 'ConciseMethod' ])
+.label( native )
+.terminal();
+
+Schema
+.define( 'gRoutine' )
+.label( general )
+.alternative()
+.extend([ 'Arrow', 'Function', 'Defun', 'ConciseMethod' ]);
+
+Schema
+.define([ 'comment1', 'comment2' ])
+.label( native )
+.terminal();
+
+Schema
+.define( 'gComment' )
+.label( general )
+.alternative()
+.extend([ 'comment1', 'comment2' ]);
 
 Schema.form();
 

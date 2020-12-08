@@ -1,4 +1,5 @@
-( function _TsMicrosoft_test_s_( ) {
+( function _TsMicrosoft_test_s_( )
+{
 
 'use strict';
 
@@ -44,15 +45,15 @@ function parseStringSpecial( test )
   test.identical( file.product.byType.SourceFile.length, 1 );
   test.true( file.product.byType.SourceFile.first() === file.product.root );
 
-/*
+  /*
 
-file.nodeCode( file.product.byType.CallExpression.toArray().original[1].arguments[1] )
-" () => console.log( 'arrow1' )"
+  file.nodeCode( file.product.byType.CallExpression.toArray().original[1].arguments[1] )
+  " () => console.log( 'arrow1' )"
 
-file.nodeType( file.product.byType.CallExpression.toArray().original[1].arguments[1] )
-"ArrowFunction"
+  file.nodeType( file.product.byType.CallExpression.toArray().original[1].arguments[1] )
+  "ArrowFunction"
 
-*/
+  */
 
   return null;
 }

@@ -1,4 +1,5 @@
-( function _NodeDescriptor_s_( ) {
+( function _NodeDescriptor_s_( )
+{
 
 'use strict';
 
