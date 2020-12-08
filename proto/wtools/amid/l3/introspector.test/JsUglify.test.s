@@ -1,4 +1,5 @@
-( function _JsUglify_test_s_( ) {
+( function _JsUglify_test_s_( )
+{
 
 'use strict';
 
@@ -38,8 +39,8 @@ function parseStringSpecial( test )
   test.true( file.parser.constructor === context.defaultParser );
 
   test.description = 'nodes';
-  test.identical( file.product.nodes.length, 152 );
-  test.identical( _.mapKeys( file.product.byType ).length, 28 );
+  test.identical( file.product.nodes.length, 165 ); /* 152 */
+  test.identical( _.mapKeys( file.product.byType ).length, 31 ); /* 28 */
   test.identical( file.product.byType.gRoutine.length, 8 );
 
   test.description = 'root';

@@ -1,4 +1,5 @@
-( function _CppTreeSitter_test_s_( ) {
+( function _CppTreeSitter_test_s_( )
+{
 
 'use strict';
 

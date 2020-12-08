@@ -1,4 +1,5 @@
-( function _Structure_s_( ) {
+( function _Structure_s_( )
+{
 
 'use strict';
 

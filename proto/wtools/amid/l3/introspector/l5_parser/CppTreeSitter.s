@@ -1,4 +1,5 @@
-( function _CppTreeSitter_s_( ) {
+( function _CppTreeSitter_s_( )
+{
 
 'use strict';
 
@@ -152,14 +153,34 @@ var native = { native : true };
 var general = { native : false, general : true };
 let Schema = _.schema.system({ name : 'Cpp.TreeSitterAst' });
 
-Schema.define([ 'translation_unit' ]).label( native ).terminal();
-Schema.define( 'gRoot' ).label( general ).alternative().extend([ 'translation_unit' ]);
+Schema
+.define([ 'translation_unit' ])
+.label( native )
+.terminal();
+Schema.define( 'gRoot' )
+.label( general )
+.alternative()
+.extend([ 'translation_unit' ]);
 
-Schema.define([ 'function_definition', 'lambda_expression' ]).label( native ).terminal();
-Schema.define( 'gRoutine' ).label( general ).alternative().extend([ 'function_definition', 'lambda_expression' ]);
+Schema
+.define([ 'function_definition', 'lambda_expression' ])
+.label( native )
+.terminal();
+Schema
+.define( 'gRoutine' )
+.label( general )
+.alternative()
+.extend([ 'function_definition', 'lambda_expression' ]);
 
-Schema.define([ 'comment' ]).label( native ).terminal();
-Schema.define( 'gComment' ).label( general ).alternative().extend([ 'comment' ]);
+Schema
+.define([ 'comment' ])
+.label( native )
+.terminal();
+Schema
+.define( 'gComment' )
+.label( general )
+.alternative()
+.extend([ 'comment' ]);
 
 Schema.form();
 
