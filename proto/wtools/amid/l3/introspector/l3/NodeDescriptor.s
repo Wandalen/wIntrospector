@@ -157,9 +157,9 @@ let Forbids =
 
 let Accessors =
 {
-  code : { readOnly : 1 },
-  type : { readOnly : 1 },
-  fields : { readOnly : 1 },
+  code : { writable : 0 },
+  type : { writable : 0 },
+  fields : { writable : 0 },
 }
 
 // --
