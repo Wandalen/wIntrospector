@@ -6,8 +6,8 @@ consistency:
     hash: 3bb203406ec6cbd264a6d4683954e3be
     size: 1746
   ../.im.will.yml: &ref_1
-    hash: ecdcbf02cd175e9c42dafc213db394b4
-    size: 5907
+    hash: 9db9f4ed6ecdbc8ed098590f3defcc7f
+    size: 6015
 module:
   wIntrospector.out:
     about:
@@ -270,6 +270,12 @@ module:
         path: 'npm:///typescript'
         autoExporting: 0
         enabled: 0
+      eslint:
+        path: 'npm:///eslint#7.1.0'
+        autoExporting: 0
+        enabled: 0
+        criterion:
+          development: 1
     reflector:
       reflect.proto.debug.raw:
         src:
@@ -1062,6 +1068,12 @@ module:
         path: 'npm:///typescript'
         autoExporting: 0
         enabled: 0
+      eslint:
+        path: 'npm:///eslint#7.1.0'
+        autoExporting: 0
+        enabled: 0
+        criterion:
+          development: 1
     reflector:
       reflect.proto.debug.raw:
         src:
@@ -1597,5 +1609,5 @@ module:
         hash: 3bb203406ec6cbd264a6d4683954e3be
         size: 1746
       ../.im.will.yml:
-        hash: ecdcbf02cd175e9c42dafc213db394b4
-        size: 5907
+        hash: 9db9f4ed6ecdbc8ed098590f3defcc7f
+        size: 6015
