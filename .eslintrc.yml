@@ -15,6 +15,7 @@ globals :
   SharedArrayBuffer : readonly
 parserOptions :
   ecmaVersion : 2020
+  allowImportExportEverywhere : true
 rules :
   accessor-pairs : error
   array-bracket-newline :
