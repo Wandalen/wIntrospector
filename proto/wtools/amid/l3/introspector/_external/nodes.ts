@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { Syntax } from './syntax';
 
 export type ArgumentListElement = Expression | SpreadElement;
