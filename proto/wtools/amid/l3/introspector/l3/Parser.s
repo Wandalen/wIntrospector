@@ -1,4 +1,5 @@
-( function _Parser_s_( ) {
+( function _Parser_s_( )
+{
 
 'use strict';
 
