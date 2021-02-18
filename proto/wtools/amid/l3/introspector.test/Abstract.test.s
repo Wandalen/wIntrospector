@@ -26,7 +26,7 @@ function onSuiteBegin()
 {
   let self = this;
 
-  self.suiteTempPath = path.tempOpen( path.join( __dirname, '../..'  ), 'err' );
+  self.suiteTempPath = path.tempOpen( path.join( __dirname, '../..' ), 'err' );
   self.assetsOriginalPath = path.join( __dirname, '_asset' );
 
 }
