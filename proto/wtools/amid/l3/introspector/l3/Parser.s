@@ -261,7 +261,7 @@ function _TypeAssociationsNormalize()
   {
     association.forEach( ( type2 ) =>
     {
-      _.assert( _.strIs( type2 ), () => `Expects string, but ${type1} has ${_.strType( type2 )}` );
+      _.assert( _.strIs( type2 ), () => `Expects string, but ${type1} has ${_.entity.strType( type2 )}` );
       _.assert( _.arrayIs( parser.TypeAssociation[ type2 ] ), () => `Type association ${type2} was not defined` );
       _.arrayAppendOnce( parser.TypeAssociation[ type2 ], type1 );
     });
