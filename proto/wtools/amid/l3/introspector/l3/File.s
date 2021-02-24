@@ -23,6 +23,28 @@ function wIntrospectionFile( o )
 Self.shortName = 'File';
 
 // --
+// lookers
+// --
+
+_.assert( !!_.looker.Looker );
+let LookerOfIntrospector = _.looker.make
+({
+  name : 'LookerOfIntrospector',
+  parent : _.looker.Looker,
+  iteration : { srcAsContainer : null },
+});
+
+//
+
+_.assert( !!_.searcher.Searcher );
+let SearcherOfIntrospector = _.looker.make
+({
+  name : 'SearcherOfIntrospector',
+  parent : _.searcher.Searcher,
+  iteration : { srcAsContainer : null },
+});
+
+// --
 // inter
 // --
 
@@ -230,8 +252,9 @@ function refine()
   product.byType = Object.create( null );
 
   let o2 = Object.create( null );
-  o2.iterationExtension = o2.iterationExtension || Object.create( null );
-  o2.iterationExtension.srcAsContainer = null;
+  // o2.iterationExtension = o2.iterationExtension || Object.create( null );
+  // o2.iterationExtension.srcAsContainer = null;
+  o2.Looker = LookerOfIntrospector;
   o2.src = file.structure.root;
   o2.onUp = onUp;
   o2.onDown = onDown;
@@ -353,10 +376,6 @@ function _iterationUpNodesMapAndFields( it )
 
     _.assert( file.nodeIs( node ), 'Not a node' );
     _.assert( it.srcAsContainer !== undefined );
-
-    // it.srcAsContainer = parser.nodeChildrenMapGet( node );
-    // _.mapExtend( map, parser.nodeMapGet( node ) );
-    // return this._mapAscend( map );
 
     return this._mapAscend( it.srcAsContainer );
   }
@@ -594,6 +613,8 @@ function search_head( routine, args )
   return o;
 }
 
+//
+
 function search_body( o )
 {
   let file = this;
@@ -607,11 +628,13 @@ function search_body( o )
   o.onPathJoin = onPathJoin;
   o.returning = 'it';
   o.order = 'top-to-bottom';
-  o.iterationExtension = o.iterationExtension || Object.create( null );
-  o.iterationExtension.srcAsContainer = null;
+  // o.iterationExtension = o.iterationExtension || Object.create( null );
+  // o.iterationExtension.srcAsContainer = null;
   o.onValueForCompare = onValueForCompare;
+  if( !o.Looker )
+  o.Looker = SearcherOfIntrospector;
 
-  let found = _.entitySearch( o );
+  let found = _.entity.search( o );
 
   return found;
 
@@ -652,7 +675,7 @@ function search_body( o )
 
 search_body.defaults =
 {
-  ... _.mapExtend( null, _.entitySearch.defaults ),
+  ... _.mapExtend( null, _.entity.search.defaults ),
   returning : 'it',
 }
 

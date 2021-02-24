@@ -60,7 +60,7 @@ Parsing from string with espima js parser produce proper AST.
 var Proto =
 {
 
-  name : 'Tools.mid.Introspector.Default',
+  name : 'Tools.mid.Introspector.Js',
 
   context :
   {
