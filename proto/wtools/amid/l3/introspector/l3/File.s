@@ -27,7 +27,7 @@ Self.shortName = 'File';
 // --
 
 _.assert( !!_.looker.Looker );
-let LookerOfIntrospector = _.looker.make
+let LookerOfIntrospector = _.looker.define
 ({
   name : 'LookerOfIntrospector',
   parent : _.looker.Looker,
@@ -37,7 +37,7 @@ let LookerOfIntrospector = _.looker.make
 //
 
 _.assert( !!_.searcher.Searcher );
-let SearcherOfIntrospector = _.looker.make
+let SearcherOfIntrospector = _.looker.define
 ({
   name : 'SearcherOfIntrospector',
   parent : _.searcher.Searcher,
