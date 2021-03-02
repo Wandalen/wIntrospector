@@ -258,7 +258,7 @@ function refine()
   o2.src = file.structure.root;
   o2.onUp = onUp;
   o2.onDown = onDown;
-  o2.onPathJoin = onPathJoin;
+  o2.pathJoin = pathJoin;
 
   _.look( o2 );
 
@@ -266,7 +266,7 @@ function refine()
 
   /* */
 
-  function onPathJoin( /* selectorPath, upToken, defaultUpToken, selectorName */ )
+  function pathJoin( /* selectorPath, upToken, defaultUpToken, selectorName */ )
   {
     let it = this;
     return file._iterationPathJoin( it, ... arguments );
@@ -444,30 +444,35 @@ function _iterationUpNodesArray( it )
 
 //
 
-function _iterationPathJoin( /* it, selectorPath, upToken, defaultUpToken, selectorName */ )
+// function _iterationPathJoin( /* it, selectorPath, upToken, defaultUpToken, selectorName */ )
+function _iterationPathJoin( it, selectorPath, selectorName )
 {
-  let it = arguments[ 0 ];
-  let selectorPath = arguments[ 1 ];
-  let upToken = arguments[ 2 ];
-  let defaultUpToken = arguments[ 3 ];
-  let selectorName = arguments[ 4 ];
+  // let it = arguments[ 0 ];
+  // let selectorPath = arguments[ 1 ];
+  // let upToken = arguments[ 2 ];
+  // let defaultUpToken = arguments[ 3 ];
+  // let selectorName = arguments[ 4 ];
   let file = this;
   let parser = file.parser;
   let result;
 
-  _.assert( arguments.length === 5 );
+  _.assert( arguments.length === 3 );
 
   if( file.nodeIs( it.src ) )
   selectorName = `${file.nodeType( it.src )}::${selectorName}`
 
-  if( _.strEnds( selectorPath, upToken ) )
-  {
-    result = selectorPath + selectorName;
-  }
-  else
-  {
-    result = selectorPath + defaultUpToken + selectorName;
-  }
+  selectorPath = _.strRemoveEnd( selectorPath, it.upToken );
+
+  // if( _.strEnds( selectorPath, upToken ) )
+  // {
+  //   result = selectorPath + selectorName;
+  // }
+  // else
+  // {
+  //   result = selectorPath + defaultUpToken + selectorName;
+  // }
+
+  result = selectorPath + it.defaultUpToken + selectorName;
 
   return result;
 }
@@ -625,7 +630,7 @@ function search_body( o )
 
   let onUp0 = o.onUp;
   o.onUp = onUp1;
-  o.onPathJoin = onPathJoin;
+  o.pathJoin = pathJoin;
   o.returning = 'it';
   o.order = 'top-to-bottom';
   // o.iterationExtension = o.iterationExtension || Object.create( null );
@@ -638,7 +643,8 @@ function search_body( o )
 
   return found;
 
-  function onPathJoin( /* selectorPath, upToken, defaultUpToken, selectorName */ )
+  // function pathJoin( /* selectorPath, upToken, defaultUpToken, selectorName */ )
+  function pathJoin( /* selectorPath, selectorName */ )
   {
     let it = this;
     return file._iterationPathJoin( it, ... arguments );
