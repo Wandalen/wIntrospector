@@ -380,7 +380,7 @@ function _iterationUpNodesMapAndFields( it )
     return this._mapAscend( it.srcAsContainer );
   }
 
-  it.revisitedEval( it.src );
+  it.revisitedEval( it.originalSrc );
 
 }
 
@@ -412,7 +412,7 @@ function _iterationUpNodesMap( it )
     // return this._mapAscend( map );
   }
 
-  it.revisitedEval( it.src );
+  it.revisitedEval( it.originalSrc );
 
 }
 
@@ -438,7 +438,7 @@ function _iterationUpNodesArray( it )
     // return this._arrayAscend( map );
   }
 
-  it.revisitedEval( it.src );
+  it.revisitedEval( it.originalSrc );
 
 }
 
