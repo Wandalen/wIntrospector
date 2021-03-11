@@ -82,7 +82,6 @@ function fromData( test )
     foundDescriptors.append( file.nodeDescriptor( node ) );
   });
 
-  debugger;
   /*
     xxx : implement
     type = [ CallExpression, ExpressionStatement ]
@@ -150,8 +149,6 @@ function parseGeneralNodes( test )
   test.identical( file.product.byType.gComment.length, 2 );
   test.identical( file.product.byType.gRoot.length, 1 );
   test.true( file.product.root === file.product.byType.gRoot.withIndex( 0 ) );
-
-  debugger;
 
   /* */
 
@@ -532,8 +529,6 @@ function parseStringCommon( test )
   test.identical( file.product.byType.gRoutine.length, 8 );
   test.identical( file.nodeCode( file.product.root ), sourceCode );
   test.identical( file.parser.nodeRange( file.product.root ), [ 0, sourceCode.length-1 ] );
-
-  debugger;
 
   return null;
 }

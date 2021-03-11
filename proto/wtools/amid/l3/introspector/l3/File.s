@@ -27,7 +27,7 @@ Self.shortName = 'File';
 // --
 
 _.assert( !!_.looker.Looker );
-let LookerOfIntrospector = _.looker.define
+let LookerOfIntrospector = _.looker.classDefine
 ({
   name : 'LookerOfIntrospector',
   parent : _.looker.Looker,
@@ -37,7 +37,7 @@ let LookerOfIntrospector = _.looker.define
 //
 
 _.assert( !!_.searcher.Searcher );
-let SearcherOfIntrospector = _.looker.define
+let SearcherOfIntrospector = _.looker.classDefine
 ({
   name : 'SearcherOfIntrospector',
   parent : _.searcher.Searcher,
@@ -252,13 +252,12 @@ function refine()
   product.byType = Object.create( null );
 
   let o2 = Object.create( null );
-  // o2.iterationExtension = o2.iterationExtension || Object.create( null );
-  // o2.iterationExtension.srcAsContainer = null;
   o2.Looker = LookerOfIntrospector;
   o2.src = file.structure.root;
   o2.onUp = onUp;
   o2.onDown = onDown;
   o2.pathJoin = pathJoin;
+  o2.iterableEval = iterableEval;
 
   _.look( o2 );
 
@@ -266,10 +265,18 @@ function refine()
 
   /* */
 
-  function pathJoin( /* selectorPath, upToken, defaultUpToken, selectorName */ )
+  function pathJoin()
   {
     let it = this;
     return file._iterationPathJoin( it, ... arguments );
+  }
+
+  function iterableEval()
+  {
+    let it = this;
+    if( !file.nodeIs( it.src ) )
+    return it.Looker.iterableEval.call( it );
+    it.iterable = 'Node';
   }
 
   function onUp( node, k, it )
@@ -286,34 +293,7 @@ function refine()
 
   function descriptorMake( node, it )
   {
-
     let descriptor = file.descriptorFromIteration( it );
-
-    // let descriptor = product.nodeToDescriptorHashMap.get( node );
-    // if( !descriptor )
-    // {
-    //   descriptor = Object.create( null );
-    //   product.nodeToDescriptorHashMap.set( node, descriptor );
-    // }
-    // descriptor.node = node;
-    // descriptor.iterations = descriptor.iterations || [];
-    // descriptor.iterations.push( it );
-    // descriptor.iteration = descriptor.iteration || it;
-    // descriptor.path = descriptor.path || it.path;
-    // descriptor.down = null;
-    // if( it.down )
-    // {
-    //   it = it.down;
-    //   while( it.down && !file.nodeIs( it.src ) )
-    //   it = it.down;
-    //   if( file.nodeIs( it.src ) )
-    //   {
-    //     let downDescriptor = product.nodeToDescriptorHashMap.get( it.src );
-    //     _.assert( file.descriptorIs( downDescriptor ) );
-    //     descriptor.down = downDescriptor;
-    //   }
-    // }
-
   }
 
   function nodeConsider( node, it )
@@ -369,15 +349,16 @@ function _iterationUpNodesMapAndFields( it )
     it.srcAsContainer[ '@code' ] = file.nodeCode( node );
   }
 
-  it.iterable = 'Node';
-  it.ascendAct = function nodeAscend( node )
+  // it.iterable = 'Node';
+  // it.ascendAct = function nodeAscend( node )
+  it.onAscend = function nodeAscend()
   {
     let it = this;
-
+    let node = it.src;
+    _.assert( arguments.length === 0 );
     _.assert( file.nodeIs( node ), 'Not a node' );
     _.assert( it.srcAsContainer !== undefined );
-
-    return this._mapAscend( it.srcAsContainer );
+    return this._auxAscend( it.srcAsContainer );
   }
 
   it.revisitedEval( it.originalSrc );
@@ -401,15 +382,16 @@ function _iterationUpNodesMap( it )
     it.srcAsContainer = parser.nodeChildrenMapGet( node );
   }
 
-  it.iterable = 'Node';
-  it.ascendAct = function nodeAscend( node )
+  // it.iterable = 'Node';
+  // it.ascendAct = function nodeAscend( node )
+  it.onAscend = function nodeAscend()
   {
     let it = this;
+    let node = it.src;
+    _.assert( arguments.length === 0 );
     _.assert( file.nodeIs( node ), 'Not a node' );
     _.assert( it.srcAsContainer !== undefined );
-    return this._mapAscend( it.srcAsContainer );
-    // let map = parser.nodeChildrenMapGet( node );
-    // return this._mapAscend( map );
+    return this._auxAscend( it.srcAsContainer );
   }
 
   it.revisitedEval( it.originalSrc );
@@ -427,15 +409,16 @@ function _iterationUpNodesArray( it )
   _.assert( file.nodeIs( node ), 'Not a node' );
   _.assert( it.srcAsContainer !== undefined );
 
-  it.iterable = 'Node';
-  it.ascendAct = function nodeAscend( node )
+  // it.iterable = 'Node';
+  // it.ascendAct = function nodeAscend( node )
+  it.onAscend = function nodeAscend()
   {
     let it = this;
+    let node = it.src;
+    _.assert( arguments.length === 0 );
     _.assert( file.nodeIs( node ), 'Not a node' );
     _.assert( it.srcAsContainer !== undefined );
     return this._arrayAscend( it.srcAsContainer );
-    // let map = file._nodeChildrenArrayGet( node );
-    // return this._arrayAscend( map );
   }
 
   it.revisitedEval( it.originalSrc );
@@ -444,14 +427,8 @@ function _iterationUpNodesArray( it )
 
 //
 
-// function _iterationPathJoin( /* it, selectorPath, upToken, defaultUpToken, selectorName */ )
 function _iterationPathJoin( it, selectorPath, selectorName )
 {
-  // let it = arguments[ 0 ];
-  // let selectorPath = arguments[ 1 ];
-  // let upToken = arguments[ 2 ];
-  // let defaultUpToken = arguments[ 3 ];
-  // let selectorName = arguments[ 4 ];
   let file = this;
   let parser = file.parser;
   let result;
@@ -462,15 +439,6 @@ function _iterationPathJoin( it, selectorPath, selectorName )
   selectorName = `${file.nodeType( it.src )}::${selectorName}`
 
   selectorPath = _.strRemoveEnd( selectorPath, it.upToken );
-
-  // if( _.strEnds( selectorPath, upToken ) )
-  // {
-  //   result = selectorPath + selectorName;
-  // }
-  // else
-  // {
-  //   result = selectorPath + defaultUpToken + selectorName;
-  // }
 
   result = selectorPath + it.defaultUpToken + selectorName;
 
@@ -607,6 +575,7 @@ function search_head( routine, args )
   }
 
   o = _.routineOptions( routine, o );
+  // _.assertMapHasOnly( o, routine.defaults );
 
   if( o.src === null )
   o.src = file.product.root;
@@ -633,8 +602,6 @@ function search_body( o )
   o.pathJoin = pathJoin;
   o.returning = 'it';
   o.order = 'top-to-bottom';
-  // o.iterationExtension = o.iterationExtension || Object.create( null );
-  // o.iterationExtension.srcAsContainer = null;
   o.onValueForCompare = onValueForCompare;
   if( !o.Looker )
   o.Looker = SearcherOfIntrospector;
@@ -643,11 +610,18 @@ function search_body( o )
 
   return found;
 
-  // function pathJoin( /* selectorPath, upToken, defaultUpToken, selectorName */ )
-  function pathJoin( /* selectorPath, selectorName */ )
+  function pathJoin()
   {
     let it = this;
     return file._iterationPathJoin( it, ... arguments );
+  }
+
+  function iterableEval()
+  {
+    let it = this;
+    if( !file.nodeIs( it.src ) )
+    return it.Looker.iterableEval.call( it );
+    it.iterable = 'Node';
   }
 
   function onUp1( node, k, it )
@@ -656,8 +630,6 @@ function search_body( o )
     if( k === '@code' )
     if( it.down.added )
     it.continue = false;
-
-    // logger.log( `onUp1 ${it.path}` );
 
     if( !file.nodeIs( node ) )
     return;
@@ -681,7 +653,8 @@ function search_body( o )
 
 search_body.defaults =
 {
-  ... _.mapExtend( null, _.entity.search.defaults ),
+  // ... _.mapExtend( null, _.entity.search.defaults ),
+  ... _.mapExtend( null, _.searcher.Searcher.Prime ),
   returning : 'it',
 }
 
