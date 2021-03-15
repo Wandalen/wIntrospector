@@ -74,7 +74,6 @@ function _closestNode( root, filePath )
 
   while( this.ends( filePath, '..' ) )
   {
-    debugger;
     _.assert( 0, 'not tested' );
     filePath = _.path.join( filePath, '_' );
   }
@@ -98,7 +97,6 @@ function _closestNode( root, filePath )
   }
   while( filePath !== '/' );
 
-  debugger;
   _.assert( file.nodeIs( node ) );
 
   return filePath;

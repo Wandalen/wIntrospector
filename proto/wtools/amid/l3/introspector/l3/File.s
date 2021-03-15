@@ -349,8 +349,6 @@ function _iterationUpNodesMapAndFields( it )
     it.srcAsContainer[ '@code' ] = file.nodeCode( node );
   }
 
-  // it.iterable = 'Node';
-  // it.ascendAct = function nodeAscend( node )
   it.onAscend = function nodeAscend()
   {
     let it = this;
@@ -382,8 +380,6 @@ function _iterationUpNodesMap( it )
     it.srcAsContainer = parser.nodeChildrenMapGet( node );
   }
 
-  // it.iterable = 'Node';
-  // it.ascendAct = function nodeAscend( node )
   it.onAscend = function nodeAscend()
   {
     let it = this;
@@ -409,8 +405,6 @@ function _iterationUpNodesArray( it )
   _.assert( file.nodeIs( node ), 'Not a node' );
   _.assert( it.srcAsContainer !== undefined );
 
-  // it.iterable = 'Node';
-  // it.ascendAct = function nodeAscend( node )
   it.onAscend = function nodeAscend()
   {
     let it = this;
@@ -566,7 +560,6 @@ function search_head( routine, args )
     {
       o.src = args[ 0 ];
       o.ins = args[ 1 ];
-      debugger;
     }
     else
     {
@@ -574,10 +567,9 @@ function search_head( routine, args )
     }
   }
 
-  o = _.routineOptions( routine, o );
-  // _.assertMapHasOnly( o, routine.defaults );
+  o = _.routineOptionsPreservingUndefines( routine, o );
 
-  if( o.src === null )
+  if( o.src === undefined || o.src === null )
   o.src = file.product.root;
 
   _.assert( file.nodeIs( o.src ) );
@@ -669,8 +661,6 @@ function nodesSearch_body( o )
   let file = this;
   let parser = file.parser;
   let product = file.product;
-
-  _.assertRoutineOptions( nodesSearch_body, arguments );
 
   let its = file.search.body.call( file, o );
 
@@ -780,8 +770,6 @@ function descriptorsSearch_body( o )
 {
   let file = this;
   let product = file.product;
-
-  _.assertRoutineOptions( descriptorsSearch_body, arguments );
 
   let nodes = file.nodesSearch( ... arguments );
   nodes = _.mapVals( nodes );

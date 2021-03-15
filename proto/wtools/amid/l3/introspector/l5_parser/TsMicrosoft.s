@@ -68,9 +68,7 @@ function _nodeRange( node )
   let parser = this;
   _.assert( arguments.length === 1 );
   _.assert( parser.nodeIs( node ) );
-  debugger;
   return [ node.pos, node.end-1 ];
-  // return [ node.pos, node.end ];
 }
 
 //

@@ -147,7 +147,6 @@ function _nodeMapGet( node )
   }
   else
   {
-    debugger;
     return node;
   }
 }

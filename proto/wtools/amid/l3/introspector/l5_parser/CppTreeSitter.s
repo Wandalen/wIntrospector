@@ -90,7 +90,6 @@ function _nodeRange( node )
   _.assert( node.startIndex >= 0 && node.endIndex >= 0 );
 
   return [ node.startIndex, node.endIndex-1 ];
-  // return [ node.startIndex, node.endIndex ];
 }
 
 //
@@ -118,13 +117,7 @@ function _nodeMapGet( node )
   let parser = this;
   _.assert( parser.nodeIs( node ) );
 
-  let result = node.fields ? _.mapOnly( node, node.fields ) : Object.create( null ); debugger;
-
-  for( let r in result )
-  {
-    if( !parser.nodeIs( result[ r ] ) )
-    debugger;
-  }
+  let result = node.fields ? _.mapOnly( node, node.fields ) : Object.create( null );
 
   return result;
 }

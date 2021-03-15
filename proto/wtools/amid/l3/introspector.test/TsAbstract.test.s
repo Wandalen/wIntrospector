@@ -124,8 +124,6 @@ function parseGeneralNodes( test )
   logger.log( file.productExportInfo() );
   logger.log( '' );
 
-  debugger;
-
   test.description = 'general nodes';
   test.identical( file.product.byType.gRoutine.length, 8 );
   // test.identical( file.product.byType.gComment.length, 2 ); // xxx : not implemented

@@ -118,25 +118,7 @@ function _nodeMapGet( node )
   let parser = this;
   _.assert( parser.nodeIs( node ) );
 
-  let result = node.fields ? _.mapOnly( node, node.fields ) : Object.create( null ); debugger;
-
-  for( let r in result )
-  {
-    if( !parser.nodeIs( result[ r ] ) )
-    debugger;
-  }
-
-  // if( _.mapKeys( _.mapBut( result, { 0 : 0, 1 : 1, 2 : 2, 3 : 3, 4 : 4, 5 : 5, tree : null, fields : null } ) ).length )
-  // debugger;
-  // if( node.fields && node.fields.length )
-  // debugger;
-  // if( node.fields && node.fields.length )
-  // logger.log( node.fields );
-  //
-  // if( node.fields && _.longHas( node.fields, 'argumentsNode' ) )
-  // debugger;
-  // if( node.fields && _.longHas( node.fields, 'nameNode' ) )
-  // debugger;
+  let result = node.fields ? _.mapOnly( node, node.fields ) : Object.create( null );
 
   return result;
 }

@@ -85,7 +85,7 @@ function codeGet()
   let parser = file.parser;
   let node = descriptor.node;
 
-  let result = file.nodeCode( node ); debugger;
+  let result = file.nodeCode( node );
 
   return result;
 }
@@ -100,7 +100,7 @@ function typeGet()
   let parser = file.parser;
   let node = descriptor.node;
 
-  let result = file.nodeType( node ); debugger;
+  let result = file.nodeType( node );
 
   return result;
 }

@@ -133,9 +133,7 @@ function descriptorsSearchKind( test )
     ],
   }
 
-  // let foundDescriptors = file.descriptorsSearch( 'setsAreIdentical', { type : 'call_expression' } );
   let foundDescriptors = file.descriptorsSearch( 'setsAreIdentical' );
-  debugger;
 
   var foundStr = _.map_( null, foundDescriptors, ( d ) =>
   {

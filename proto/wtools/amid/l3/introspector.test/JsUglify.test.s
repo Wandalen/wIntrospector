@@ -51,7 +51,6 @@ function parseStringSpecial( test )
     the most broken JS parser among added!
   */
 
-  debugger;
   return null;
 }
 

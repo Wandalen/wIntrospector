@@ -42,15 +42,11 @@ function _parse( o )
   _.assertRoutineOptions( _parse, arguments );
 
   let opts = {};
-  // opts.comments = true;
-  // opts.comments = true;
   let result = Object.create( null );
   if( o.filePath )
   result.filename = o.filePath;
-  // debugger;
   result.returned = parser._parser.parse( o.src, opts );
   result.root = result.returned;
-  // debugger;
 
   return result;
 }
