@@ -5,9 +5,9 @@
 
 //
 
-let _ = _global_.wTools;
-let Parent = null;
-let Self = wIntrospectionParser;
+const _ = _global_.wTools;
+const Parent = null;
+const Self = wIntrospectionParser;
 function wIntrospectionParser( o )
 {
   return _.workpiece.construct( Self, this, arguments );

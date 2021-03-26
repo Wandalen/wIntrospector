@@ -13,9 +13,9 @@ if( typeof module !== 'undefined' )
 
 //
 
-let _ = _global_.wTools;
-let Parent = _.introspector.Parser;
-let Self = wIntrospectionParserJsTreeSitter;
+const _ = _global_.wTools;
+const Parent = _.introspector.Parser;
+const Self = wIntrospectionParserJsTreeSitter;
 function wIntrospectionParserJsTreeSitter( o )
 {
   return _.workpiece.construct( Self, this, arguments );
@@ -118,7 +118,7 @@ function _nodeMapGet( node )
   let parser = this;
   _.assert( parser.nodeIs( node ) );
 
-  let result = node.fields ? _.mapOnly( node, node.fields ) : Object.create( null );
+  let result = node.fields ? _.mapOnly_( null, node, node.fields ) : Object.create( null );
 
   return result;
 }

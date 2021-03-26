@@ -13,10 +13,10 @@ if( typeof module !== 'undefined' )
 
 //
 
-let _ = _global_.wTools;
+const _ = _global_.wTools;
 var fileProvider = _.fileProvider;
 var path = fileProvider.path;
-let Parent = wTests[ 'Tools.mid.Introspector.JsAbstract' ];
+const Parent = wTests[ 'Tools.mid.Introspector.JsAbstract' ];
 
 // --
 // tests
@@ -58,7 +58,7 @@ Parsing from string with espima js parser produce proper AST.
 // declare
 // --
 
-var Proto =
+const Proto =
 {
 
   name : 'Tools.mid.Introspector.JsEsprima',
@@ -81,7 +81,7 @@ var Proto =
 
 //
 
-let Self = new wTestSuite( Proto ).inherit( Parent );
+const Self = wTestSuite( Proto ).inherit( Parent );
 if( typeof module !== 'undefined' && !module.parent )
 wTester.test( Self.name );
 

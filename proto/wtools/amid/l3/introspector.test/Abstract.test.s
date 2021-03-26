@@ -14,7 +14,7 @@ if( typeof module !== 'undefined' )
 
 //
 
-let _ = _global_.wTools;
+const _ = _global_.wTools;
 var fileProvider = _.fileProvider;
 var path = fileProvider.path;
 
@@ -78,7 +78,7 @@ Field prefferedParsers of system allows setting preffered parser
 // declare
 // --
 
-var Proto =
+const Proto =
 {
 
   name : 'Tools.mid.Introspector',
@@ -109,7 +109,7 @@ var Proto =
 
 //
 
-let Self = new wTestSuite( Proto );
+const Self = wTestSuite( Proto );
 if( typeof module !== 'undefined' && !module.parent )
 wTester.test( Self.name );
 

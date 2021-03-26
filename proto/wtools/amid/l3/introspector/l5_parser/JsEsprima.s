@@ -12,9 +12,9 @@ if( typeof module !== 'undefined' )
 
 //
 
-let _ = _global_.wTools;
-let Parent = _.introspector.Parser;
-let Self = wIntrospectionParserJsEsprima;
+const _ = _global_.wTools;
+const Parent = _.introspector.Parser;
+const Self = wIntrospectionParserJsEsprima;
 function wIntrospectionParserJsEsprima( o )
 {
   return _.workpiece.construct( Self, this, arguments );

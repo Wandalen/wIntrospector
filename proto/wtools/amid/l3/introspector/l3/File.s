@@ -5,7 +5,7 @@
 
 //
 
-let _ = _global_.wTools;
+const _ = _global_.wTools;
 let vectorize = _.routineDefaults( null, _.vectorize, { vectorizingContainerAdapter : 1, unwrapingContainerAdapter : 0 } );
 let vectorizeAll = _.routineDefaults( null, _.vectorizeAll, { vectorizingContainerAdapter : 1, unwrapingContainerAdapter : 0 } );
 let vectorizeAny = _.routineDefaults( null, _.vectorizeAny, { vectorizingContainerAdapter : 1, unwrapingContainerAdapter : 0 } );
@@ -13,8 +13,8 @@ let vectorizeNone = _.routineDefaults( null, _.vectorizeNone, { vectorizingConta
 
 //
 
-let Parent = null;
-let Self = wIntrospectionFile;
+const Parent = null;
+const Self = wIntrospectionFile;
 function wIntrospectionFile( o )
 {
   return _.workpiece.construct( Self, this, arguments );
@@ -428,6 +428,10 @@ function _iterationPathJoin( it, selectorPath, selectorName )
   let result;
 
   _.assert( arguments.length === 3 );
+  // _.assert( isNaN( selectorName ) ); /* xxx : qqq : uncomment please */
+
+  if( !isNaN( selectorName ) )
+  selectorName = '#' + Number( selectorName );
 
   if( file.nodeIs( it.src ) )
   selectorName = `${file.nodeType( it.src )}::${selectorName}`

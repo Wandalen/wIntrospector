@@ -3,10 +3,10 @@
 
 'use strict';
 
-let _global = _global_;
-let _ = _global_.wTools;
-let Parent = _.path;
-let Self = _.introspector._path = _.introspector._path || Object.create( Parent );
+const _global = _global_;
+const _ = _global_.wTools;
+const Parent = _.path;
+const Self = _.introspector._path = _.introspector._path || Object.create( Parent );
 
 // --
 // inter
@@ -31,6 +31,7 @@ function dirNodes( root, filePath, dLevel )
   _.assert( file.nodeIs( root ) );
   _.assert( dLevel >= 0 );
 
+  debugger;
   filePath = this._closestNode( root, filePath );
 
   while( dLevel > 0 )
@@ -74,7 +75,8 @@ function _closestNode( root, filePath )
 
   while( this.ends( filePath, '..' ) )
   {
-    _.assert( 0, 'not tested' );
+    // _.assert( 0, 'not tested' );
+    debugger; /* xxx */
     filePath = _.path.join( filePath, '_' );
   }
 

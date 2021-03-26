@@ -13,10 +13,10 @@ if( typeof module !== 'undefined' )
 
 //
 
-let _ = _global_.wTools;
+const _ = _global_.wTools;
 var fileProvider = _.fileProvider;
 var path = fileProvider.path;
-let Parent = wTests[ 'Tools.mid.Introspector' ];
+const Parent = wTests[ 'Tools.mid.Introspector' ];
 
 // --
 // assets
@@ -371,7 +371,12 @@ function thisFile( test )
   let context = this;
   let a = test.assetFor( false );
   let toolsPath = a.path.nativize( a.path.join( __dirname, '../../../../wtools/Tools.s' ) );
-  let programPath = a.program({ routine : program, locals : { defaultParserName : context.defaultParser.shortName, toolsPath } });
+  let programPath = a.program
+  ({
+    routine : program,
+    namePostfix : '.js',
+    locals : { defaultParserName : context.defaultParser.shortName, toolsPath },
+  });
 
   a.appStartNonThrowing({ execPath : programPath })
   .then( ( op ) =>
@@ -444,7 +449,13 @@ function thisFileSearch( test )
   let context = this;
   let a = test.assetFor( false );
   let toolsPath = a.path.nativize( a.path.join( __dirname, '../../../../wtools/Tools.s' ) );
-  let programPath = a.program({ routine : program, locals : { defaultParserName : context.defaultParser.shortName, toolsPath } });
+  // let programPath = a.program({ routine : program, locals : { defaultParserName : context.defaultParser.shortName, toolsPath } });
+  let programPath = a.program
+  ({
+    routine : program,
+    namePostfix : '.js',
+    locals : { defaultParserName : context.defaultParser.shortName, toolsPath },
+  });
 
   a.appStartNonThrowing({ execPath : programPath })
   .then( ( op ) =>
@@ -543,7 +554,7 @@ Routine nodeCode returns proper source code.
 // declare
 // --
 
-var Proto =
+const Proto =
 {
 
   name : 'Tools.mid.Introspector.JsAbstract',
@@ -579,7 +590,7 @@ var Proto =
 
 //
 
-let Self = new wTestSuite( Proto ).inherit( Parent );
+const Self = wTestSuite( Proto ).inherit( Parent );
 if( typeof module !== 'undefined' && !module.parent )
 wTester.test( Self.name );
 
