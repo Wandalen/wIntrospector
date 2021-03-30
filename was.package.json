@@ -5,7 +5,7 @@
   "author" : "Kostiantyn Wandalen <wanalen@01.school>",
   "license" : "MIT",
   "main" : "proto/wtools/amid/l3/introspector/module/Full.s",
-  "files" : [ "proto/wtools/amid/l3/introspector", "proto/wtools/Tools.s", "out" ],
+  "files" : [ "proto/wtools/amid/l3/introspector", "proto/wtools/Tools.s", "out", "proto/node_modules" ],
   "scripts" : { "test" : "wtest .run 'proto/**' rapidity:-3", "docgen" : "wdocgen .build proto" },
   "repository" :
   {
@@ -38,6 +38,6 @@
     "uglify-es" : "3.3.9",
     "typescript" : "4.0.5"
   },
-  "devDependencies" : { "wTesting" : "", "wintrospector" : "file:.", "eslint" : "7.1.0" },
+  "devDependencies" : { "wTesting" : "", "eslint" : "7.1.0" },
   "keywords" : [ "wTools" ]
 }
