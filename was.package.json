@@ -4,7 +4,7 @@
   "description" : "Single programmatic interface to for javascript parsing tools",
   "author" : "Kostiantyn Wandalen <wanalen@01.school>",
   "license" : "MIT",
-  "main" : "proto/wtools/amid/l3/introspector/module/Full.s",
+  "main" : "/pro/module/wIntrospector/proto/node_modules/wintrospector",
   "files" : [ "proto/wtools/amid/l3/introspector", "proto/wtools/Tools.s", "out", "proto/node_modules" ],
   "scripts" : { "test" : "wtest .run 'proto/**' rapidity:-3", "docgen" : "wdocgen .build proto" },
   "repository" :
