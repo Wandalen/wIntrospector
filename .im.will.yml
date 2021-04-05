@@ -117,8 +117,8 @@ path:
       raw: compiled
       content: prime
   npm.proto.entry:
-    - /pro/module/wIntrospector/proto/wtools/amid/l3/introspector/module/Full.s
-    - /pro/module/wIntrospector/proto/node_modules/wintrospector
+    - proto/wtools/amid/l3/introspector/module/Full.s
+    - proto/node_modules/wintrospector
 reflector:
   reflect.proto:
     inherit: predefined.*
