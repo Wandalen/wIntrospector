@@ -1,11 +1,11 @@
 {
   "name" : "wintrospector",
-  "version" : "0.3.111",
+  "version" : "0.3.112",
   "description" : "Single programmatic interface to for javascript parsing tools",
   "author" : "Kostiantyn Wandalen <wanalen@01.school>",
   "license" : "MIT",
   "main" : "proto/node_modules/wintrospector",
-  "files" : [ "proto/wtools/amid/l3/introspector", "proto/wtools/Tools.s", "out", "proto/node_modules" ],
+  "files" : [ "proto/wtools/amid/l3/introspector", "out", "proto/node_modules" ],
   "scripts" : { "test" : "wtest .run 'proto/**' rapidity:-3", "docgen" : "wdocgen .build proto" },
   "repository" :
   {
