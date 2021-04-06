@@ -6,7 +6,7 @@
 if( typeof module !== 'undefined' )
 {
 
-  let _ = require( '../../../../wtools/Tools.s' );
+  let _ = require( '../../../../node_modules/Tools' );
   require( './Abstract.test.s' );
 
 }
@@ -370,7 +370,7 @@ function thisFile( test )
 {
   let context = this;
   let a = test.assetFor( false );
-  let toolsPath = a.path.nativize( a.path.join( __dirname, '../../../../wtools/Tools.s' ) );
+  let toolsPath = a.path.nativize( a.path.join( __dirname, '../../../../node_modules/Tools' ) );
   let programPath = a.program
   ({
     routine : program,
@@ -448,7 +448,7 @@ function thisFileSearch( test )
 {
   let context = this;
   let a = test.assetFor( false );
-  let toolsPath = a.path.nativize( a.path.join( __dirname, '../../../../wtools/Tools.s' ) );
+  let toolsPath = a.path.nativize( a.path.join( __dirname, '../../../../node_modules/Tools' ) );
   // let programPath = a.program({ routine : program, locals : { defaultParserName : context.defaultParser.shortName, toolsPath } });
   let programPath = a.program
   ({
