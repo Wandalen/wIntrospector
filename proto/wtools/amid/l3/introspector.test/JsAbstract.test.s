@@ -6,7 +6,7 @@
 if( typeof module !== 'undefined' )
 {
 
-  let _ = require( '../../../../node_modules/Tools' );
+  const _ = require( '../../../../node_modules/Tools' );
   require( './Abstract.test.s' );
 
 }
@@ -106,7 +106,7 @@ function fromData( test )
 
   function programRoutine()
   {
-    let _ = require( toolsPath );
+    const _ = require( toolsPath );
     function r1()
     {
       test.setsAreIdentical( rel( _.arrayFlatten( _.select( arr, '*/filePath' ) ) ), [] );
@@ -212,7 +212,7 @@ function descriptorsSearch( test )
 
   function programRoutine()
   {
-    let _ = require( toolsPath );
+    const _ = require( toolsPath );
     function r1()
     {
       test.setsAreIdentical( rel( _.arrayFlatten( _.select( arr, '*/filePath' ) ) ), [] );
@@ -284,7 +284,7 @@ Routine descriptorsSearch finds 2 nodes.
 //
 //   function programRoutine()
 //   {
-//     let _ = require( toolsPath );
+//     const _ = require( toolsPath );
 //     function r1()
 //     {
 //       test.setsAreIdentical( rel( _.arrayFlatten( _.select( arr, '*/filePath' ) ) ), [] );
@@ -340,7 +340,7 @@ function descriptorsSearchWithComment( test )
 
   function programRoutine()
   {
-    let _ = require( toolsPath );
+    const _ = require( toolsPath );
 
     // setsAreIdentical
 
@@ -396,7 +396,7 @@ function thisFile( test )
 
   function program()
   {
-    let _ = require( toolsPath );
+    const _ = require( toolsPath );
     _.include( 'wIntrospector' );
 
     _.assert( _.routineIs( _.introspector.Parser[ defaultParserName ] ) );
@@ -476,7 +476,7 @@ function thisFileSearch( test )
 
   function program()
   {
-    let _ = require( toolsPath );
+    const _ = require( toolsPath );
     _.include( 'wIntrospector' );
 
     _.assert( _.routineIs( _.introspector.Parser[ defaultParserName ] ) );

@@ -6,7 +6,7 @@
 if( typeof module !== 'undefined' )
 {
 
-  let _ = require( '../../../../node_modules/Tools' );
+  const _ = require( '../../../../node_modules/Tools' );
   require( './JsAbstract.test.s' );
 
 }
@@ -146,7 +146,7 @@ function descriptorsSearchKind( test )
 
   function programRoutine()
   {
-    let _ = require( toolsPath );
+    const _ = require( toolsPath );
     function r1()
     {
       test.setsAreIdentical( rel( _.arrayFlatten( _.select( arr, '*/filePath' ) ) ), [] );
