@@ -19,7 +19,7 @@ let Extension =
 
 }
 
-_.mapExtend( Self, Extension );
+_.props.extend( Self, Extension );
 if( typeof module !== 'undefined' )
 module[ 'exports' ] = _global_.wTools;
 

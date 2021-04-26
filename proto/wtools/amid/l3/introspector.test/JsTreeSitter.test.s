@@ -39,7 +39,7 @@ function parseStringSpecial( test )
 
   test.description = 'nodes';
   test.identical( file.product.nodes.length, 234 ); /* 220 */
-  test.identical( _.mapKeys( file.product.byType ).length, 26 ); /* 23 */
+  test.identical( _.props.keys( file.product.byType ).length, 26 ); /* 23 */
   test.identical( file.product.byType.gRoutine.length, 8 );
   test.identical( file.product.byType.gComment.length, 2 );
 
@@ -152,7 +152,7 @@ function descriptorsSearchKind( test )
       test.setsAreIdentical( rel( _.arrayFlatten( _.select( arr, '*/filePath' ) ) ), [] );
       _.process.on( 'exit', () =>
       {
-        test.setsAreIdentical( rel( _.mapKeys( map ) ), [] );
+        test.setsAreIdentical( rel( _.props.keys( map ) ), [] );
       });
     }
 

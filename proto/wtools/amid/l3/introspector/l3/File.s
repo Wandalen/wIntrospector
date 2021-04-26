@@ -571,7 +571,7 @@ function search_head( routine, args )
     }
   }
 
-  o = _.routineOptionsPreservingUndefines( routine, o );
+  o = _.routine.options( routine, o );
 
   if( o.src === undefined || o.src === null )
   o.src = file.product.root;
@@ -649,14 +649,14 @@ function search_body( o )
 
 search_body.defaults =
 {
-  // ... _.mapExtend( null, _.entity.search.defaults ),
-  ... _.mapExtend( null, _.searcher.Searcher.Prime ),
+  // ... _.props.extend( null, _.entity.search.defaults ),
+  ... _.props.extend( null, _.searcher.Searcher.Prime ),
   returning : 'it',
 }
 
 delete search_body.defaults.Looker;
 
-let search = _.routine.uniteCloning_( search_head, search_body );
+let search = _.routine.uniteCloning_replaceByUnite( search_head, search_body );
 
 //
 
@@ -684,7 +684,7 @@ function nodesSearch_body( o )
 
 _.routineExtend( nodesSearch_body, search.body );
 
-let nodesSearch = _.routine.uniteCloning_( search_head, nodesSearch_body );
+let nodesSearch = _.routine.uniteCloning_replaceByUnite( search_head, nodesSearch_body );
 
 // --
 // descriptor
@@ -776,7 +776,7 @@ function descriptorsSearch_body( o )
   let product = file.product;
 
   let nodes = file.nodesSearch( ... arguments );
-  nodes = _.mapVals( nodes );
+  nodes = _.props.vals( nodes );
 
   let visited = new Set();
   let descriptors = [];
@@ -793,7 +793,7 @@ function descriptorsSearch_body( o )
 
 _.routineExtend( descriptorsSearch_body, search.body );
 
-let descriptorsSearch = _.routine.uniteCloning_( search_head, descriptorsSearch_body );
+let descriptorsSearch = _.routine.uniteCloning_replaceByUnite( search_head, descriptorsSearch_body );
 
 // --
 // product
@@ -805,7 +805,7 @@ function productExportInfo( o )
   let product = file.product;
   let result = '';
 
-  o = _.routineOptions( productExportInfo, arguments );
+  o = _.routine.options_( productExportInfo, arguments );
 
   result += `File ${file.filePath}\n`;
 
@@ -815,17 +815,17 @@ function productExportInfo( o )
   if( o.verbosity >= 2 )
   {
     result += `  nodes : ${product.nodes.length}\n`;
-    result += `  types : ${_.mapKeys( product.byType ).length}\n`;
+    result += `  types : ${_.props.keys( product.byType ).length}\n`;
 
     if( o.verbosity >= 3 )
-    result += `  types : ${_.mapKeys( product.byType ).join( ' ' )}\n`;
+    result += `  types : ${_.props.keys( product.byType ).join( ' ' )}\n`;
 
     result += '\n';
   }
 
   if( o.verbosity >= 4 )
   {
-    let types = _.mapKeys( product.byType );
+    let types = _.props.keys( product.byType );
     types = types.map( ( k ) => [ k, product.byType[ k ].length ] );
     types = types.sort( ( a, b ) => a[ 1 ] - b[ 1 ] );
     types.forEach( ( pair ) =>

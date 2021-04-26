@@ -62,7 +62,7 @@ function parse( o )
 
   _.assert( arguments.length === 1 );
   _.assert( _.strIs( o.src ), `Expects string {- o.src -}, but got ${o.src}` );
-  _.routineOptions( parse, o );
+  _.routine.options_( parse, o );
 
   let result = parser._parse( o );
 
@@ -143,7 +143,7 @@ function _nodeMapGet( node )
   _.assert( parser.nodeIs( node ) );
   if( parser.nodeIs( node ) )
   {
-    return _.mapExtend( null, node );
+    return _.props.extend( null, node );
   }
   else
   {

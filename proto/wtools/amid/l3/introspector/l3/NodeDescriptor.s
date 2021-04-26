@@ -117,7 +117,7 @@ function fieldsGet()
 
   let result = parser.nodeMapGet( node );
   _.assert( _.mapIs( result ) );
-  _.mapExtend( result, parser.nodeChildrenMapGet( node ) );
+  _.props.extend( result, parser.nodeChildrenMapGet( node ) );
 
   return result;
 }

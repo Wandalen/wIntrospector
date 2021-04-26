@@ -47,7 +47,7 @@ function _form()
 function _parse( o )
 {
   let parser = this;
-  _.assertRoutineOptions( _parse, arguments );
+  _.routine.assertOptions( _parse, arguments );
 
   let result = Object.create( null );
   result.returned = parser._parser.parse( o.src );
@@ -56,7 +56,7 @@ function _parse( o )
   return result;
 }
 
-_parse.defaults = _.mapExtend( null, Parent.prototype.parse.defaults );
+_parse.defaults = _.props.extend( null, Parent.prototype.parse.defaults );
 
 //
 

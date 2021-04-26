@@ -39,7 +39,7 @@ function _form()
 function _parse( o )
 {
   let parser = this;
-  _.assertRoutineOptions( _parse, arguments );
+  _.routine.assertOptions( _parse, arguments );
   let opts = Object.create( null );
   opts.comment = true;
   opts.loc = true;
@@ -53,7 +53,7 @@ function _parse( o )
   return result;
 }
 
-_parse.defaults = _.mapExtend( null, Parent.prototype.parse.defaults );
+_parse.defaults = _.props.extend( null, Parent.prototype.parse.defaults );
 
 //
 
@@ -96,7 +96,7 @@ function _Setup()
 
   parser._TypeAssociationsFromSchema();
 
-  _.mapKeys( _global_.Esprima.Syntax ).forEach( ( name ) =>
+  _.props.keys( _global_.Esprima.Syntax ).forEach( ( name ) =>
   {
     parser.TypeAssociation[ name ] = [ name ];
   });

@@ -99,7 +99,7 @@ function fromData( test )
 
   var exp = `found test.setsAreIdentical( rel( _.arrayFlatten( _.select( arr, '*/filePath' ) ) ), [] )`;
   test.identical( _.strCount( foundStr, exp ), 1 );
-  test.identical( _.strCount( foundStr, `found test.setsAreIdentical( rel( _.mapKeys( map ) ), [] )` ), 1 );
+  test.identical( _.strCount( foundStr, `found test.setsAreIdentical( rel( _.props.keys( map ) ), [] )` ), 1 );
   test.identical( _.strCount( foundStr, `found` ), 2 );
 
   /* */
@@ -112,7 +112,7 @@ function fromData( test )
       test.setsAreIdentical( rel( _.arrayFlatten( _.select( arr, '*/filePath' ) ) ), [] );
       _.process.on( 'exit', () =>
       {
-        test.setsAreIdentical( rel( _.mapKeys( map ) ), [] );
+        test.setsAreIdentical( rel( _.props.keys( map ) ), [] );
       });
     }
 
@@ -195,7 +195,7 @@ function descriptorsSearch( test )
   logger.log( foundStr );
   var exp = `found test.setsAreIdentical( rel( _.arrayFlatten( _.select( arr, '*/filePath' ) ) ), [] )`;
   test.identical( _.strCount( foundStr, exp ), 1 );
-  test.identical( _.strCount( foundStr, `found test.setsAreIdentical( rel( _.mapKeys( map ) ), [] )` ), 1 );
+  test.identical( _.strCount( foundStr, `found test.setsAreIdentical( rel( _.props.keys( map ) ), [] )` ), 1 );
   test.identical( _.strCount( foundStr, `found` ), 2 );
 
   var foundStr = _.map_( null, foundDescriptors, ( d ) =>
@@ -205,7 +205,7 @@ function descriptorsSearch( test )
   logger.log( foundStr );
   var exp = `found test.setsAreIdentical( rel( _.arrayFlatten( _.select( arr, '*/filePath' ) ) ), [] )`;
   test.identical( _.strCount( foundStr, exp ), 1 );
-  test.identical( _.strCount( foundStr, `found test.setsAreIdentical( rel( _.mapKeys( map ) ), [] )` ), 1 );
+  test.identical( _.strCount( foundStr, `found test.setsAreIdentical( rel( _.props.keys( map ) ), [] )` ), 1 );
   test.identical( _.strCount( foundStr, `found` ), 2 );
 
   /* */
@@ -218,7 +218,7 @@ function descriptorsSearch( test )
       test.setsAreIdentical( rel( _.arrayFlatten( _.select( arr, '*/filePath' ) ) ), [] );
       _.process.on( 'exit', () =>
       {
-        test.setsAreIdentical( rel( _.mapKeys( map ) ), [] );
+        test.setsAreIdentical( rel( _.props.keys( map ) ), [] );
       });
     }
 
@@ -268,7 +268,7 @@ Routine descriptorsSearch finds 2 nodes.
 //   }).join( '\n' );
 //   logger.log( foundStr );
 //   test.identical( _.strCount( foundStr, `found test.setsAreIdentical( rel( _.arrayFlatten( _.select( arr, '*/filePath' ) ) ), [] )` ), 1 );
-//   test.identical( _.strCount( foundStr, `found test.setsAreIdentical( rel( _.mapKeys( map ) ), [] )` ), 1 );
+//   test.identical( _.strCount( foundStr, `found test.setsAreIdentical( rel( _.props.keys( map ) ), [] )` ), 1 );
 //   test.identical( _.strCount( foundStr, `found` ), 2 );
 //
 //   var foundStr = _.map_( null, foundDescriptors, ( d ) =>
@@ -277,7 +277,7 @@ Routine descriptorsSearch finds 2 nodes.
 //   }).join( '\n' );
 //   logger.log( foundStr );
 //   test.identical( _.strCount( foundStr, `found test.setsAreIdentical( rel( _.arrayFlatten( _.select( arr, '*/filePath' ) ) ), [] )` ), 1 );
-//   test.identical( _.strCount( foundStr, `found test.setsAreIdentical( rel( _.mapKeys( map ) ), [] )` ), 1 );
+//   test.identical( _.strCount( foundStr, `found test.setsAreIdentical( rel( _.props.keys( map ) ), [] )` ), 1 );
 //   test.identical( _.strCount( foundStr, `found` ), 2 );
 //
 //   /* */
@@ -290,7 +290,7 @@ Routine descriptorsSearch finds 2 nodes.
 //       test.setsAreIdentical( rel( _.arrayFlatten( _.select( arr, '*/filePath' ) ) ), [] );
 //       _.process.on( 'exit', () =>
 //       {
-//         test.setsAreIdentical( rel( _.mapKeys( map ) ), [] );
+//         test.setsAreIdentical( rel( _.props.keys( map ) ), [] );
 //       });
 //     }
 //
@@ -349,7 +349,7 @@ function descriptorsSearchWithComment( test )
       test.setsAreIdentical( rel( _.arrayFlatten( _.select( arr, '*/filePath' ) ) ), [] );
       _.process.on( 'exit', () =>
       {
-        test.setsAreIdentical( rel( _.mapKeys( map ) ), [] );
+        test.setsAreIdentical( rel( _.props.keys( map ) ), [] );
       });
     }
 
@@ -385,7 +385,7 @@ function thisFile( test )
     test.identical( op.exitCode, 0 );
     test.identical( _.strCount( op.output, 'error' ), 0 );
     test.identical( _.strCount( op.output, exp ), 1 );
-    test.identical( _.strCount( op.output, `found : test.setsAreIdentical( rel( _.mapKeys( map ) ), [] )` ), 1 );
+    test.identical( _.strCount( op.output, `found : test.setsAreIdentical( rel( _.props.keys( map ) ), [] )` ), 1 );
     test.identical( _.strCount( op.output, `found` ), 2 );
     return null;
   });
@@ -427,7 +427,7 @@ function thisFile( test )
       test.setsAreIdentical( rel( _.arrayFlatten( _.select( arr, '*/filePath' ) ) ), [] );
       _.process.on( 'exit', () =>
       {
-        test.setsAreIdentical( rel( _.mapKeys( map ) ), [] );
+        test.setsAreIdentical( rel( _.props.keys( map ) ), [] );
       });
     }
 
@@ -464,7 +464,7 @@ function thisFileSearch( test )
     test.identical( _.strCount( op.output, 'error' ), 0 );
     // test.identical( _.strCount( op.output, `found file.descriptorsSearch( 'setsAreIdentical' )` ), 1 );
     // test.identical( _.strCount( op.output, `found test.setsAreIdentical( rel( _.arrayFlatten( _.select( arr, '*/filePath' ) ) ), [] )` ), 1 );
-    // test.identical( _.strCount( op.output, `found test.setsAreIdentical( rel( _.mapKeys( map ) ), [] )` ), 1 );
+    // test.identical( _.strCount( op.output, `found test.setsAreIdentical( rel( _.props.keys( map ) ), [] )` ), 1 );
     test.identical( _.strCount( op.output, `found 'setsAreIdentical'` ), 1 );
     // test.identical( _.strCount( op.output, `found setsAreIdentical` ), 2 );
     test.identical( _.strCount( op.output, `at / ` ), 0 );
@@ -507,7 +507,7 @@ function thisFileSearch( test )
       test.setsAreIdentical( rel( _.arrayFlatten( _.select( arr, '*/filePath' ) ) ), [] );
       _.process.on( 'exit', () =>
       {
-        test.setsAreIdentical( rel( _.mapKeys( map ) ), [] );
+        test.setsAreIdentical( rel( _.props.keys( map ) ), [] );
       });
     }
 
