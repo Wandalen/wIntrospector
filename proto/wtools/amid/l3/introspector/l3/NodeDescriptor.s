@@ -41,8 +41,8 @@ function form()
   let descriptor = this;
 
   _.assert( descriptor.file instanceof _.introspector.File );
-  _.assert( _.objectIs( descriptor.file.product ) );
-  _.assert( _.objectIs( descriptor.iteration ) );
+  _.assert( _.object.isBasic( descriptor.file.product ) );
+  _.assert( _.object.isBasic( descriptor.iteration ) );
   _.assert( descriptor.file.nodeIs( descriptor.iteration.src ) );
 
   let file = descriptor.file;

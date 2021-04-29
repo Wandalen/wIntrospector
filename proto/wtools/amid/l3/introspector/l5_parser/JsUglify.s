@@ -60,7 +60,7 @@ function _nodeIs( node )
   let parser = this;
   if( !node )
   return false;
-  if( !_.objectIs( node ) )
+  if( !_.object.isBasic( node ) )
   return false;
   if( !node.TYPE )
   return false;

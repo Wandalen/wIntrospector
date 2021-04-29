@@ -63,7 +63,7 @@ function _nodeIs( node )
   /*
   _parser.types.isNode gives false for comment nodes
   */
-  if( _.objectIs( node ) && _.strIs( node.type ) )
+  if( _.object.isBasic( node ) && _.strIs( node.type ) )
   return true;
   return result;
 }
