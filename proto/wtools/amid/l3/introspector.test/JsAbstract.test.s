@@ -181,14 +181,14 @@ function descriptorsSearch( test )
 
   let foundDescriptors = file.descriptorsSearch( 'setsAreIdentical' );
 
-  var foundStr = _.map_( null, foundDescriptors, ( d ) =>
+  var foundStr = _.container.map_( null, foundDescriptors, ( d ) =>
   {
     return `at ${d.path}\nfound ${file.descriptorToCode( d )}\n`;
   }).join( '\n' );
   logger.log( foundStr );
   test.identical( _.strCount( foundStr, `found` ), 2 );
 
-  var foundStr = _.map_( null, foundDescriptors, ( d ) =>
+  var foundStr = _.container.map_( null, foundDescriptors, ( d ) =>
   {
     return `at ${file.path.dirClosest( d.path, 2 )}\nfound ${file.descriptorToCode( d.down.down )}\n`;
   }).join( '\n' );
@@ -198,7 +198,7 @@ function descriptorsSearch( test )
   test.identical( _.strCount( foundStr, `found test.setsAreIdentical( rel( _.props.keys( map ) ), [] )` ), 1 );
   test.identical( _.strCount( foundStr, `found` ), 2 );
 
-  var foundStr = _.map_( null, foundDescriptors, ( d ) =>
+  var foundStr = _.container.map_( null, foundDescriptors, ( d ) =>
   {
     return `at ${file.path.dirNodes( d.path, 2 )}\nfound ${file.nodeCode( file.nodeSelect( file.path.dirNodes( d.path, 2 )))}\n`;
   }).join( '\n' );
@@ -254,7 +254,7 @@ Routine descriptorsSearch finds 2 nodes.
 //
 //   let foundDescriptors = file.descriptorsSearch( 'setsAreIdentical' );
 //
-//   var foundStr = _.map_( null, foundDescriptors, ( d ) =>
+//   var foundStr = _.container.map_( null, foundDescriptors, ( d ) =>
 //   {
 //     return `at ${d.path}\nfound ${file.descriptorToCode( d )}\n`;
 //   }).join( '\n' );
@@ -262,7 +262,7 @@ Routine descriptorsSearch finds 2 nodes.
 //   // test.identical( _.strCount( foundStr, `found setsAreIdentical` ), 2 );
 //   test.identical( _.strCount( foundStr, `found` ), 2 );
 //
-//   var foundStr = _.map_( null, foundDescriptors, ( d ) =>
+//   var foundStr = _.container.map_( null, foundDescriptors, ( d ) =>
 //   {
 //     return `at ${file.path.dirClosest( d.path, 2 )}\nfound ${file.descriptorToCode( d.down.down )}\n`;
 //   }).join( '\n' );
@@ -271,7 +271,7 @@ Routine descriptorsSearch finds 2 nodes.
 //   test.identical( _.strCount( foundStr, `found test.setsAreIdentical( rel( _.props.keys( map ) ), [] )` ), 1 );
 //   test.identical( _.strCount( foundStr, `found` ), 2 );
 //
-//   var foundStr = _.map_( null, foundDescriptors, ( d ) =>
+//   var foundStr = _.container.map_( null, foundDescriptors, ( d ) =>
 //   {
 //     return `at ${file.path.dirNodes( d.path, 2 )}\nfound ${file.nodeCode( file.nodeSelect( file.path.dirNodes( d.path, 2 ) ) )}\n`;
 //   }).join( '\n' );
@@ -324,7 +324,7 @@ function descriptorsSearchWithComment( test )
   logger.log( '' );
 
   let foundDescriptors = file.descriptorsSearch( 'setsAreIdentical' );
-  var foundStr = _.map_( null, foundDescriptors, ( d ) =>
+  var foundStr = _.container.map_( null, foundDescriptors, ( d ) =>
   {
     return `at ${d.path}\nfound ${file.descriptorToCode( d )}\n`;
   }).join( '\n' );

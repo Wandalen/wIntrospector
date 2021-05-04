@@ -135,7 +135,7 @@ function descriptorsSearchKind( test )
 
   let foundDescriptors = file.descriptorsSearch( 'setsAreIdentical' );
 
-  var foundStr = _.map_( null, foundDescriptors, ( d ) =>
+  var foundStr = _.container.map_( null, foundDescriptors, ( d ) =>
   {
     return `at ${d.path}\nfound ${file.descriptorToCode( d )}\n`;
   }).join( '\n' );
