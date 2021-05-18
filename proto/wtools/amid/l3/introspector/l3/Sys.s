@@ -61,7 +61,7 @@ function parserClassFor( file )
   if( sys.prefferedParsers && file.filePath )
   {
     let ext = sys.fileSystem.path.ext( file.filePath );
-    sys.prefferedParsers = _.arrayAs( sys.prefferedParsers );
+    sys.prefferedParsers = _.array.as( sys.prefferedParsers );
     result = _.any( sys.prefferedParsers, ( Parser ) =>
     {
       if( _.longHas( Parser.Exts, ext ) )
