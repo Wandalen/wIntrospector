@@ -349,7 +349,8 @@ function _iterationUpNodesMapAndFields( it )
     it.srcAsContainer[ '@code' ] = file.nodeCode( node );
   }
 
-  it.onAscend = function nodeAscend()
+  // it.onAscend = function nodeAscend()
+  it.ascend = function nodeAscend()
   {
     let it = this;
     let node = it.src;
@@ -380,7 +381,8 @@ function _iterationUpNodesMap( it )
     it.srcAsContainer = parser.nodeChildrenMapGet( node );
   }
 
-  it.onAscend = function nodeAscend()
+  // it.onAscend = function nodeAscend()
+  it.ascend = function nodeAscend()
   {
     let it = this;
     let node = it.src;
@@ -405,7 +407,8 @@ function _iterationUpNodesArray( it )
   _.assert( file.nodeIs( node ), 'Not a node' );
   _.assert( it.srcAsContainer !== undefined );
 
-  it.onAscend = function nodeAscend()
+  // it.onAscend = function nodeAscend()
+  it.ascend = function nodeAscend()
   {
     let it = this;
     let node = it.src;
