@@ -252,7 +252,7 @@ function refine()
   product.byType = Object.create( null );
 
   let o2 = Object.create( null );
-  o2.Looker = LookerOfIntrospector;
+  o2.Seeker = LookerOfIntrospector;
   o2.src = file.structure.root;
   o2.onUp = onUp;
   o2.onDown = onDown;
@@ -275,7 +275,7 @@ function refine()
   {
     let it = this;
     if( !file.nodeIs( it.src ) )
-    return it.Looker.iterableEval.call( it );
+    return it.Seeker.iterableEval.call( it );
     it.iterable = 'Node';
   }
 
@@ -602,8 +602,8 @@ function search_body( o )
   o.returning = 'it';
   o.order = 'top-to-bottom';
   o.onValueForCompare = onValueForCompare;
-  if( !o.Looker )
-  o.Looker = SearcherOfIntrospector;
+  if( !o.Seeker )
+  o.Seeker = SearcherOfIntrospector;
 
   let found = _.entity.search( o );
 
@@ -619,7 +619,7 @@ function search_body( o )
   {
     let it = this;
     if( !file.nodeIs( it.src ) )
-    return it.Looker.iterableEval.call( it );
+    return it.Seeker.iterableEval.call( it );
     it.iterable = 'Node';
   }
 
@@ -657,7 +657,7 @@ search_body.defaults =
   returning : 'it',
 }
 
-delete search_body.defaults.Looker;
+delete search_body.defaults.Seeker;
 
 let search = _.routine.uniteCloning_replaceByUnite( search_head, search_body );
 
