@@ -4,7 +4,7 @@
 'use strict';
 
 const _ = _global_.wTools;
-const Self = _.introspector = _.introspector || Object.create( null );
+_.introspector = _.introspector || Object.create( null );
 
 // --
 // inter
@@ -53,7 +53,7 @@ let Extension =
 
 }
 
-_.props.extend( Self, Extension );
+/* _.props.extend */Object.assign( _.introspector, Extension );
 
 //
 

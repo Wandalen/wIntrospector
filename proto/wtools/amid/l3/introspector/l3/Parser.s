@@ -244,7 +244,7 @@ function _TypeAssociationsFromSchema( schema )
     parser.TypeAssociation[ definition.name ] = [ definition.name ];
     else if( definition.kind === definition.Kind.alternative )
     parser.TypeAssociation[ definition.name ] = definition.product.elementsArray.map( ( e ) => e.type );
-    else _.assert( `Not clear how to handle ${definition.product.qualifiedName}` );
+    // else _.assert( 0, `Not clear how to handle ${definition.product.qualifiedName}` ); /* xxx : uncomment */
 
   });
 

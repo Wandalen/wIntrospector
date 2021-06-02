@@ -6,7 +6,7 @@
 const _global = _global_;
 const _ = _global_.wTools;
 const Parent = _.path;
-const Self = _.introspector._path = _.introspector._path || Object.create( Parent );
+_.introspector._path = _.introspector._path || Object.create( Parent );
 
 // --
 // inter
@@ -142,6 +142,6 @@ let Extension =
 
 }
 
-_.props.extend( Self, Extension );
+/* _.props.extend */Object.assign( _.introspector._path, Extension );
 
 })();
