@@ -449,7 +449,7 @@ function thisFileSearch( test )
   let context = this;
   let a = test.assetFor( false );
   let toolsPath = a.path.nativize( a.path.join( __dirname, '../../../../node_modules/Tools' ) );
-  // let programPath = a.program({ routine : program, locals : { defaultParserName : context.defaultParser.shortName, toolsPath } });
+  // let programPath = a.program({ routine : program, locals : { defaultParserName : context.defaultParser.shortName, toolsPath } }).programPath;
   let programPath = a.program
   ({
     routine : program,
