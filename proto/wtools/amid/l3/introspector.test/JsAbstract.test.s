@@ -376,7 +376,7 @@ function thisFile( test )
     routine : program,
     namePostfix : '.js',
     locals : { defaultParserName : context.defaultParser.shortName, toolsPath },
-  });
+  }).programPath;
 
   a.appStartNonThrowing({ execPath : programPath })
   .then( ( op ) =>
@@ -455,7 +455,7 @@ function thisFileSearch( test )
     routine : program,
     namePostfix : '.js',
     locals : { defaultParserName : context.defaultParser.shortName, toolsPath },
-  });
+  }).programPath;
 
   a.appStartNonThrowing({ execPath : programPath })
   .then( ( op ) =>
