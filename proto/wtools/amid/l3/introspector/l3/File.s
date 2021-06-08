@@ -670,9 +670,7 @@ function nodesSearch_body( o )
   let parser = file.parser;
   let product = file.product;
 
-  // debugger;
   let its = file.search.body.call( file, o );
-  // debugger;
 
   let nodesMap = Object.create( null );
   _.each( its, ( it ) =>
@@ -781,9 +779,7 @@ function descriptorsSearch_body( o )
   let file = this;
   let product = file.product;
 
-  debugger;
   let nodes = file.nodesSearch( ... arguments );
-  debugger;
   nodes = _.props.vals( nodes );
 
   let visited = new Set();

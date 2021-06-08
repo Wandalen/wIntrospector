@@ -31,7 +31,6 @@ function dirNodes( root, filePath, dLevel )
   _.assert( file.nodeIs( root ) );
   _.assert( dLevel >= 0 );
 
-  debugger;
   filePath = this._closestNode( root, filePath );
 
   while( dLevel > 0 )
@@ -76,7 +75,7 @@ function _closestNode( root, filePath )
   while( this.ends( filePath, '..' ) )
   {
     // _.assert( 0, 'not tested' );
-    debugger; /* xxx */
+    // debugger; /* xxx */
     filePath = _.path.join( filePath, '_' );
   }
 
