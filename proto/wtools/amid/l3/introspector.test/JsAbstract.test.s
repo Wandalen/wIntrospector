@@ -485,7 +485,7 @@ function thisFileSearch( test )
     _.assert( file.parser.constructor === _.introspector.Parser[ defaultParserName ] );
     let nodes = _.containerAdapter.from( [] );
 
-    logger.log( file.productExportInfo() ); debugger;
+    logger.log( file.productExportInfo() );
 
     let foundMap = file.descriptorsSearch( 'setsAreIdentical' );
     let found = foundMap.map( ( d ) => d.path );
