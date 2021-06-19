@@ -373,7 +373,7 @@ function thisFile( test )
   let toolsPath = a.path.nativize( a.path.join( __dirname, '../../../../node_modules/Tools' ) );
   let programPath = a.program
   ({
-    routine : program,
+    entry : program,
     namePostfix : '.js',
     locals : { defaultParserName : context.defaultParser.shortName, toolsPath },
   }).programPath;
@@ -449,10 +449,10 @@ function thisFileSearch( test )
   let context = this;
   let a = test.assetFor( false );
   let toolsPath = a.path.nativize( a.path.join( __dirname, '../../../../node_modules/Tools' ) );
-  // let programPath = a.program({ routine : program, locals : { defaultParserName : context.defaultParser.shortName, toolsPath } }).programPath;
+  // let programPath = a.program({ entry : program, locals : { defaultParserName : context.defaultParser.shortName, toolsPath } }).programPath;
   let programPath = a.program
   ({
-    routine : program,
+    entry : program,
     namePostfix : '.js',
     locals : { defaultParserName : context.defaultParser.shortName, toolsPath },
   }).programPath;
