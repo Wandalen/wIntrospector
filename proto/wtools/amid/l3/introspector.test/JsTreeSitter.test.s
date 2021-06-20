@@ -63,12 +63,12 @@ function descriptorsSearchKind( test )
   let program = _.program.preform( programRoutine );
 
   logger.log( '' );
-  logger.log( _.strLinesNumber( program.sourceCode ) );
+  logger.log( _.strLinesNumber( program.entry.routineCode ) );
   logger.log( '' );
 
   test.true( _.constructorIs( context.defaultParser ) );
 
-  let file = _.introspector.File.FromData( program.sourceCode );
+  let file = _.introspector.File.FromData( program.entry.routineCode );
   file.sys.defaultParserClass = context.defaultParser;
   file.refine();
 

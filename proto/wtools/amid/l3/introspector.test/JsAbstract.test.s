@@ -59,12 +59,12 @@ function fromData( test )
   let program = _.program.preform( programRoutine );
 
   logger.log( '' );
-  logger.log( _.strLinesNumber( program.sourceCode ) );
+  logger.log( _.strLinesNumber( program.entry.routineCode ) );
   logger.log( '' );
 
   test.true( _.constructorIs( context.defaultParser ) );
 
-  let file = _.introspector.File.FromData( program.sourceCode );
+  let file = _.introspector.File.FromData( program.entry.routineCode );
   file.sys.defaultParserClass = context.defaultParser;
   file.refine();
 
@@ -167,12 +167,12 @@ function descriptorsSearch( test )
   let program = _.program.preform( programRoutine );
 
   logger.log( '' );
-  logger.log( _.strLinesNumber( program.sourceCode ) );
+  logger.log( _.strLinesNumber( program.entry.routineCode ) );
   logger.log( '' );
 
   test.true( _.constructorIs( context.defaultParser ) );
 
-  let file = _.introspector.File.FromData( program.sourceCode );
+  let file = _.introspector.File.FromData( program.entry.routineCode );
   file.sys.defaultParserClass = context.defaultParser;
   file.refine();
 
@@ -240,12 +240,12 @@ Routine descriptorsSearch finds 2 nodes.
 //   let program = _.program.preform( programRoutine );
 //
 //   logger.log( '' );
-//   logger.log( _.strLinesNumber( program.sourceCode ) );
+//   logger.log( _.strLinesNumber( program.entry.routineCode ) );
 //   logger.log( '' );
 //
 //   test.true( _.constructorIs( context.defaultParser ) );
 //
-//   let file = _.introspector.File.FromData( program.sourceCode );
+//   let file = _.introspector.File.FromData( program.entry.routineCode );
 //   file.sys.defaultParserClass = context.defaultParser;
 //   file.refine();
 //
@@ -311,12 +311,12 @@ function descriptorsSearchWithComment( test )
   let program = _.program.preform( programRoutine );
 
   logger.log( '' );
-  logger.log( _.strLinesNumber( program.sourceCode ) );
+  logger.log( _.strLinesNumber( program.entry.routineCode ) );
   logger.log( '' );
 
   test.true( _.constructorIs( context.defaultParser ) );
 
-  let file = _.introspector.File.FromData( program.sourceCode );
+  let file = _.introspector.File.FromData( program.entry.routineCode );
   file.sys.defaultParserClass = context.defaultParser;
   file.refine();
 
