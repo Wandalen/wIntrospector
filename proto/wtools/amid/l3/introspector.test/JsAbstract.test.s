@@ -371,14 +371,14 @@ function thisFile( test )
   let context = this;
   let a = test.assetFor( false );
   let toolsPath = a.path.nativize( a.path.join( __dirname, '../../../../node_modules/Tools' ) );
-  let programPath = a.program
+  let filePath/*programPath*/ = a.program
   ({
     entry : program,
     namePostfix : '.js',
     locals : { defaultParserName : context.defaultParser.shortName, toolsPath },
-  }).programPath;
+  }).filePath/*programPath*/;
 
-  a.appStartNonThrowing({ execPath : programPath })
+  a.appStartNonThrowing({ execPath : filePath/*programPath*/ })
   .then( ( op ) =>
   {
     var exp = `found : test.setsAreIdentical( rel( _.arrayFlatten( _.select( arr, '*/filePath' ) ) ), [] )`;
@@ -449,15 +449,15 @@ function thisFileSearch( test )
   let context = this;
   let a = test.assetFor( false );
   let toolsPath = a.path.nativize( a.path.join( __dirname, '../../../../node_modules/Tools' ) );
-  // let programPath = a.program({ entry : program, locals : { defaultParserName : context.defaultParser.shortName, toolsPath } }).programPath;
-  let programPath = a.program
+  // let filePath/*programPath*/ = a.program({ entry : program, locals : { defaultParserName : context.defaultParser.shortName, toolsPath } }).filePath/*programPath*/;
+  let filePath/*programPath*/ = a.program
   ({
     entry : program,
     namePostfix : '.js',
     locals : { defaultParserName : context.defaultParser.shortName, toolsPath },
-  }).programPath;
+  }).filePath/*programPath*/;
 
-  a.appStartNonThrowing({ execPath : programPath })
+  a.appStartNonThrowing({ execPath : filePath/*programPath*/ })
   .then( ( op ) =>
   {
     test.identical( op.exitCode, 0 );
