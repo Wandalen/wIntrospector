@@ -1,43 +1,54 @@
 {
-  "name" : "wintrospector",
-  "version" : "0.3.138",
-  "description" : "Single programmatic interface to for javascript parsing tools",
-  "author" : "Kostiantyn Wandalen <wanalen@01.school>",
-  "license" : "MIT",
-  "main" : "proto/node_modules/wintrospector",
-  "files" : [ "proto/wtools/amid/l3/introspector", "out", "proto/node_modules", "proto/node_modules/Tools", "proto/node_modules/wintrospector" ],
-  "scripts" : { "test" : "wtest .run 'proto/**' rapidity:-3", "docgen" : "wdocgen .build proto" },
-  "repository" :
-  {
-    "type" : "git",
-    "url" : "https ://github.com/Wandalen/wIntrospector.git"
+  "name": "wintrospector",
+  "version": "0.3.139",
+  "description": "Single programmatic interface to for javascript parsing tools",
+  "author": "Kostiantyn Wandalen <wanalen@01.school>",
+  "license": "MIT",
+  "main": "proto/node_modules/wintrospector",
+  "files": [
+    "proto/wtools/amid/l3/introspector",
+    "out",
+    "proto/node_modules",
+    "proto/node_modules/Tools",
+    "proto/node_modules/wintrospector"
+  ],
+  "scripts": {
+    "test": "wtest .run 'proto/**' rapidity:-3",
+    "docgen": "wdocgen .build proto"
   },
-  "bugs" :
-  {
-    "url" : "https ://github.com/Wandalen/wIntrospector/issues"
+  "repository": {
+    "type": "git",
+    "url": "https ://github.com/Wandalen/wIntrospector.git"
   },
-  "dependencies" :
-  {
-    "wTools" : "",
-    "wCopyable" : "",
-    "wprocess" : "",
-    "wFiles" : "",
-    "wConsequence" : "",
-    "wlooker" : "",
-    "wlookerextra" : "",
-    "wLogger" : "",
-    "wstringer" : "",
-    "wschema" : "",
-    "wgraphbasic" : "",
-    "acorn" : "8.0.4",
-    "@babel/core" : "7.12.3",
-    "esprima" : "4.0.1",
-    "tree-sitter" : "0.18.1",
-    "tree-sitter-javascript" : "0.16.0",
-    "tree-sitter-cpp" : "0.16.0",
-    "uglify-es" : "3.3.9",
-    "typescript" : "4.0.5"
+  "bugs": {
+    "url": "https ://github.com/Wandalen/wIntrospector/issues"
   },
-  "devDependencies" : { "wTesting" : "", "eslint" : "7.1.0" },
-  "keywords" : [ "wTools" ]
+  "dependencies": {
+    "wTools": "",
+    "wstringer": "",
+    "wschema": "",
+    "wprocess": "",
+    "wlookerextra": "",
+    "wlooker": "",
+    "wLogger": "",
+    "wgraphbasic": "",
+    "wFiles": "",
+    "wCopyable": "",
+    "wConsequence": "",
+    "uglify-es": "3.3.9",
+    "typescript": "4.0.5",
+    "tree-sitter-javascript": "0.16.0",
+    "tree-sitter-cpp": "0.16.0",
+    "tree-sitter": "0.18.1",
+    "esprima": "4.0.1",
+    "acorn": "8.0.4",
+    "@babel/core": "7.12.3"
+  },
+  "devDependencies": {
+    "wTesting": "",
+    "eslint": "7.1.0"
+  },
+  "keywords": [
+    "wTools"
+  ]
 }
