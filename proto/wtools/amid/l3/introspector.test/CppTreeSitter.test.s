@@ -38,7 +38,7 @@ function parseStringSpecial( test )
   test.true( file.parser.constructor === context.defaultParser );
 
   test.description = 'nodes';
-  test.identical( file.product.nodes.length, 423 );
+  test.identical( file.product.nodes.length, 427 );
   test.identical( _.props.keys( file.product.byType ).length, 48 );
 
   test.description = 'root';
