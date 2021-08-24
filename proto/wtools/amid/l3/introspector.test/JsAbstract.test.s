@@ -435,6 +435,7 @@ function thisFile( test )
 
 }
 
+thisFile.timeOut = 60000;
 thisFile.description =
 `
 Parsing of this file find itself.
