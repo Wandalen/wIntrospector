@@ -1,6 +1,6 @@
 {
   "name": "wintrospector",
-  "version": "0.3.158",
+  "version": "0.3.159",
   "description": "Single programmatic interface to for javascript parsing tools",
   "author": "Kostiantyn Wandalen <wanalen@01.school>",
   "license": "MIT",
@@ -37,9 +37,9 @@
     "wConsequence": "",
     "uglify-es": "3.3.9",
     "typescript": "4.0.5",
-    "tree-sitter": "0.20.0",
-    "tree-sitter-cpp": "0.19.0",
     "tree-sitter-javascript": "0.19.0",
+    "tree-sitter-cpp": "0.19.0",
+    "tree-sitter": "0.20.0",
     "esprima": "4.0.1",
     "acorn": "8.0.4",
     "@babel/core": "7.12.3"
