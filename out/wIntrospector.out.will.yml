@@ -3,8 +3,8 @@ root:
   - wIntrospector.out
 consistency:
   ../will.yml: &ref_0
-    hash: d42dd6025bec34510ec58dab7591fbf2
-    size: 7351
+    hash: a85ac5eb44622e9b2c67f38363b94d37
+    size: 7210
 module:
   wIntrospector.out:
     about:
@@ -458,9 +458,6 @@ module:
           content: npm
         inherit:
           - module.export
-      npm.publish:
-        opts:
-          shell: npm publish
       npm.generate.debug.raw:
         opts:
           entryPath: 'path::entry.out.*=1'
@@ -796,12 +793,6 @@ module:
           - 'step::doc.export'
         criterion:
           content: doc
-          export: 1
-      npm.export:
-        steps:
-          - 'step::npm.publish'
-        criterion:
-          content: npm
           export: 1
       export:
         steps:
@@ -1205,9 +1196,6 @@ module:
           content: npm
         inherit:
           - module.export
-      npm.publish:
-        opts:
-          shell: npm publish
       npm.generate.debug.raw:
         opts:
           entryPath: 'path::entry.out.*=1'
@@ -1544,12 +1532,6 @@ module:
         criterion:
           content: doc
           export: 1
-      npm.export:
-        steps:
-          - 'step::npm.publish'
-        criterion:
-          content: npm
-          export: 1
       export:
         steps:
           - 'build::proto.export'
@@ -1607,5 +1589,5 @@ module:
           - 'build::npm'
     consistency:
       ../will.yml:
-        hash: d42dd6025bec34510ec58dab7591fbf2
-        size: 7351
+        hash: a85ac5eb44622e9b2c67f38363b94d37
+        size: 7210
