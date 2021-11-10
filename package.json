@@ -1,6 +1,6 @@
 {
   "name": "wintrospector",
-  "version": "0.3.165",
+  "version": "0.3.166",
   "description": "Single programmatic interface to for javascript parsing tools",
   "author": "Kostiantyn Wandalen <wanalen@01.school>",
   "license": "MIT",
@@ -24,17 +24,17 @@
     "url": "https ://github.com/Wandalen/wIntrospector/issues"
   },
   "dependencies": {
-    "wTools": "latest",
-    "wstringer": "latest",
-    "wschema": "latest",
-    "wprocess": "latest",
-    "wlookerextra": "latest",
-    "wlooker": "latest",
-    "wLogger": "latest",
-    "wgraphbasic": "latest",
-    "wFiles": "latest",
-    "wCopyable": "latest",
-    "wConsequence": "latest",
+    "wTools": "alpha",
+    "wstringer": "alpha",
+    "wschema": "alpha",
+    "wprocess": "alpha",
+    "wlookerextra": "alpha",
+    "wlooker": "alpha",
+    "wLogger": "alpha",
+    "wgraphbasic": "alpha",
+    "wFiles": "alpha",
+    "wCopyable": "alpha",
+    "wConsequence": "alpha",
     "uglify-es": "3.3.9",
     "typescript": "4.0.5",
     "tree-sitter-javascript": "0.19.0",
@@ -45,7 +45,7 @@
     "@babel/core": "7.12.3"
   },
   "devDependencies": {
-    "wTesting": "latest",
+    "wTesting": "alpha",
     "eslint": "7.32.0"
   },
   "keywords": [
