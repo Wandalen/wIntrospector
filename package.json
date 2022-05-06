@@ -1,6 +1,6 @@
 {
   "name": "wintrospector",
-  "version": "0.3.172",
+  "version": "0.3.173",
   "description": "Single programmatic interface to for javascript parsing tools",
   "author": "Kostiantyn Wandalen <wandalen@obox.systems>",
   "license": "MIT",
